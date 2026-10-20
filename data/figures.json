@@ -1,0 +1,394 @@
+{
+ "tf02": [
+  {
+   "name": "Bumblebee",
+   "odds": "1/24",
+   "img": "https://blokees.com/cdn/shop/files/DHF_i17_1.png?v=1739936263",
+   "line": "regular"
+  },
+  {
+   "name": "Starscream",
+   "odds": "1/24",
+   "img": "https://blokees.com/cdn/shop/files/HZZ_i23_1_1.png?v=1739936356",
+   "line": "regular"
+  },
+  {
+   "name": "Brilliant Soundwave",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/SB_i29_4_1_ce0a1966-12fa-471d-8151-25d99b9b0f54.png?v=1739935623",
+   "line": "regular"
+  },
+  {
+   "name": "DW-Ultra Magnus",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/TTX_i32_2_1.png?v=1739935429",
+   "line": "regular"
+  },
+  {
+   "name": "SG-Ironhide",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/TP__i31_1_2_1.png?v=1739935481",
+   "line": "regular"
+  },
+  {
+   "name": "Wheeljack",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/QJD_i28_1.png?v=1739936555",
+   "line": "regular"
+  },
+  {
+   "name": "Bonecrusher",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/NYJ_i26_1.png?v=1739936458",
+   "line": "regular"
+  },
+  {
+   "name": "Inferno",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/XFC_i33_1.png?v=1739936638",
+   "line": "regular"
+  },
+  {
+   "name": "Bumblebee Vehicle",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/DHF__i20_1.png?v=1739935713",
+   "line": "regular"
+  },
+  {
+   "name": "Bonecrusher Vehicle",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/NYJ-__i27_1.png?v=1739935813",
+   "line": "regular"
+  },
+  {
+   "name": "Inferno Vehicle",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/XFC-__i36_1.png?v=1739936097",
+   "line": "regular"
+  },
+  {
+   "name": "Hook Vehicle",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/dj__i21_1.png?v=1739936170",
+   "line": "regular"
+  },
+  {
+   "name": "Special Galaxy Type SG-Bumblebee",
+   "odds": "5/144",
+   "img": "https://blokees.com/cdn/shop/files/DHF__i19_1.png?v=1739936731",
+   "line": "chase"
+  },
+  {
+   "name": "Special Galaxy Type Starscream",
+   "odds": "5/144",
+   "img": "https://blokees.com/cdn/shop/files/HZZ__i25_1.png?v=1739936857",
+   "line": "chase"
+  },
+  {
+   "name": "Special Armor Type Bumblebee",
+   "odds": "1/144",
+   "img": "gallery:3",
+   "line": "chase"
+  },
+  {
+   "name": "Special Armor Type Coronation Starscream",
+   "odds": "1/144",
+   "img": "gallery:4",
+   "line": "chase"
+  }
+ ],
+ "tf08": [
+  {
+   "name": "Star Optimus Prime",
+   "odds": "1/24",
+   "img": "https://blokees.com/cdn/shop/files/WZT-12_1_7d7022ad-a8c3-46f0-8175-99a83645527a.webp?v=1787120944",
+   "line": "regular"
+  },
+  {
+   "name": "Super Megatron",
+   "odds": "1/24",
+   "img": "https://blokees.com/cdn/shop/files/WZT-3_c872f075-4981-43ac-8491-7cfebab0b7b9.webp?v=1787120951",
+   "line": "regular"
+  },
+  {
+   "name": "Star Optimus Prime Trailer",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-5_974d0c7b-0493-40ce-8a00-bea1a4e85b24.webp?v=1787120949",
+   "line": "regular"
+  },
+  {
+   "name": "Super Megatron Vehicle",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940700075_1.webp?v=1787121471",
+   "line": "regular"
+  },
+  {
+   "name": "Swoop-Pterosaur",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-9_96b71c20-bd8b-4cf3-b0f2-9b522990c65b.webp?v=1787120946",
+   "line": "regular"
+  },
+  {
+   "name": "Sky Garry",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-8_a1f33548-62ed-452a-a3de-02d8255957b3.webp?v=1787120947",
+   "line": "regular"
+  },
+  {
+   "name": "SG-Goldbug",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT_3d6292cf-121d-4cdf-8831-21a6ee73253c.webp?v=1787120956",
+   "line": "regular"
+  },
+  {
+   "name": "Tarn",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-4_27801d7b-04ec-4180-a8a2-00d293e4bc60.webp?v=1787120950",
+   "line": "regular"
+  },
+  {
+   "name": "Windblade",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-6_4e520b4e-c55b-42d4-9879-ffa6dc3ed728.webp?v=1787120948",
+   "line": "regular"
+  },
+  {
+   "name": "Arcee",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-7_4ce10e75-0229-47ee-aaf7-352a54b3529f.webp?v=1787120947",
+   "line": "regular"
+  },
+  {
+   "name": "Drift",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-11_7ffd7f46-945d-4f52-8c2b-7c335e140822.webp?v=1787120945",
+   "line": "regular"
+  },
+  {
+   "name": "Glittering Smokescreen",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-10_cbfa73a5-4236-43ac-a10e-d314941a41b9.webp?v=1787120945",
+   "line": "regular"
+  },
+  {
+   "name": "Special Galaxy Type Star Optimus Prime",
+   "odds": "5/144",
+   "img": "https://blokees.com/cdn/shop/files/WZT-1_b24bc5c6-cf1c-4acf-853b-6e92dcffb3df.webp?v=1787120955",
+   "line": "chase"
+  },
+  {
+   "name": "Special Galaxy Type Super Megatron",
+   "odds": "5/144",
+   "img": "https://blokees.com/cdn/shop/files/WZT-2_25714ef5-7ae2-4323-ad62-749debee64d6.webp?v=1787120951",
+   "line": "chase"
+  },
+  {
+   "name": "Special Armor Type Star Optimus Prime",
+   "odds": "1/144",
+   "img": "gallery:2",
+   "line": "chase"
+  },
+  {
+   "name": "Special Armor Type Super Megatron",
+   "odds": "1/144",
+   "img": "gallery:3",
+   "line": "chase"
+  }
+ ],
+ "dc03": [
+  {
+   "name": "Batman",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699812.webp?v=1784181395",
+   "line": "regular"
+  },
+  {
+   "name": "Nightwing",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699816_4a1385f5-97fe-4de7-9f40-63f2e4807ae1.webp?v=1784181315",
+   "line": "regular"
+  },
+  {
+   "name": "Robin",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-1_0ee0efaa-b695-459f-a71b-9ed5ad7295ec.webp?v=1784181575",
+   "line": "regular"
+  },
+  {
+   "name": "Red Hood",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT_cc9d45d3-6739-44ee-8a40-ad7489b0215e.webp?v=1784181313",
+   "line": "regular"
+  },
+  {
+   "name": "Batgirl",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT_1_80948be0-2bb3-447c-b83e-a566a7a1f12a.webp?v=1784181539",
+   "line": "regular"
+  },
+  {
+   "name": "Catwoman",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-2_0ba26720-d22b-47b9-a155-c7552feb260d.webp?v=1784181537",
+   "line": "regular"
+  },
+  {
+   "name": "Arkham Knight",
+   "odds": "1/24",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699829_ea4dfd25-f80a-4472-99ac-a4e5d9d43394.webp?v=1784181314",
+   "line": "regular"
+  },
+  {
+   "name": "Hellbat",
+   "odds": "1/24",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699814.webp?v=1784181315",
+   "line": "regular"
+  },
+  {
+   "name": "Clayface",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699817_c9d68ecb-735d-4801-bd9a-2ea6790e6815.webp?v=1784181314",
+   "line": "regular"
+  },
+  {
+   "name": "Scarecrow",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-3_1419c465-2b51-447b-8d69-cec5e59b75d2.webp?v=1784181629",
+   "line": "regular"
+  },
+  {
+   "name": "Mister Freeze",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-4_6faecb42-2eab-4c6a-8204-79ef787b7346.webp?v=1784181536",
+   "line": "regular"
+  },
+  {
+   "name": "Batmobile",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-5_a545baf3-37bc-455d-ae00-b08747e05006.webp?v=1784181535",
+   "line": "regular"
+  },
+  {
+   "name": "Secret Arkham Knight",
+   "odds": "5/144",
+   "img": "gallery:4",
+   "line": "chase"
+  },
+  {
+   "name": "Secret Hellbat",
+   "odds": "5/144",
+   "img": "gallery:5",
+   "line": "chase"
+  },
+  {
+   "name": "Star Secret Arkham Knight",
+   "odds": "1/144",
+   "img": "gallery:2",
+   "line": "chase"
+  },
+  {
+   "name": "Star Secret Hellbat",
+   "odds": "1/144",
+   "img": "gallery:3",
+   "line": "chase"
+  }
+ ],
+ "ar01": [
+  {
+   "name": "KYRR: Sagitta",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699936_aee1594e-c42b-45f9-b550-8f1d8165cc38.webp?v=1784273207",
+   "line": "regular"
+  },
+  {
+   "name": "KYRR: Fornax",
+   "odds": "2/36",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699937_a71d103e-0f60-42f0-8ed4-2882fc0b2129.webp?v=1784273206",
+   "line": "regular"
+  },
+  {
+   "name": "KYRR: Lyra",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699935_4507b077-27be-454e-bd71-d089121c7430.webp?v=1784273207",
+   "line": "regular"
+  },
+  {
+   "name": "ZORN: Hercules",
+   "odds": "2/36",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699932_b3b7e91a-da1a-4a3d-9e2f-f508749809e3.webp?v=1784273209",
+   "line": "regular"
+  },
+  {
+   "name": "ZORN: Perseus",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699933_80185e09-527c-4a14-862b-c43e3b13ce68.webp?v=1784273209",
+   "line": "regular"
+  },
+  {
+   "name": "ZORN: Andromeda",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699934_1.webp?v=1784273731",
+   "line": "regular"
+  },
+  {
+   "name": "TARG: Lupus",
+   "odds": "2/36",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699929.webp?v=1784273898",
+   "line": "regular"
+  },
+  {
+   "name": "TARG: Canes Venatici",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699930_1abb94b1-8ae3-483b-a68c-562bb75d4d4b.webp?v=1784273897",
+   "line": "regular"
+  },
+  {
+   "name": "TARG: Vulpecula",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699931_36c8a109-c9b2-4b34-a487-f50aa1f605cf.webp?v=1784273897",
+   "line": "regular"
+  },
+  {
+   "name": "MAV: Hebe",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-1_adc9cc20-8017-4adf-9d7d-99a8c9fc497d.webp?v=1784273895",
+   "line": "regular"
+  },
+  {
+   "name": "MAV: Astraea",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT_a37aca06-c139-4a68-9ee1-4ba64086fde8.webp?v=1784273896",
+   "line": "regular"
+  },
+  {
+   "name": "MAV: Iris",
+   "odds": "1/12",
+   "img": "https://blokees.com/cdn/shop/files/WZT-2_1f589c97-dffb-418d-ae26-b10c1ceec0e2.webp?v=1784273895",
+   "line": "regular"
+  },
+  {
+   "name": "Chase KYRR: Fornax",
+   "odds": "1/36",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940700017.webp?v=1784274589",
+   "line": "chase"
+  },
+  {
+   "name": "Chase TARG: Lupus",
+   "odds": "1/36",
+   "img": "https://blokees.com/cdn/shop/files/Group_1940699927.webp?v=1784274589",
+   "line": "chase"
+  },
+  {
+   "name": "Chase ZORN: Hercules",
+   "odds": "3/144",
+   "img": "gallery:3",
+   "line": "chase"
+  },
+  {
+   "name": "Radiant Chase ZORN: Hercules",
+   "odds": "1/144",
+   "img": "gallery:2",
+   "line": "chase"
+  }
+ ]
+}

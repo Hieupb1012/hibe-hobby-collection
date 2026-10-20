@@ -98,6 +98,28 @@ for line, slug, label, series, hint in [
          "noResultHint": "Thử tên series hoặc mã series.", "scope": defender_scope(series)},
         [line]))
 
+SERIES_FRANCHISE = {"defender-transformers": "transformers", "defender-batman": "batman", "defender-astral-rally": "astral-rally"}
+FIGURE_SCOPE = """    <h2>Phạm vi danh sách</h2>
+    <p>Danh sách nhân vật, ảnh và tỉ lệ lấy từ trang sản phẩm chính thức trên store quốc tế blokees.com/en-us. Một hộp đủ (display box) có 12 hộp mù, không trùng nhân vật thường.</p>
+    <p>Các bản hiếm không có trong bảng nhân vật của store (Special Armor Type, Secret, Star Secret, Chase của Hercules) được lấy từ ảnh sản phẩm và thông tin công bố. Tên các bản này được ghép theo ảnh nên có thể chưa chính xác tuyệt đối.</p>"""
+
+figures = json.loads((ROOT / "data" / "figures.json").read_text(encoding="utf-8"))
+for series in json.loads((ROOT / "data" / "defender.json").read_text(encoding="utf-8")):
+    key = series["code"].lower()
+    PAGES.append(checklist(
+        f"defender/{SERIES_FRANCHISE[series['line']]}/{key}/", series["name"],
+        f"{series['code']} {series['name']} · Hibe Hobby", f"{series['code']}<br>{html.escape(series['name'])}",
+        f"Hibe Hobby's Collection · {series['film']} Defender Version",
+        f"Từng nhân vật trong series {series['name']}. Tick ô \"Đã có\" và \"Đã làm video\" cho từng nhân vật.",
+        "Tìm tên nhân vật (vd: Optimus, Batman)",
+        {"films": [], "primaryLines": ["regular"], "unit": "nhân vật thường",
+         "secondary": {"line": "chase", "label": "bản hiếm"},
+         "groups": [{"title": "Nhân vật thường", "line": "regular"},
+                    {"title": "Bản hiếm · Chase / Secret", "line": "chase",
+                     "note": "Không tính vào tiến độ nhân vật thường ở trên."}],
+         "noResultHint": "Thử tên nhân vật, ví dụ Optimus hoặc Batman.", "scope": FIGURE_SCOPE},
+        [f"fig-{key}"]))
+
 CRUMBS = {p["path"]: p["crumb"] for p in PAGES}
 
 LINE_LABELS = {"classic": "Classic Class", "champion": "Champion Class", "defender-transformers": "Defender Version",
@@ -149,6 +171,25 @@ for name in ["catalog.json", "defender.json"]:
         kit["desc"] = detail.get("desc", "")
         kit["url"] = STORE + kit.pop("handle")
         kits.append(kit)
+        if kit["code"].lower() in figures:
+            series_key = kit["code"].lower()
+            kit["href"] = f"{series_key}/"
+            kit["children"] = []
+            (DIST / "img" / "fig").mkdir(exist_ok=True)
+            for i, fig in enumerate(figures[series_key], 1):
+                name_img = f"{series_key}-{i:02d}.webp"
+                shutil.copy2(ROOT / "img" / "fig" / name_img, DIST / "img" / "fig" / name_img)
+                rare = fig["line"] == "chase"
+                sku = f"{kit['sku']}-{i:02d}"
+                kit["children"].append(sku)
+                kits.append({
+                    "n": i, "code": f"{kit['code']}-{i:02d}", "name": fig["name"], "film": kit["name"],
+                    "line": fig["line"], "page": f"fig-{series_key}", "sku": sku, "skuLabel": kit["sku"],
+                    "date": kit["date"], "odds": fig["odds"],
+                    "lineLabel": ("Bản hiếm" if rare else "Nhân vật thường") + " · " + fig["odds"],
+                    "img": f"img/fig/{name_img}", "gallery": [f"img/fig/{name_img}"], "desc": "",
+                    "url": kit["url"],
+                })
 
 shutil.copy2(ROOT / "icon" / "favicon-64.png", DIST / "favicon.png")
 shutil.copy2(ROOT / "icon" / "apple-touch-icon-180.png", DIST / "apple-touch-icon.png")
@@ -199,7 +240,7 @@ for page in PAGES:
                 .replace("__CARDS__", "\n".join(cards))
                 .replace("__REDIRECT__", json.dumps("champion-class/transformers/" if page["path"] == "" else "")))
     else:
-        page_kits = [with_prefix(k, prefix) for k in kits if k["line"] in page["lines"]]
+        page_kits = [with_prefix(k, prefix) for k in kits if k.get("page", k["line"]) in page["lines"]]
         cfg = dict(page["page"])
         scope = cfg.pop("scope")
         body = (common(checklist_tpl, page, prefix)

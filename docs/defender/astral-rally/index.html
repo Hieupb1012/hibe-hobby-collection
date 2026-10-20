@@ -128,6 +128,8 @@ section.group { display: flex; flex-direction: column; gap: 14px; }
 .store { align-self: flex-start; }
 .vbadge { position: absolute; right: 8px; bottom: 8px; font-family: var(--f-mono); font-weight: 700; font-size: 10px; letter-spacing: .06em; background: var(--accent); color: var(--accent-ink); padding: 3px 6px; border-radius: 3px; }
 .art-wrap { position: relative; }
+.progress-line { font-family: var(--f-mono); font-size: 11px; color: var(--own); font-variant-numeric: tabular-nums; }
+.kit .series-cta { font-size: 12px; font-weight: 600; color: var(--accent); }
 .search { display: flex; align-items: center; gap: 10px; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 4px 4px 12px; color: var(--muted); }
 .search-btn { flex: none; font: 700 14px/1 var(--f-body); background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 4px; padding: 10px 18px; cursor: pointer; }
 .search-btn:hover { filter: brightness(1.08); }
@@ -315,7 +317,7 @@ aside.scope p { margin: 0; font-size: 14px; color: var(--muted); }
 </div>
 
 <script>
-const CATALOG = [{"n": 1, "code": "AR01", "name": "The First Light", "film": "Astral Rally", "line": "defender-astral-rally", "sku": "75932", "date": "2026-08", "lineLabel": "Defender Version", "img": "../../img/ar01.webp", "gallery": ["../../img/ar01.webp", "../../img/gallery/ar01-2.webp", "../../img/gallery/ar01-3.webp", "../../img/gallery/ar01-4.webp", "../../img/gallery/ar01-5.webp", "../../img/gallery/ar01-6.webp", "../../img/gallery/ar01-7.webp", "../../img/gallery/ar01-8.webp"], "desc": "Astral Rally arrives as an original interstellar mecha IP, centered on faction warfare, arena-style battles, and star-region rivalry.", "url": "https://blokees.com/en-us/products/astral-rally-defender-version-the-first-light"}];
+const CATALOG = [{"n": 1, "code": "AR01", "name": "The First Light", "film": "Astral Rally", "line": "defender-astral-rally", "sku": "75932", "date": "2026-08", "lineLabel": "Defender Version", "img": "../../img/ar01.webp", "gallery": ["../../img/ar01.webp", "../../img/gallery/ar01-2.webp", "../../img/gallery/ar01-3.webp", "../../img/gallery/ar01-4.webp", "../../img/gallery/ar01-5.webp", "../../img/gallery/ar01-6.webp", "../../img/gallery/ar01-7.webp", "../../img/gallery/ar01-8.webp"], "desc": "Astral Rally arrives as an original interstellar mecha IP, centered on faction warfare, arena-style battles, and star-region rivalry.", "url": "https://blokees.com/en-us/products/astral-rally-defender-version-the-first-light", "href": "ar01/", "children": ["75932-01", "75932-02", "75932-03", "75932-04", "75932-05", "75932-06", "75932-07", "75932-08", "75932-09", "75932-10", "75932-11", "75932-12", "75932-13", "75932-14", "75932-15", "75932-16"]}];
 const KEY = "blokees-cc-owned-v1";
 const KEY_VIDEO = "blokees-cc-video-v1";
 const PAGE = {"films": [], "primaryLines": ["defender-astral-rally"], "unit": "series", "secondary": null, "groups": [{"title": "Astral Rally Defender Version", "line": "defender-astral-rally"}], "noResultHint": "Thử tên series hoặc mã series."};
@@ -395,16 +397,18 @@ function kitCard(k) {
     <div class="meta">
       <h3><button type="button" class="name-link"></button></h3>
       <div class="film"></div>
-      <div class="spec"><span>SKU ${k.sku}</span><span>${fmtMonth(k.date)}</span></div>
+      <div class="spec">${k.odds ? `<span>Tỉ lệ ${k.odds}</span>` : `<span>SKU ${k.skuLabel || k.sku}</span><span>${fmtMonth(k.date)}</span>`}</div>
+      ${k.children ? `<div class="progress-line">${k.children.filter((s) => state.owned.has(s)).length}/${k.children.length} nhân vật đã có · ${k.children.filter((s) => state.video.has(s)).length} đã làm video</div>` : ""}
       <div class="row">
         <button type="button" class="toggle own${owned ? " on" : ""}" aria-pressed="${owned}"><span class="box"></span>${owned ? "Đã có" : "Chưa có"}</button>
         <button type="button" class="toggle vid${filmed ? " on" : ""}" aria-pressed="${filmed}"><span class="box"></span>${filmed ? "Đã làm video" : "Chưa làm video"}</button>
+        ${k.href ? `<a class="series-cta" href="${k.href}">Xem ${k.children.length} nhân vật →</a>` : ""}
         <a class="store" href="${k.url}" target="_blank" rel="noopener">Xem trên store</a>
       </div>
     </div>`;
   el.querySelector(".name-link").textContent = k.name;
   el.querySelector(".film").textContent = k.film;
-  const open = () => openDetail(k);
+  const open = () => { if (k.href) location.href = k.href; else openDetail(k); };
   el.querySelector(".art").addEventListener("click", open);
   el.querySelector(".name-link").addEventListener("click", open);
   el.querySelector(".toggle.own").addEventListener("click", () => toggle(state.owned, k.sku));
@@ -485,7 +489,7 @@ function renderDetail() {
         </div>
         <div class="dinfo">
           <dl class="dspec">
-            <div><dt>SKU</dt><dd>${k.sku}</dd></div>
+            <div><dt>${k.odds ? "Tỉ lệ" : "SKU"}</dt><dd>${k.odds || k.skuLabel || k.sku}</dd></div>
             <div><dt>Lên store quốc tế</dt><dd>${fmtMonth(k.date)}</dd></div>
             <div><dt>Video</dt><dd>${links.length}</dd></div>
           </dl>
