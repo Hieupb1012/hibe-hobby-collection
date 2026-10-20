@@ -44,6 +44,7 @@ body {
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+#groups, #detail { width: 100%; }
 header.top { padding-top: 32px; display: flex; flex-direction: column; gap: 10px; }
 .eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
 h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 7vw, 76px); line-height: .92; margin: 0; letter-spacing: .01em; text-transform: uppercase; text-wrap: balance; }
@@ -61,7 +62,11 @@ h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 7vw
 .tickrows { display: flex; flex-direction: column; gap: 5px; }
 .tickrow { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 8px; }
 .tickrow > span { font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.ticks { display: grid; grid-template-columns: repeat(25, 1fr); gap: 3px; }
+.ticks { display: grid; gap: 3px; }
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.crumbs a:hover { color: var(--accent); border-color: var(--accent); }
+.crumbs span[aria-current] { color: var(--ink); font-weight: 600; }
 .tick { height: 8px; background: var(--panel); border-radius: 1px; }
 .tick.on { background: var(--own); }
 #vticks .tick.on { background: var(--accent); }
@@ -242,25 +247,22 @@ aside.scope p { margin: 0; font-size: 14px; color: var(--muted); }
 
 <div class="wrap">
   <header class="top" id="top">
-    <div class="eyebrow">Blokees × Transformers · Bản quốc tế</div>
-    <h1>Hibe Hobby's<br>Collection</h1>
-    <p class="lede">Đủ 25 kit Classic Class từ CC01 đến CC25 đang bán quốc tế trên store chính thức của Blokees, cộng các số tiếp theo đã đổi tên thành Champion Class. Bấm vào ảnh hoặc tên để xem chi tiết. Tick ô "Đã có" và "Đã làm video" để theo dõi bộ sưu tập.</p>
+    __CRUMBS__
+    <div class="eyebrow">__EYEBROW__</div>
+    <h1>__H1__</h1>
+    <p class="lede">__LEDE__</p>
   </header>
 
   <div class="dock" id="dock">
   <div class="searchbar">
     <form class="search" id="search-form" role="search">
       <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-      <input id="q" type="search" enterkeyhint="search" aria-label="Tìm mẫu" placeholder="Tìm nhân vật, phim hoặc mã (vd: Megatron, One, CC21)" autocomplete="off" spellcheck="false">
+      <input id="q" type="search" enterkeyhint="search" aria-label="Tìm mẫu" placeholder="__SEARCH_HINT__" autocomplete="off" spellcheck="false">
       <button type="submit" class="search-btn" id="search-btn">Tìm</button>
     </form>
   </div>
   <div class="rail" id="rail">
-    <div class="stats">
-      <div class="stat"><b id="ownCount">0</b><span>/ 25 kit Classic Class đã có</span></div>
-      <div class="stat"><b id="vidCount" class="vid-num">0</b><span>/ 25 kit đã làm video</span></div>
-      <div class="stat"><b id="champCount">0</b><span>/ <span id="champTotal">0</span> Champion Class đã có</span></div>
-    </div>
+    <div class="stats" id="stats"></div>
     <div class="tickrows" aria-hidden="true">
       <div class="tickrow"><span>Đã có</span><div class="ticks" id="ticks"></div></div>
       <div class="tickrow"><span>Video</span><div class="ticks" id="vticks"></div></div>
@@ -293,17 +295,7 @@ aside.scope p { margin: 0; font-size: 14px; color: var(--muted); }
   <section id="detail" class="detail" hidden></section>
 
   <aside class="scope" id="scope">
-    <h2>Phạm vi danh sách</h2>
-    <p>Chỉ gồm các kit đang có trên store quốc tế blokees.com/en-us, đối chiếu ngày 20/10/2026. Đã loại các bản chỉ phát hành nội địa Trung Quốc:</p>
-    <ul>
-      <li>Các bộ combo A–F (kèm cảnh chiến đấu, diorama).</li>
-      <li>Biến thể EX Edition, Damage Limited, Luminous Night, Frozen Limited.</li>
-      <li>Bộ giới hạn Universal Studios Beijing.</li>
-      <li>Bản mẫu chưa sơn và bản trắng từ cuộc thi BFC.</li>
-      <li>EX Elite Bumblebee (giới hạn 5.000 hộp, chỉ bán theo sự kiện).</li>
-    </ul>
-    <p>Từ số 26, Blokees đổi tên dòng này thành Champion Class nhưng vẫn đánh số tiếp. Các số 28–31 đã được công bố nhưng chưa lên store quốc tế, nên chưa có trong danh sách.</p>
-    <p>Ngày ra mắt là tháng kit lên store quốc tế. Ở Trung Quốc, nhiều kit ra sớm hơn vài tháng.</p>
+__SCOPE__
   </aside>
 </div>
 
@@ -311,12 +303,13 @@ aside.scope p { margin: 0; font-size: 14px; color: var(--muted); }
 const CATALOG = __CATALOG__;
 const KEY = "blokees-cc-owned-v1";
 const KEY_VIDEO = "blokees-cc-video-v1";
-const FILM_ORDER = ["Rise of the Beasts", "Transformers (2007)", "Transformers One", "Dark of the Moon", "Bumblebee (2018)"];
+const PAGE = __PAGE__;
+const FILM_ORDER = PAGE.films;
 const state = { owned: new Set(), video: new Set(), filter: "all", videoFilter: "all", sort: "number", film: null, detail: null, photo: 0, query: "", links: {}, dtab: "info", vslide: 0, canEdit: true };
 const KEY_LINKS = "blokees-cc-links-v1";
 let persist = () => {};
 
-const code = (k) => (k.line === "champion" ? "CH" : "CC") + String(k.n).padStart(2, "0");
+const code = (k) => k.code;
 const fmtMonth = (d) => { const [y, m] = d.split("-"); return "T" + Number(m) + "/" + y; };
 
 function readLocal(key) {
@@ -457,7 +450,7 @@ function renderDetail() {
       </span>
     </nav>
     <div class="dhead">
-      <div class="dcodes"><span class="code static">${code(k)}</span>${k.dx ? '<span class="dx static">DX</span>' : ""}<span class="dline">${k.line === "champion" ? "Champion Class" : "Classic Class"}</span></div>
+      <div class="dcodes"><span class="code static">${code(k)}</span>${k.dx ? '<span class="dx static">DX</span>' : ""}<span class="dline">${k.lineLabel}</span></div>
       <h2 class="dname"></h2>
       <div class="dfilm"></div>
       <div class="row dtoggles">
@@ -660,8 +653,8 @@ const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/gi, "
 function matchesQuery(k) {
   const q = norm(state.query);
   if (!q) return true;
-  const codeQuery = q.match(/^(cc|ch)?0*(\d{1,2})$/);
-  if (codeQuery && Number(codeQuery[2]) === k.n) return true;
+  const codeQuery = q.match(/^([a-z]{1,3})?0*(\d{1,2})$/);
+  if (codeQuery && Number(codeQuery[2]) === k.n && (!codeQuery[1] || norm(k.code).startsWith(codeQuery[1]))) return true;
   return norm([k.name, k.film, code(k), k.sku, k.dx ? "dx" : ""].join(" ")).includes(q);
 }
 
@@ -701,6 +694,7 @@ function section(title, note, kits) {
 function fillTicks(id, kits, set) {
   const box = document.getElementById(id);
   box.textContent = "";
+  box.style.gridTemplateColumns = "repeat(" + Math.max(1, kits.length) + ", minmax(0, 1fr))";
   kits.forEach((k) => { const t = document.createElement("div"); t.className = "tick" + (set.has(k.sku) ? " on" : ""); box.appendChild(t); });
 }
 
@@ -709,14 +703,16 @@ function render() {
   ["top", "dock", "groups", "scope"].forEach((id) => { document.getElementById(id).hidden = inDetail; });
   document.getElementById("detail").hidden = !inDetail;
   if (inDetail) { renderDetail(); return; }
-  const classic = CATALOG.filter((k) => k.line === "classic");
-  const champ = CATALOG.filter((k) => k.line === "champion");
-  document.getElementById("ownCount").textContent = classic.filter((k) => state.owned.has(k.sku)).length;
-  document.getElementById("vidCount").textContent = classic.filter((k) => state.video.has(k.sku)).length;
-  document.getElementById("champCount").textContent = champ.filter((k) => state.owned.has(k.sku)).length;
-  document.getElementById("champTotal").textContent = champ.length;
-  fillTicks("ticks", classic, state.owned);
-  fillTicks("vticks", classic, state.video);
+  const primary = CATALOG.filter((k) => PAGE.primaryLines.includes(k.line));
+  const secondary = PAGE.secondary ? CATALOG.filter((k) => k.line === PAGE.secondary.line) : [];
+  const count = (list, set) => list.filter((k) => set.has(k.sku)).length;
+  document.getElementById("stats").innerHTML =
+    `<div class="stat"><b>${count(primary, state.owned)}</b><span>/ ${primary.length} ${PAGE.unit} đã có</span></div>` +
+    `<div class="stat"><b class="vid-num">${count(primary, state.video)}</b><span>/ ${primary.length} ${PAGE.unit} đã làm video</span></div>` +
+    (secondary.length ? `<div class="stat"><b>${count(secondary, state.owned)}</b><span>/ ${secondary.length} ${PAGE.secondary.label} đã có</span></div>` : "");
+  fillTicks("ticks", primary, state.owned);
+  fillTicks("vticks", primary, state.video);
+  document.getElementById("films").hidden = FILM_ORDER.length < 2;
 
   document.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === state.filter)));
   document.querySelectorAll("[data-video]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.video === state.videoFilter)));
@@ -739,27 +735,24 @@ function render() {
       root.appendChild(section("Tháng " + Number(mo) + "/" + y, null, m.kits));
     });
   } else {
-    renderByFilm(root, classic, champ);
+    renderGroups(root);
   }
   if (!root.children.length) {
     const p = document.createElement("p");
     p.className = "noresult";
-    p.textContent = "Không tìm thấy mẫu nào khớp với \"" + state.query.trim() + "\". Thử tên nhân vật (Optimus), tên phim (One) hoặc mã (CC21).";
+    p.textContent = "Không tìm thấy mẫu nào khớp với \"" + state.query.trim() + "\". " + PAGE.noResultHint + "";
     root.appendChild(p);
   }
 }
 
-function renderByFilm(root, classic, champ) {
-  FILM_ORDER.forEach((film) => {
-    const kits = classic.filter((k) => k.film === film);
-    if (!kits.length || (state.film && state.film !== film)) return;
-    const range = code(kits[0]) + (kits.length > 1 ? "–" + code(kits[kits.length - 1]) : "");
-    root.appendChild(section(film + " · " + range, null, kits));
+function renderGroups(root) {
+  PAGE.groups.forEach((g) => {
+    if (state.film && g.film && g.film !== state.film) return;
+    const kits = CATALOG.filter((k) => (!g.line || k.line === g.line) && (!g.film || k.film === g.film) && (!state.film || k.film === state.film));
+    if (!kits.length) return;
+    const range = g.range ? " · " + code(kits[0]) + (kits.length > 1 ? "–" + code(kits[kits.length - 1]) : "") : "";
+    root.appendChild(section(g.title + range, g.note || null, kits));
   });
-  const champShown = champ.filter((k) => !state.film || k.film === state.film);
-  if (champShown.length) {
-    root.appendChild(section("Champion Class · nối tiếp từ số 26", "Cùng dòng sản phẩm, cùng kích thước và hệ đánh số, chỉ đổi tên từ số 26. Không tính vào tiến độ 25 kit Classic Class ở trên.", champShown));
-  }
 }
 
 function requireEdit() {

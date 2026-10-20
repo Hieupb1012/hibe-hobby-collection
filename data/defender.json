@@ -1,0 +1,6 @@
+[
+ {"n": 2, "code": "TF02", "name": "The Overthrow", "film": "Transformers", "line": "defender-transformers", "sku": "71302", "date": "2025-02", "handle": "transformers-defender-version-the-overthrow"},
+ {"n": 8, "code": "TF08", "name": "Battle Stars", "film": "Transformers", "line": "defender-transformers", "sku": "71408", "date": "2026-08", "handle": "transformers-defender-version-battle-stars"},
+ {"n": 3, "code": "DC03", "name": "Arkham: Chaos Prologue", "film": "DC · Batman", "line": "defender-batman", "sku": "75703", "date": "2026-07", "handle": "dc-defender-version-arkham-chaos-prologue"},
+ {"n": 1, "code": "AR01", "name": "The First Light", "film": "Astral Rally", "line": "defender-astral-rally", "sku": "75932", "date": "2026-08", "handle": "astral-rally-defender-version-the-first-light"}
+]
