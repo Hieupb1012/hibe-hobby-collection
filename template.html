@@ -382,7 +382,7 @@ function kitCard(k) {
       <button type="button" class="art" aria-label="Xem chi tiết ${code(k)} ${k.name}"><img loading="lazy" alt="Blokees ${code(k)} ${k.name}" src="${k.img}"></button>
       <span class="code">${code(k)}</span>
       ${k.dx ? '<span class="dx">DX</span>' : ""}
-      ${filmed ? '<span class="vbadge">VIDEO</span>' : ""}
+      ${filmed ? `<span class="vbadge">VIDEO (${(state.links[k.sku] || []).length})</span>` : ""}
     </div>
     <div class="meta">
       <h3><button type="button" class="name-link"></button></h3>
