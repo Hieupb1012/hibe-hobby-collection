@@ -89,6 +89,10 @@ h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 7vw
 .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sync { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-left: auto; }
+.auth-btn { font: 600 12px/1 var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 8px 10px; cursor: pointer; }
+.auth-btn:hover { border-color: var(--accent); color: var(--accent); }
+.readonly .vform-wrap, .readonly .vdel { display: none !important; }
+.readonly .toggle { opacity: .75; }
 section.group { display: flex; flex-direction: column; gap: 14px; }
 .group-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
 .group-head h2 { font-family: var(--f-display); font-weight: 800; font-size: 28px; text-transform: uppercase; margin: 0; letter-spacing: .02em; }
@@ -292,6 +296,7 @@ aside.scope p { margin: 0; font-size: 14px; color: var(--muted); }
       </div>
       <div class="controls" id="films" role="group" aria-label="Lọc theo phim"></div>
       <span class="sync" id="sync">Đang lưu trên trình duyệt này</span>
+      <button type="button" class="auth-btn" id="auth-btn" hidden></button>
     </div>
   </div>
   </div>
@@ -320,7 +325,7 @@ const CATALOG = [{"n": 1, "name": "Optimus Prime", "film": "Rise of the Beasts",
 const KEY = "blokees-cc-owned-v1";
 const KEY_VIDEO = "blokees-cc-video-v1";
 const FILM_ORDER = ["Rise of the Beasts", "Transformers (2007)", "Transformers One", "Dark of the Moon", "Bumblebee (2018)"];
-const state = { owned: new Set(), video: new Set(), filter: "all", videoFilter: "all", sort: "number", film: null, detail: null, photo: 0, query: "", links: {}, dtab: "info", vslide: 0 };
+const state = { owned: new Set(), video: new Set(), filter: "all", videoFilter: "all", sort: "number", film: null, detail: null, photo: 0, query: "", links: {}, dtab: "info", vslide: 0, canEdit: true };
 const KEY_LINKS = "blokees-cc-links-v1";
 let persist = () => {};
 
@@ -574,6 +579,7 @@ function buildSlider(root, k, links) {
     const del = document.createElement("button");
     del.type = "button"; del.className = "vdel"; del.textContent = "Xóa video";
     del.addEventListener("click", () => {
+      if (!requireEdit()) return;
       if (del.dataset.armed !== "1") { del.dataset.armed = "1"; del.textContent = "Bấm lần nữa để xóa"; return; }
       state.links[k.sku] = links.filter((_, x) => x !== j);
       if (!state.links[k.sku].length) delete state.links[k.sku];
@@ -639,6 +645,7 @@ function buildLinkForm(box, k, links) {
   box.querySelector("#d-vadd").addEventListener("click", () => addRow(true));
   box.querySelector("#d-vform").addEventListener("submit", (e) => {
     e.preventDefault();
+    if (!requireEdit()) return;
     const err = box.querySelector("#d-verror");
     const inputs = [...rows.querySelectorAll("input")];
     if (!inputs.some((x) => x.value.trim())) { err.textContent = "Hãy dán ít nhất một link video."; err.hidden = false; return; }
@@ -768,7 +775,14 @@ function renderByFilm(root, classic, champ) {
   }
 }
 
+function requireEdit() {
+  if (state.canEdit) return true;
+  if (window.HIBE && window.HIBE.signIn) window.HIBE.signIn();
+  return false;
+}
+
 function toggle(set, sku) {
+  if (!requireEdit()) return;
   set.has(sku) ? set.delete(sku) : set.add(sku);
   writeLocal();
   persist();
@@ -795,6 +809,7 @@ window.addEventListener("popstate", () => { readHash(); render(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.detail != null) closeDetail(); });
 
 const SEED = {"owned": ["71142", "71144", "71145", "71151", "71152", "71155", "71158", "71163", "71164", "71177", "71183", "71184", "71185", "71422", "71423", "71425", "71426", "71161", "71162", "71143", "71157", "71176", "71141"], "video": ["71142", "71143", "71144", "71145", "71151", "71152", "71155", "71158", "71163", "71177", "71426", "71164"], "links": {"71142": ["https://www.tiktok.com/@hibehobby/video/7684305576192544018", "https://www.tiktok.com/@hibehobby/video/7684546464135122184"]}};
+const FIREBASE = {"config": {"apiKey": "AIzaSyAW9Jgasv7GilBY-VRQJJDLMTG0BJQlmwI", "authDomain": "hibe-hobby-collection.firebaseapp.com", "projectId": "hibe-hobby-collection", "storageBucket": "hibe-hobby-collection.firebasestorage.app", "messagingSenderId": "747277038703", "appId": "1:747277038703:web:0a49978e7d3a7ff928c99a"}, "docId": "hibe", "ownerEmail": "bahieu10122002@gmail.com"};
 let hasLocal = false;
 try { hasLocal = localStorage.getItem(KEY) !== null; } catch {}
 if (hasLocal) {
@@ -810,43 +825,126 @@ if (hasLocal) {
 readHash();
 render();
 
-(async () => {
-  if (!window.claude || typeof window.claude.use !== "function") return;
-  const sync = document.getElementById("sync");
+const snapshotState = () => ({ owned: [...state.owned].sort(), video: [...state.video].sort(), links: state.links });
+
+window.HIBE = {
+  firebase: FIREBASE,
+  snapshot: snapshotState,
+  apply(data) {
+    const next = {
+      owned: [...new Set(data.owned || [])].sort(),
+      video: [...new Set(data.video || [])].sort(),
+      links: data.links && typeof data.links === "object" ? data.links : {},
+    };
+    if (JSON.stringify(next) === JSON.stringify(snapshotState())) return;
+    state.owned = new Set(next.owned);
+    state.video = new Set(next.video);
+    state.links = next.links;
+    writeLocal();
+    render();
+  },
+  setPersist(fn) { persist = fn; },
+  setCanEdit(value) {
+    state.canEdit = value;
+    document.body.classList.toggle("readonly", !value);
+    render();
+  },
+  setStatus(text, action) {
+    document.getElementById("sync").textContent = text;
+    const btn = document.getElementById("auth-btn");
+    btn.hidden = !action;
+    if (action) { btn.textContent = action.label; btn.onclick = action.run; }
+  },
+};
+
+if (FIREBASE) {
+  window.HIBE.setCanEdit(false);
+  window.HIBE.setStatus("Đang tải dữ liệu…");
+}
+</script>
+<script type="module">
+const H = window.HIBE;
+const cfg = H.firebase;
+if (cfg) {
+  const base = "https://www.gstatic.com/firebasejs/11.0.2/";
   try {
-    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
-    if (!db || !user) return;
-    const id = await user.id();
-    if (!id) return;
-    const ref = db.doc("data/users/" + id + "/collection");
-    const snap = await ref.get();
-    const remote = snap.exists ? snap.data() : null;
-    if (remote) {
-      state.owned = new Set(remote.owned || []);
-      state.video = new Set(remote.video || []);
-      state.links = remote.links && typeof remote.links === "object" ? remote.links : {};
-      writeLocal();
-      render();
-    }
+    const [{ initializeApp }, A, F] = await Promise.all([
+      import(base + "firebase-app.js"),
+      import(base + "firebase-auth.js"),
+      import(base + "firebase-firestore.js"),
+    ]);
+    const app = initializeApp(cfg.config);
+    const auth = A.getAuth(app);
+    const db = F.getFirestore(app);
+    const ref = F.doc(db, "collections", cfg.docId);
+    const provider = new A.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
+    let loaded = false;
+    let remoteExists = false;
+    let isOwner = false;
+
+    const signIn = async () => {
+      try {
+        await A.signInWithPopup(auth, provider);
+      } catch (e) {
+        if (e && (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment")) {
+          await A.signInWithRedirect(auth, provider);
+        } else if (!(e && e.code === "auth/popup-closed-by-user" || e && e.code === "auth/cancelled-popup-request")) {
+          H.setStatus("Đăng nhập không thành công: " + (e && e.code ? e.code : "lỗi không rõ"), { label: "Thử lại", run: signIn });
+        }
+      }
+    };
+    H.signIn = signIn;
+
     let timer = null;
-    persist = () => {
+    const save = () => {
       clearTimeout(timer);
-      sync.textContent = "Đang lưu…";
+      H.setStatus("Đang lưu…", { label: "Đăng xuất", run: () => A.signOut(auth) });
       timer = setTimeout(async () => {
         try {
-          await ref.set({ owned: [...state.owned], video: [...state.video], links: state.links, updatedAt: Date.now() });
-          sync.textContent = "Đã lưu vào tài khoản của bạn";
-        } catch {
-          sync.textContent = "Chưa lưu được lên tài khoản, vẫn giữ trên trình duyệt này";
+          await F.setDoc(ref, { ...H.snapshot(), updatedAt: F.serverTimestamp() });
+          remoteExists = true;
+          H.setStatus("Đã đồng bộ · " + auth.currentUser.email, { label: "Đăng xuất", run: () => A.signOut(auth) });
+        } catch (e) {
+          H.setStatus("Chưa lưu được lên mạng, vẫn giữ trên máy này (" + (e && e.code ? e.code : "lỗi") + ")", { label: "Đăng xuất", run: () => A.signOut(auth) });
         }
       }, 500);
     };
-    if (!remote) persist();
-    else sync.textContent = "Đã đồng bộ với tài khoản của bạn";
-  } catch {
-    sync.textContent = "Đang lưu trên trình duyệt này";
+
+    const showViewer = (user) => {
+      if (user) H.setStatus("Tài khoản " + user.email + " chỉ được xem, không được sửa", { label: "Đổi tài khoản", run: async () => { await A.signOut(auth); signIn(); } });
+      else H.setStatus(loaded ? "Chế độ xem · Đăng nhập để chỉnh sửa" : "Đang tải dữ liệu…", { label: "Đăng nhập Google", run: signIn });
+    };
+
+    F.onSnapshot(ref, (snap) => {
+      if (snap.metadata.hasPendingWrites) return;
+      loaded = true;
+      remoteExists = snap.exists();
+      if (remoteExists) H.apply(snap.data());
+      else if (isOwner) save();
+      if (!isOwner) showViewer(auth.currentUser);
+    }, (e) => {
+      H.setStatus("Không tải được dữ liệu online, đang dùng bản trên máy (" + (e && e.code ? e.code : "lỗi") + ")", { label: "Đăng nhập Google", run: signIn });
+    });
+
+    A.getRedirectResult(auth).catch(() => {});
+    A.onAuthStateChanged(auth, (user) => {
+      isOwner = !!(user && user.email && user.email.toLowerCase() === cfg.ownerEmail.toLowerCase());
+      H.setCanEdit(isOwner);
+      if (isOwner) {
+        H.setPersist(save);
+        if (loaded && !remoteExists) save();
+        else H.setStatus("Đã đồng bộ · " + user.email, { label: "Đăng xuất", run: () => A.signOut(auth) });
+      } else {
+        H.setPersist(() => {});
+        showViewer(user);
+      }
+    });
+  } catch (e) {
+    H.setCanEdit(true);
+    H.setStatus("Không kết nối được Firebase, đang lưu trên máy này");
   }
-})();
+}
 </script>
 
 </html>

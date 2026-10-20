@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /collections/hibe {
+      allow read: if true;
+      allow write: if request.auth != null
+        && request.auth.token.email == "bahieu10122002@gmail.com"
+        && request.auth.token.email_verified == true;
+    }
+  }
+}

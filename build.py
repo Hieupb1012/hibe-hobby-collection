@@ -28,6 +28,8 @@ if DIST.exists():
 catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
 details = json.loads((ROOT / "data" / "details.json").read_text(encoding="utf-8"))
 seed = json.loads((ROOT / "data" / "seed.json").read_text(encoding="utf-8"))
+firebase_file = ROOT / "data" / "firebase.json"
+firebase = json.loads(firebase_file.read_text(encoding="utf-8")) if firebase_file.exists() else None
 
 for kit in catalog:
     detail = details.get(str(kit["n"]), {})
@@ -51,6 +53,7 @@ body = (
     .replace("__TOUCH_ICON__", "apple-touch-icon.png")
     .replace("__CATALOG__", json.dumps(catalog, ensure_ascii=False))
     .replace("__SEED__", json.dumps(seed, ensure_ascii=False))
+    .replace("__FIREBASE__", json.dumps(firebase, ensure_ascii=False))
 )
 (DIST / "index.html").write_text(HEAD + body + "\n</html>\n", encoding="utf-8")
 (DIST / ".nojekyll").write_text("", encoding="utf-8")
