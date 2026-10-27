@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-title" content="Hibe Hobby">
+<meta name="theme-color" content="#0f1216">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>DaaLaMode Hatsune Miku · Hibe Hobby</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="../../favicon.png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: model-kit box labels on a steel workbench; one sticky progress rail, grid of numbered kits grouped by film */
+:root {
+  --bg: #eceff2;
+  --surface: #ffffff;
+  --panel: #dfe4ea;
+  --ink: #161a20;
+  --muted: #5d6673;
+  --line: #c9d0d8;
+  --accent: #c8430e;
+  --accent-ink: #ffffff;
+  --own: #1f7a4d;
+  --own-soft: #dcefe4;
+  --vid-soft: #fbe4d8;
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1216; --surface: #171b21; --panel: #1f252d; --ink: #e9edf2; --muted: #98a2ae;
+    --line: #2c333d; --accent: #ff7a3d; --accent-ink: #1a0d05; --own: #52c98b; --own-soft: #16301f; --vid-soft: #3a2115;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1216; --surface: #171b21; --panel: #1f252d; --ink: #e9edf2; --muted: #98a2ae;
+  --line: #2c333d; --accent: #ff7a3d; --accent-ink: #1a0d05; --own: #52c98b; --own-soft: #16301f; --vid-soft: #3a2115;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+#groups, #detail { width: 100%; }
+header.top { padding-top: 32px; display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 7vw, 76px); line-height: .92; margin: 0; letter-spacing: .01em; text-transform: uppercase; text-wrap: balance; }
+.lede { margin: 0; max-width: 62ch; color: var(--muted); }
+.dock {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  padding-block: 12px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px;
+}
+.rail { display: flex; flex-direction: column; gap: 12px; }
+.stats { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 28px; }
+.stat { display: flex; align-items: baseline; gap: 8px; }
+.stat b { font-family: var(--f-display); font-size: 34px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13px; color: var(--muted); }
+.stat b.vid-num { color: var(--accent); }
+.tickrows { display: flex; flex-direction: column; gap: 5px; }
+.tickrow { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 8px; }
+.tickrow > span { font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ticks { display: grid; gap: 3px; }
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.crumbs a:hover { color: var(--accent); border-color: var(--accent); }
+.crumbs span[aria-current] { color: var(--ink); font-weight: 600; }
+.tick { height: 8px; background: var(--panel); border-radius: 1px; }
+.tick.on { background: var(--own); }
+#vticks .tick.on { background: var(--accent); }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button, .chip {
+  font: 600 13px/1 var(--f-body); color: var(--ink); background: var(--surface); border: 0; padding: 9px 12px; cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.chip { border: 1px solid var(--line); border-radius: 999px; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sync { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-left: auto; }
+.auth-btn { font: 600 12px/1 var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 8px 10px; cursor: pointer; }
+.auth-btn:hover { border-color: var(--accent); color: var(--accent); }
+.readonly .vform-wrap, .readonly .vdel { display: none !important; }
+.readonly .toggle { opacity: .75; }
+section.group { display: flex; flex-direction: column; gap: 14px; }
+.group-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+.group-head h2 { font-family: var(--f-display); font-weight: 800; font-size: 28px; text-transform: uppercase; margin: 0; letter-spacing: .02em; }
+.group-head .count { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.kit {
+  position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 6px; overflow: hidden; min-width: 0; transition: border-color .15s, transform .15s;
+}
+.kit.owned { border-color: var(--own); box-shadow: inset 0 0 0 1px var(--own); }
+.kit .art {
+  aspect-ratio: 1 / 1; max-width: 100%; background-color: var(--panel);
+  background-image: radial-gradient(var(--line) 1px, transparent 1.2px); background-size: 12px 12px;
+  display: block; position: relative; overflow: hidden; padding: 0; border: 0; cursor: pointer; width: 100%;
+}
+.kit .art img { position: absolute; inset: 10px; width: calc(100% - 20px); height: calc(100% - 20px); object-fit: contain; transition: filter .2s, opacity .2s; }
+.kit:not(.owned) .art img { filter: saturate(.85); }
+.code {
+  position: absolute; top: 8px; left: 8px; font-family: var(--f-mono); font-weight: 700; font-size: 12px; letter-spacing: .06em;
+  background: var(--ink); color: var(--bg); padding: 3px 7px; border-radius: 3px;
+}
+.dx { position: absolute; top: 8px; right: 8px; font-family: var(--f-mono); font-weight: 700; font-size: 11px; background: var(--accent); color: var(--accent-ink); padding: 3px 6px; border-radius: 3px; }
+.meta { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.meta h3 { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: 22px; line-height: 1.05; text-transform: uppercase; letter-spacing: .01em; overflow-wrap: anywhere; }
+.film { font-size: 13px; color: var(--muted); }
+.spec { display: flex; flex-wrap: wrap; gap: 4px 12px; font-family: var(--f-mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.row { margin-top: auto; padding-top: 6px; display: flex; flex-direction: column; align-items: stretch; gap: 6px; }
+.store { align-self: flex-start; }
+.vbadge { position: absolute; right: 8px; bottom: 8px; font-family: var(--f-mono); font-weight: 700; font-size: 10px; letter-spacing: .06em; background: var(--accent); color: var(--accent-ink); padding: 3px 6px; border-radius: 3px; }
+.art-wrap { position: relative; }
+.kit .art.poster { aspect-ratio: 3 / 4; background: #0b0d11; }
+.kit .art.poster img { inset: 0; width: 100%; height: 100%; filter: none; }
+.progress-line { font-family: var(--f-mono); font-size: 11px; color: var(--own); font-variant-numeric: tabular-nums; }
+.kit .series-cta { font-size: 12px; font-weight: 600; color: var(--accent); }
+.search { display: flex; align-items: center; gap: 10px; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 4px 4px 12px; color: var(--muted); }
+.search-btn { flex: none; font: 700 14px/1 var(--f-body); background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 4px; padding: 10px 18px; cursor: pointer; }
+.search-btn:hover { filter: brightness(1.08); }
+.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.search svg { width: 18px; height: 18px; flex: none; }
+.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: 500 16px/1.2 var(--f-body); padding: 7px 0; }
+.search input::placeholder { color: var(--muted); }
+.noresult { color: var(--muted); padding: 24px 0; font-size: 15px; }
+.name-link { all: unset; cursor: pointer; }
+.name-link:hover { color: var(--accent); }
+.name-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.kit .art:hover img { transform: scale(1.03); }
+.kit .art img { transition: transform .2s, filter .2s; }
+.code.static, .dx.static { position: static; display: inline-block; }
+.detail { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
+.dnav { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.dnav-step { display: flex; gap: 6px; }
+.back, .step { font: 600 14px/1 var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 10px 14px; cursor: pointer; }
+.step { font-family: var(--f-mono); font-size: 12px; }
+.back:hover, .step:hover { border-color: var(--accent); color: var(--accent); }
+.dgrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.dgallery { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.dmain {
+  aspect-ratio: 1 / 1; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; background-color: var(--panel);
+  background-image: radial-gradient(var(--line) 1px, transparent 1.2px); background-size: 14px 14px; padding: 16px; display: grid; place-items: center;
+}
+.dmain img { width: 100%; height: 100%; object-fit: contain; }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
+.thumb { aspect-ratio: 1 / 1; padding: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; }
+.thumb img { width: 100%; height: 100%; object-fit: contain; }
+.thumb[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.dinfo { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.dcodes { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dline { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.dname { font-family: var(--f-display); font-weight: 800; font-size: clamp(36px, 6vw, 60px); line-height: .95; margin: 0; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
+.dfilm { color: var(--muted); font-size: 16px; }
+.dspec { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; border-block: 1px solid var(--line); }
+.dspec div { padding: 10px 0; display: flex; flex-direction: column; gap: 2px; }
+.dspec dt { font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.dspec dd { margin: 0; font-family: var(--f-mono); font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+.ddesc { margin: 0; color: var(--muted); max-width: 60ch; }
+.ddesc:empty { display: none; }
+.dinfo .row { margin-top: 4px; }
+.vlinks { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 6px; }
+.vlinks-title { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: .02em; }
+.vlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.vlist li { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 8px 10px; min-width: 0; }
+.vlist li.vempty { color: var(--muted); font-size: 14px; border-style: dashed; background: transparent; }
+.vlist a { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; color: var(--ink); text-decoration: none; }
+.vlist a b { font-size: 14px; color: var(--accent); }
+.vlist a span { font-family: var(--f-mono); font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vlist a:hover b { text-decoration: underline; }
+.vdel { flex: none; font: 600 12px/1 var(--f-body); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 7px 9px; cursor: pointer; }
+.vdel[data-armed="1"] { color: var(--accent); border-color: var(--accent); }
+.dhead { display: flex; flex-direction: column; gap: 10px; }
+.dtoggles { flex-direction: row; flex-wrap: wrap; max-width: 520px; }
+.dtoggles .toggle { flex: 1 1 180px; }
+.dtabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); }
+.dtab { font: 700 15px/1 var(--f-body); color: var(--muted); background: transparent; border: 0; border-bottom: 3px solid transparent; padding: 12px 16px; margin-bottom: -1px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.dtab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.dtab-n { font-family: var(--f-mono); font-size: 11px; background: var(--panel); color: var(--ink); border-radius: 999px; padding: 3px 7px; }
+.dpanel { display: flex; flex-direction: column; gap: 20px; }
+.vslider { display: flex; flex-direction: column; gap: 10px; }
+.vstage { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px; max-width: 520px; width: 100%; margin: 0 auto; }
+.vtrack { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+.vtrack::-webkit-scrollbar { display: none; }
+.vslide { flex: 0 0 100%; scroll-snap-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center; min-width: 0; }
+.vframe { width: 100%; max-width: 360px; aspect-ratio: 9 / 16; background: #000; border-radius: 8px; overflow: hidden; }
+.vframe iframe { width: 100%; height: 100%; border: 0; display: block; }
+.vcard { width: 100%; max-width: 360px; aspect-ratio: 9 / 16; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 20px; background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; color: var(--ink); text-decoration: none; min-width: 0; }
+.vcard b { color: var(--accent); font-size: 18px; }
+.vcard span { font-family: var(--f-mono); font-size: 11px; color: var(--muted); overflow-wrap: anywhere; }
+.vcard small { font-size: 13px; color: var(--muted); }
+.vfoot { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; max-width: 360px; }
+.vnav { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 700 26px/1 var(--f-body); cursor: pointer; display: grid; place-items: center; padding: 0 0 3px; }
+.vnav:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.vnav:disabled { opacity: .35; cursor: default; }
+.vbar { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.vcount { font-family: var(--f-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vdots { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.vdot { width: 10px; height: 10px; border-radius: 50%; border: 0; padding: 0; background: var(--line); cursor: pointer; }
+.vdot[aria-current="true"] { background: var(--accent); width: 22px; border-radius: 5px; }
+p.vempty { margin: 0; padding: 18px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 6px; }
+#panel-video .vform-wrap { max-width: 520px; width: 100%; margin: 0 auto; }
+@media (max-width: 520px) {
+  .vstage { grid-template-columns: 34px minmax(0, 1fr) 34px; gap: 4px; }
+  .vnav { width: 34px; height: 34px; font-size: 22px; }
+}
+.vform-wrap { display: flex; flex-direction: column; gap: 8px; margin: 0; }
+.vrows { display: flex; flex-direction: column; gap: 6px; }
+.vactions { display: flex; justify-content: space-between; gap: 8px; }
+.vadd { font: 600 14px/1 var(--f-body); color: var(--ink); background: transparent; border: 1px dashed var(--line); border-radius: 5px; padding: 10px 14px; cursor: pointer; }
+.vadd:hover { border-color: var(--accent); color: var(--accent); }
+.vform input[aria-invalid="true"] { color: var(--accent); }
+.vform { display: flex; align-items: center; gap: 6px; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 4px 4px 12px; }
+.vform:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.vform input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: 500 16px/1.2 var(--f-body); padding: 7px 0; }
+.vform input::placeholder { color: var(--muted); }
+.verror { margin: 0; font-size: 13px; color: var(--accent); }
+@media (max-width: 760px) { .dgrid { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
+.toggle {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; font: 600 13px/1 var(--f-body);
+  padding: 9px 10px; border-radius: 5px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer;
+}
+.toggle .box { width: 14px; height: 14px; border: 2px solid currentColor; border-radius: 3px; display: grid; place-items: center; }
+.toggle.own.on { background: var(--own-soft); border-color: var(--own); color: var(--own); }
+.toggle.vid.on { background: var(--vid-soft); border-color: var(--accent); color: var(--accent); }
+.toggle.on .box::after { content: ""; width: 4px; height: 8px; border: solid currentColor; border-width: 0 2px 2px 0; transform: translateY(-1px) rotate(45deg); }
+.store { font-size: 12px; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.store:hover { color: var(--accent); border-color: var(--accent); }
+.note { font-size: 13px; color: var(--muted); max-width: 70ch; margin: 0; }
+.empty { color: var(--muted); font-style: italic; padding: 8px 0; }
+aside.scope { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+aside.scope h2 { font-family: var(--f-display); font-weight: 800; font-size: 22px; text-transform: uppercase; margin: 0; }
+aside.scope ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+aside.scope p { margin: 0; font-size: 14px; color: var(--muted); }
+@media (max-width: 520px) {
+  .dock { display: contents; }
+  .searchbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 8px; margin-block: -8px; }
+  .rail { padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  #films { flex-wrap: nowrap; overflow-x: auto; width: 100%; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .chip { white-space: nowrap; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .meta h3 { font-size: 18px; }
+  .sync { margin-left: 0; width: 100%; }
+  .store { align-self: center; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top" id="top">
+    <nav class="crumbs" aria-label="Đường dẫn"><a href="../../">Hibe Hobby</a><span>›</span><a href="../">DaaLaMode</a><span>›</span><span aria-current="page">Hatsune Miku</span></nav>
+    <div class="eyebrow">Hibe Hobby&#x27;s Collection · Blokees DaaLaMode</div>
+    <h1>DaaLaMode<br>Hatsune Miku</h1>
+    <p class="lede">Các sản phẩm Hatsune Miku thuộc dòng DaaLaMode đang bán quốc tế. Bấm vào ảnh hoặc tên để xem chi tiết. Tick ô &quot;Đã có&quot; và &quot;Đã làm video&quot; để theo dõi bộ sưu tập.</p>
+  </header>
+
+  <div class="dock" id="dock">
+  <div class="searchbar">
+    <form class="search" id="search-form" role="search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <input id="q" type="search" enterkeyhint="search" aria-label="Tìm mẫu" placeholder="Tìm tên hoặc mã sản phẩm" autocomplete="off" spellcheck="false">
+      <button type="submit" class="search-btn" id="search-btn">Tìm</button>
+    </form>
+  </div>
+  <div class="rail" id="rail">
+    <div class="stats" id="stats"></div>
+    <div class="tickrows" aria-hidden="true">
+      <div class="tickrow"><span>Đã có</span><div class="ticks" id="ticks"></div></div>
+      <div class="tickrow"><span>Video</span><div class="ticks" id="vticks"></div></div>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Lọc theo trạng thái">
+        <button type="button" id="f-all" data-filter="all" aria-pressed="true">Tất cả</button>
+        <button type="button" id="f-own" data-filter="own" aria-pressed="false">Đã có</button>
+        <button type="button" id="f-miss" data-filter="miss" aria-pressed="false">Còn thiếu</button>
+      </div>
+      <div class="seg" role="group" aria-label="Lọc theo video">
+        <button type="button" id="v-all" data-video="all" aria-pressed="true">Mọi video</button>
+        <button type="button" id="v-done" data-video="done" aria-pressed="false">Đã làm video</button>
+        <button type="button" id="v-todo" data-video="todo" aria-pressed="false">Chưa làm video</button>
+      </div>
+      <div class="seg" role="group" aria-label="Sắp xếp">
+        <button type="button" id="s-num" data-sort="number" aria-pressed="true">Theo số</button>
+        <button type="button" id="s-new" data-sort="newest" aria-pressed="false">Mới nhất</button>
+        <button type="button" id="s-old" data-sort="oldest" aria-pressed="false">Cũ nhất</button>
+      </div>
+      <div class="controls" id="films" role="group" aria-label="Lọc theo phim"></div>
+      <span class="sync" id="sync">Đang lưu trên trình duyệt này</span>
+      <button type="button" class="auth-btn" id="auth-btn" hidden></button>
+    </div>
+  </div>
+  </div>
+
+  <main id="groups" class="wrap"></main>
+
+  <section id="detail" class="detail" hidden></section>
+
+  <aside class="scope" id="scope">
+    <h2>Phạm vi danh sách</h2>
+    <p>Gồm các sản phẩm đang có trên store quốc tế blokees.com/en-us, đối chiếu ngày 27/10/2026. Ảnh, tên và tỉ lệ nhân vật lấy từ trang sản phẩm chính thức.</p>
+    <p>Ngày ra mắt là tháng sản phẩm lên store quốc tế.</p>
+  </aside>
+</div>
+
+<script>
+const CATALOG = [{"n": 1, "code": "DL01", "name": "DaaLaMode Series - Hatsune Miku 01 Sonata Prologue", "film": "Hatsune Miku", "line": "daalamode-hatsune-miku", "sku": "73538", "date": "2026-03", "lineLabel": "DaaLaMode", "img": "../../img/p73538.webp", "poster": false, "gallery": ["../../img/p73538.webp", "../../img/gallery/p73538-2.webp", "../../img/gallery/p73538-3.webp", "../../img/gallery/p73538-4.webp", "../../img/gallery/p73538-5.webp", "../../img/gallery/p73538-6.webp", "../../img/gallery/p73538-7.webp", "../../img/gallery/p73538-8.webp"], "desc": "Step into Sonata Prologue to witness a musical miracle.", "url": "https://blokees.com/en-us/products/daalamode-series-hatsune-miku-sonata-prologue"}, {"n": 0, "code": "DL-02", "name": "DaaLaMode Series - Hatsune Miku Official Outfit", "film": "Hatsune Miku", "line": "daalamode-hatsune-miku", "sku": "73536", "date": "2026-02", "lineLabel": "DaaLaMode", "img": "../../img/p73536.webp", "poster": false, "gallery": ["../../img/p73536.webp", "../../img/gallery/p73536-2.webp", "../../img/gallery/p73536-3.webp", "../../img/gallery/p73536-4.webp", "../../img/gallery/p73536-5.webp"], "desc": "Bring Hatsune Miku to life with the Blokees Serendipity Series - Hatsune Miku Official Outfit.", "url": "https://blokees.com/en-us/products/daalamode-series-hatsune-miku-official-outfit"}, {"n": 0, "code": "DL-03", "name": "Hatsune Miku DaaLaMode Q Series - MIKU WITH YOU", "film": "Hatsune Miku", "line": "daalamode-hatsune-miku", "sku": "75700", "date": "2026-03", "lineLabel": "DaaLaMode", "img": "../../img/p75700.webp", "poster": false, "gallery": ["../../img/p75700.webp", "../../img/gallery/p75700-2.webp", "../../img/gallery/p75700-3.webp", "../../img/gallery/p75700-4.webp", "../../img/gallery/p75700-5.webp", "../../img/gallery/p75700-6.webp", "../../img/gallery/p75700-7.webp", "../../img/gallery/p75700-8.webp"], "desc": "A fantastical adventure, MIKU WITH YOU.", "url": "https://blokees.com/en-us/products/hatsune-miku-daalamode-q-series-miku-with-you"}, {"n": 0, "code": "DL-04", "name": "DaaLaMode Series - Sakura Miku", "film": "Hatsune Miku", "line": "daalamode-hatsune-miku", "sku": "73540", "date": "2026-05", "lineLabel": "DaaLaMode", "img": "../../img/p73540.webp", "poster": false, "gallery": ["../../img/p73540.webp", "../../img/gallery/p73540-2.webp", "../../img/gallery/p73540-3.webp"], "desc": "The breath of spring is in the air, and Sakura Miku has arrived!", "url": "https://blokees.com/en-us/products/daalamode-series-sakura-miku"}, {"n": 0, "code": "DL-05", "name": "DaaLaMode Series - MOJIPOD Hatsune Miku Diverse Music Festival", "film": "Hatsune Miku", "line": "daalamode-hatsune-miku", "sku": "75400", "date": "2026-09", "lineLabel": "DaaLaMode", "img": "../../img/poster/p75400.webp", "poster": true, "gallery": ["../../img/poster/p75400.webp", "../../img/p75400.webp", "../../img/gallery/p75400-2.webp", "../../img/gallery/p75400-3.webp", "../../img/gallery/p75400-4.webp", "../../img/gallery/p75400-5.webp", "../../img/gallery/p75400-6.webp", "../../img/gallery/p75400-7.webp", "../../img/gallery/p75400-8.webp"], "desc": "Hatsune Miku arrives at Diverse Music Festival with officially licensed designs inspired by festival roles.", "url": "https://blokees.com/en-us/products/daalamode-series-mojipod-hatsune-miku-diverse-music-festival"}];
+const KEY = "blokees-cc-owned-v1";
+const KEY_VIDEO = "blokees-cc-video-v1";
+const PAGE = {"films": [], "primaryLines": ["daalamode-hatsune-miku"], "unit": "mẫu", "secondary": null, "groups": [{"title": "Hatsune Miku DaaLaMode", "line": "daalamode-hatsune-miku"}], "noResultHint": "Thử tên sản phẩm hoặc mã."};
+const FILM_ORDER = PAGE.films;
+const state = { owned: new Set(), video: new Set(), filter: "all", videoFilter: "all", sort: "number", film: null, detail: null, photo: 0, query: "", links: {}, dtab: "info", vslide: 0, canEdit: true };
+const KEY_LINKS = "blokees-cc-links-v1";
+let persist = () => {};
+
+const code = (k) => k.code;
+const fmtMonth = (d) => { const [y, m] = d.split("-"); return "T" + Number(m) + "/" + y; };
+
+function readLocal(key) {
+  try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : []; } catch { return []; }
+}
+function writeLocal() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify([...state.owned]));
+    localStorage.setItem(KEY_VIDEO, JSON.stringify([...state.video]));
+    localStorage.setItem(KEY_LINKS, JSON.stringify(state.links));
+  } catch {}
+}
+function readLocalLinks() {
+  try { const raw = localStorage.getItem(KEY_LINKS); const v = raw ? JSON.parse(raw) : {}; return v && typeof v === "object" ? v : {}; } catch { return {}; }
+}
+
+function parseVideoUrl(text) {
+  const raw = text.trim();
+  if (!raw) return null;
+  try {
+    const u = new URL(/^https?:\/\//i.test(raw) ? raw : "https://" + raw);
+    return (u.protocol === "https:" || u.protocol === "http:") && u.hostname.includes(".") ? u.href : null;
+  } catch { return null; }
+}
+
+function siteName(href) {
+  const host = new URL(href).hostname.replace(/^www\.|^m\./, "");
+  if (/youtube\.com|youtu\.be/.test(host)) return "YouTube";
+  if (/tiktok\.com/.test(host)) return "TikTok";
+  if (/facebook\.com|fb\.watch/.test(host)) return "Facebook";
+  if (/instagram\.com/.test(host)) return "Instagram";
+  return host;
+}
+
+function saveLinks() {
+  writeLocal();
+  persist();
+  render();
+}
+
+function buildFilms() {
+  const box = document.getElementById("films");
+  const make = (label, value) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = label;
+    b.id = "film-" + (value || "all").replace(/\W+/g, "-").toLowerCase();
+    b.setAttribute("aria-pressed", String(state.film === value));
+    b.addEventListener("click", () => { state.film = value; render(); });
+    box.appendChild(b);
+  };
+  box.textContent = "";
+  make("Mọi phim", null);
+  FILM_ORDER.forEach((f) => make(f, f));
+}
+
+function kitCard(k) {
+  const owned = state.owned.has(k.sku);
+  const filmed = state.video.has(k.sku);
+  const el = document.createElement("article");
+  el.className = "kit" + (owned ? " owned" : "");
+  el.innerHTML = `
+    <div class="art-wrap">
+      <button type="button" class="art${k.poster ? " poster" : ""}" aria-label="Xem chi tiết ${code(k)} ${k.name}"><img loading="lazy" alt="Blokees ${code(k)} ${k.name}" src="${k.img}"></button>
+      <span class="code">${code(k)}</span>
+      ${k.dx ? '<span class="dx">DX</span>' : ""}
+      ${filmed ? `<span class="vbadge">VIDEO (${(state.links[k.sku] || []).length})</span>` : ""}
+    </div>
+    <div class="meta">
+      <h3><button type="button" class="name-link"></button></h3>
+      <div class="film"></div>
+      <div class="spec">${k.odds ? `<span>Tỉ lệ ${k.odds}</span>` : `<span>SKU ${k.skuLabel || k.sku}</span><span>${fmtMonth(k.date)}</span>`}</div>
+      ${k.children ? `<div class="progress-line">${k.children.filter((s) => state.owned.has(s)).length}/${k.children.length} nhân vật đã có · ${k.children.filter((s) => state.video.has(s)).length} đã làm video</div>` : ""}
+      <div class="row">
+        <button type="button" class="toggle own${owned ? " on" : ""}" aria-pressed="${owned}"><span class="box"></span>${owned ? "Đã có" : "Chưa có"}</button>
+        <button type="button" class="toggle vid${filmed ? " on" : ""}" aria-pressed="${filmed}"><span class="box"></span>${filmed ? "Đã làm video" : "Chưa làm video"}</button>
+        ${k.href ? `<a class="series-cta" href="${k.href}">Xem ${k.children.length} nhân vật →</a>` : ""}
+        <a class="store" href="${k.url}" target="_blank" rel="noopener">Xem trên store</a>
+      </div>
+    </div>`;
+  el.querySelector(".name-link").textContent = k.name;
+  el.querySelector(".film").textContent = k.film;
+  const open = () => { if (k.href) location.href = k.href; else openDetail(k); };
+  el.querySelector(".art").addEventListener("click", open);
+  el.querySelector(".name-link").addEventListener("click", open);
+  el.querySelector(".toggle.own").addEventListener("click", () => toggle(state.owned, k.sku));
+  el.querySelector(".toggle.vid").addEventListener("click", () => toggle(state.video, k.sku));
+  return el;
+}
+
+const slug = (k) => code(k).toLowerCase();
+let listScroll = 0;
+
+function openDetail(k) {
+  listScroll = window.scrollY;
+  state.detail = k.n;
+  state.photo = 0;
+  state.vslide = 0;
+  try { history.pushState(null, "", "#" + slug(k)); } catch {}
+  render();
+  window.scrollTo(0, 0);
+}
+
+function closeDetail() {
+  state.detail = null;
+  try { history.replaceState(null, "", location.pathname + location.search); } catch {}
+  render();
+  window.scrollTo(0, listScroll);
+}
+
+function readHash() {
+  const h = (location.hash || "").slice(1).toLowerCase();
+  const k = CATALOG.find((x) => slug(x) === h);
+  state.detail = k ? k.n : null;
+  state.photo = 0;
+}
+
+function tiktokId(href) {
+  const m = href.match(/tiktok\.com\/(?:@[^/]+\/video|video|embed(?:\/v2)?|player\/v1)\/(\d{8,})/);
+  return m ? m[1] : null;
+}
+
+function renderDetail() {
+  const box = document.getElementById("detail");
+  const i = CATALOG.findIndex((x) => x.n === state.detail);
+  const k = CATALOG[i];
+  const prev = CATALOG[(i - 1 + CATALOG.length) % CATALOG.length];
+  const next = CATALOG[(i + 1) % CATALOG.length];
+  const owned = state.owned.has(k.sku);
+  const filmed = state.video.has(k.sku);
+  const links = state.links[k.sku] || [];
+  if (!filmed) state.dtab = "info";
+  const photos = k.gallery;
+  const photo = photos[Math.min(state.photo, photos.length - 1)];
+  box.innerHTML = `
+    <nav class="dnav">
+      <button type="button" class="back" id="d-back">← Danh sách</button>
+      <span class="dnav-step">
+        <button type="button" class="step" id="d-prev" aria-label="Mẫu trước"></button>
+        <button type="button" class="step" id="d-next" aria-label="Mẫu sau"></button>
+      </span>
+    </nav>
+    <div class="dhead">
+      <div class="dcodes"><span class="code static">${code(k)}</span>${k.dx ? '<span class="dx static">DX</span>' : ""}<span class="dline">${k.lineLabel}</span></div>
+      <h2 class="dname"></h2>
+      <div class="dfilm"></div>
+      <div class="row dtoggles">
+        <button type="button" class="toggle own${owned ? " on" : ""}" id="d-own" aria-pressed="${owned}"><span class="box"></span>${owned ? "Đã có" : "Chưa có"}</button>
+        <button type="button" class="toggle vid${filmed ? " on" : ""}" id="d-vid" aria-pressed="${filmed}"><span class="box"></span>${filmed ? "Đã làm video" : "Chưa làm video"}</button>
+      </div>
+    </div>
+    <div class="dtabs" role="tablist" aria-label="Nội dung mẫu">
+      <button type="button" role="tab" class="dtab" id="tab-info" data-tab="info" aria-selected="${state.dtab === "info"}">Thông tin</button>
+      ${filmed ? `<button type="button" role="tab" class="dtab" id="tab-video" data-tab="video" aria-selected="${state.dtab === "video"}">Video <span class="dtab-n">${links.length}</span></button>` : ""}
+    </div>
+    <div class="dpanel" id="panel-info" role="tabpanel" aria-labelledby="tab-info" ${state.dtab === "info" ? "" : "hidden"}>
+      <div class="dgrid">
+        <div class="dgallery">
+          <div class="dmain"><img alt="Blokees ${code(k)} ${k.name}, ảnh ${state.photo + 1}" src="${photo}"></div>
+          ${photos.length > 1 ? `<div class="thumbs">${photos.map((p, j) => `<button type="button" class="thumb" data-photo="${j}" aria-pressed="${j === state.photo}" aria-label="Ảnh ${j + 1}"><img alt="" src="${p}"></button>`).join("")}</div>` : ""}
+        </div>
+        <div class="dinfo">
+          <dl class="dspec">
+            <div><dt>${k.odds ? "Tỉ lệ" : "SKU"}</dt><dd>${k.odds || k.skuLabel || k.sku}</dd></div>
+            <div><dt>Lên store quốc tế</dt><dd>${fmtMonth(k.date)}</dd></div>
+            <div><dt>Video</dt><dd>${links.length}</dd></div>
+          </dl>
+          <p class="ddesc"></p>
+          <a class="store" href="${k.url}" target="_blank" rel="noopener">Xem trên store Blokees</a>
+        </div>
+      </div>
+    </div>
+    ${filmed ? `
+    <div class="dpanel" id="panel-video" role="tabpanel" aria-labelledby="tab-video" ${state.dtab === "video" ? "" : "hidden"}>
+      <div class="vslider" id="d-slider"></div>
+      <form class="vform-wrap" id="d-vform">
+        <h3 class="vlinks-title">Thêm video</h3>
+        <div class="vrows" id="d-vrows"></div>
+        <div class="vactions">
+          <button type="button" class="vadd" id="d-vadd">+ Thêm link</button>
+          <button type="submit" class="search-btn">Lưu</button>
+        </div>
+        <p class="verror" id="d-verror" hidden></p>
+      </form>
+    </div>` : ""}`;
+
+  box.querySelector(".dname").textContent = k.name;
+  box.querySelector(".dfilm").textContent = k.film;
+  box.querySelector(".ddesc").textContent = k.desc || "";
+  box.querySelector("#d-prev").textContent = "← " + code(prev);
+  box.querySelector("#d-next").textContent = code(next) + " →";
+  box.querySelector("#d-back").addEventListener("click", closeDetail);
+  box.querySelector("#d-prev").addEventListener("click", () => openDetail(prev));
+  box.querySelector("#d-next").addEventListener("click", () => openDetail(next));
+  box.querySelector("#d-own").addEventListener("click", () => toggle(state.owned, k.sku));
+  box.querySelector("#d-vid").addEventListener("click", () => toggle(state.video, k.sku));
+  box.querySelectorAll("[data-photo]").forEach((b) => b.addEventListener("click", () => { state.photo = Number(b.dataset.photo); render(); }));
+  box.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { state.dtab = b.dataset.tab; render(); }));
+
+  if (filmed) {
+    buildSlider(box.querySelector("#d-slider"), k, links);
+    buildLinkForm(box, k, links);
+  }
+}
+
+function buildSlider(root, k, links) {
+  if (!links.length) {
+    root.innerHTML = '<p class="vempty">Chưa có video nào. Dán link TikTok ở bên dưới rồi bấm Lưu.</p>';
+    return;
+  }
+  state.vslide = Math.min(state.vslide, links.length - 1);
+  root.innerHTML = `
+    <div class="vstage">
+      <button type="button" class="vnav" id="v-prev" aria-label="Video trước">‹</button>
+      <div class="vtrack" id="v-track"></div>
+      <button type="button" class="vnav" id="v-next" aria-label="Video sau">›</button>
+    </div>
+    <div class="vbar"><span class="vcount" id="v-count"></span><div class="vdots" id="v-dots"></div></div>`;
+  const track = root.querySelector("#v-track");
+  const dots = root.querySelector("#v-dots");
+  links.forEach((href, j) => {
+    const slide = document.createElement("div");
+    slide.className = "vslide";
+    const id = tiktokId(href);
+    if (id) {
+      const frame = document.createElement("iframe");
+      frame.src = "https://www.tiktok.com/player/v1/" + id + "?description=1&music_info=1&rel=0";
+      frame.title = "Video " + (j + 1) + " của " + code(k) + " " + k.name;
+      frame.loading = "lazy";
+      frame.allow = "encrypted-media; fullscreen; picture-in-picture";
+      frame.allowFullscreen = true;
+      const holder = document.createElement("div");
+      holder.className = "vframe";
+      holder.appendChild(frame);
+      slide.appendChild(holder);
+    } else {
+      const card = document.createElement("a");
+      card.className = "vcard"; card.href = href; card.target = "_blank"; card.rel = "noopener";
+      const t = document.createElement("b"); t.textContent = siteName(href);
+      const u = document.createElement("span"); u.textContent = href;
+      const n = document.createElement("small"); n.textContent = /tiktok\.com/.test(href) ? "Link rút gọn không phát được trong trang. Bấm để mở trên TikTok, rồi copy link đầy đủ dán lại." : "Bấm để mở video";
+      card.append(t, u, n);
+      slide.appendChild(card);
+    }
+    const foot = document.createElement("div");
+    foot.className = "vfoot";
+    const open = document.createElement("a");
+    open.href = href; open.target = "_blank"; open.rel = "noopener"; open.className = "store";
+    open.textContent = "Mở trên " + siteName(href);
+    const del = document.createElement("button");
+    del.type = "button"; del.className = "vdel"; del.textContent = "Xóa video";
+    del.addEventListener("click", () => {
+      if (!requireEdit()) return;
+      if (del.dataset.armed !== "1") { del.dataset.armed = "1"; del.textContent = "Bấm lần nữa để xóa"; return; }
+      state.links[k.sku] = links.filter((_, x) => x !== j);
+      if (!state.links[k.sku].length) delete state.links[k.sku];
+      state.vslide = Math.max(0, j - 1);
+      saveLinks();
+    });
+    foot.append(open, del);
+    slide.appendChild(foot);
+    track.appendChild(slide);
+    const dot = document.createElement("button");
+    dot.type = "button"; dot.className = "vdot"; dot.setAttribute("aria-label", "Video " + (j + 1));
+    dot.addEventListener("click", () => go(j));
+    dots.appendChild(dot);
+  });
+  const count = root.querySelector("#v-count");
+  const mark = () => {
+    count.textContent = (state.vslide + 1) + " / " + links.length;
+    [...dots.children].forEach((d, j) => d.setAttribute("aria-current", String(j === state.vslide)));
+    root.querySelector("#v-prev").disabled = state.vslide === 0;
+    root.querySelector("#v-next").disabled = state.vslide === links.length - 1;
+  };
+  const go = (j) => {
+    state.vslide = Math.max(0, Math.min(links.length - 1, j));
+    track.scrollTo({ left: state.vslide * track.clientWidth, behavior: "smooth" });
+    mark();
+  };
+  root.querySelector("#v-prev").addEventListener("click", () => go(state.vslide - 1));
+  root.querySelector("#v-next").addEventListener("click", () => go(state.vslide + 1));
+  let t = null;
+  track.addEventListener("scroll", () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      const j = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      if (j !== state.vslide) { state.vslide = j; mark(); }
+    }, 80);
+  });
+  requestAnimationFrame(() => { track.scrollLeft = state.vslide * track.clientWidth; });
+  mark();
+}
+
+function buildLinkForm(box, k, links) {
+  const rows = box.querySelector("#d-vrows");
+  const addRow = (focus) => {
+    const row = document.createElement("div");
+    row.className = "vform";
+    const input = document.createElement("input");
+    input.type = "url"; input.inputMode = "url"; input.autocomplete = "off"; input.spellcheck = false;
+    input.id = "d-vurl-" + (rows.children.length + 1);
+    input.setAttribute("enterkeyhint", "done");
+    input.setAttribute("aria-label", "Link video " + (rows.children.length + 1));
+    input.placeholder = "Dán link video TikTok";
+    row.appendChild(input);
+    if (rows.children.length) {
+      const rm = document.createElement("button");
+      rm.type = "button"; rm.className = "vdel"; rm.textContent = "Bỏ"; rm.setAttribute("aria-label", "Bỏ ô này");
+      rm.addEventListener("click", () => row.remove());
+      row.appendChild(rm);
+    }
+    rows.appendChild(row);
+    if (focus) input.focus();
+  };
+  addRow(false);
+  box.querySelector("#d-vadd").addEventListener("click", () => addRow(true));
+  box.querySelector("#d-vform").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!requireEdit()) return;
+    const err = box.querySelector("#d-verror");
+    const inputs = [...rows.querySelectorAll("input")];
+    if (!inputs.some((x) => x.value.trim())) { err.textContent = "Hãy dán ít nhất một link video."; err.hidden = false; return; }
+    const bad = [];
+    const fresh = [];
+    const known = links.map((h) => tiktokId(h) || h);
+    inputs.forEach((x, idx) => {
+      x.removeAttribute("aria-invalid");
+      if (!x.value.trim()) return;
+      const href = parseVideoUrl(x.value);
+      if (!href) { bad.push(idx + 1); x.setAttribute("aria-invalid", "true"); return; }
+      const key = tiktokId(href) || href;
+      if (!known.includes(key)) { known.push(key); fresh.push(href); }
+    });
+    if (bad.length) { err.textContent = "Link ở ô " + bad.join(", ") + " chưa đúng. Hãy dán đầy đủ địa chỉ video, ví dụ https://www.tiktok.com/@hibehobby/video/..."; err.hidden = false; return; }
+    if (!fresh.length) { err.textContent = "Các video này đã có trong danh sách."; err.hidden = false; return; }
+    state.links[k.sku] = [...links, ...fresh];
+    state.vslide = state.links[k.sku].length - 1;
+    saveLinks();
+  });
+}
+
+const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/gi, "d").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+function matchesQuery(k) {
+  const q = norm(state.query);
+  if (!q) return true;
+  const codeQuery = q.match(/^([a-z]{1,3})?0*(\d{1,2})$/);
+  if (codeQuery && Number(codeQuery[2]) === k.n && (!codeQuery[1] || norm(k.code).startsWith(codeQuery[1]))) return true;
+  return norm([k.name, k.film, code(k), k.sku, k.dx ? "dx" : ""].join(" ")).includes(q);
+}
+
+function visible(k) {
+  if (!matchesQuery(k)) return false;
+  if (state.film && k.film !== state.film) return false;
+  const owned = state.owned.has(k.sku);
+  if (state.filter === "own" && !owned) return false;
+  if (state.filter === "miss" && owned) return false;
+  const filmed = state.video.has(k.sku);
+  if (state.videoFilter === "done" && !filmed) return false;
+  if (state.videoFilter === "todo" && filmed) return false;
+  return true;
+}
+
+function section(title, note, kits) {
+  const s = document.createElement("section");
+  s.className = "group";
+  const ownedHere = kits.filter((k) => state.owned.has(k.sku)).length;
+  const filmedHere = kits.filter((k) => state.video.has(k.sku)).length;
+  s.innerHTML = `<div class="group-head"><h2></h2><span class="count">${ownedHere}/${kits.length} đã có · ${filmedHere}/${kits.length} video</span></div>`;
+  s.querySelector("h2").textContent = title;
+  if (note) { const p = document.createElement("p"); p.className = "note"; p.textContent = note; s.appendChild(p); }
+  const shown = kits.filter(visible);
+  if (!shown.length && state.query.trim()) return document.createDocumentFragment();
+  if (!shown.length) {
+    const e = document.createElement("div"); e.className = "empty"; e.textContent = "Không có kit nào khớp bộ lọc.";
+    s.appendChild(e);
+  } else {
+    const g = document.createElement("div"); g.className = "grid";
+    shown.forEach((k) => g.appendChild(kitCard(k)));
+    s.appendChild(g);
+  }
+  return s;
+}
+
+function fillTicks(id, kits, set) {
+  const box = document.getElementById(id);
+  box.textContent = "";
+  box.style.gridTemplateColumns = "repeat(" + Math.max(1, kits.length) + ", minmax(0, 1fr))";
+  kits.forEach((k) => { const t = document.createElement("div"); t.className = "tick" + (set.has(k.sku) ? " on" : ""); box.appendChild(t); });
+}
+
+function render() {
+  const inDetail = state.detail != null;
+  ["top", "dock", "groups", "scope"].forEach((id) => { document.getElementById(id).hidden = inDetail; });
+  document.getElementById("detail").hidden = !inDetail;
+  if (inDetail) { renderDetail(); return; }
+  const primary = CATALOG.filter((k) => PAGE.primaryLines.includes(k.line));
+  const secondary = PAGE.secondary ? CATALOG.filter((k) => k.line === PAGE.secondary.line) : [];
+  const count = (list, set) => list.filter((k) => set.has(k.sku)).length;
+  document.getElementById("stats").innerHTML =
+    `<div class="stat"><b>${count(primary, state.owned)}</b><span>/ ${primary.length} ${PAGE.unit} đã có</span></div>` +
+    `<div class="stat"><b class="vid-num">${count(primary, state.video)}</b><span>/ ${primary.length} ${PAGE.unit} đã làm video</span></div>` +
+    (secondary.length ? `<div class="stat"><b>${count(secondary, state.owned)}</b><span>/ ${secondary.length} ${PAGE.secondary.label} đã có</span></div>` : "");
+  fillTicks("ticks", primary, state.owned);
+  fillTicks("vticks", primary, state.video);
+  document.getElementById("films").hidden = FILM_ORDER.length < 2;
+
+  document.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === state.filter)));
+  document.querySelectorAll("[data-video]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.video === state.videoFilter)));
+  document.querySelectorAll("[data-sort]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.sort === state.sort)));
+  buildFilms();
+
+  const root = document.getElementById("groups");
+  root.textContent = "";
+  if (state.sort !== "number") {
+    const dir = state.sort === "newest" ? -1 : 1;
+    const kits = CATALOG.filter((k) => !state.film || k.film === state.film)
+      .sort((a, b) => dir * (a.date.localeCompare(b.date) || a.n - b.n));
+    const months = [];
+    kits.forEach((k) => {
+      const last = months[months.length - 1];
+      last && last.date === k.date ? last.kits.push(k) : months.push({ date: k.date, kits: [k] });
+    });
+    months.forEach((m) => {
+      const [y, mo] = m.date.split("-");
+      root.appendChild(section("Tháng " + Number(mo) + "/" + y, null, m.kits));
+    });
+  } else {
+    renderGroups(root);
+  }
+  if (!root.children.length) {
+    const p = document.createElement("p");
+    p.className = "noresult";
+    p.textContent = "Không tìm thấy mẫu nào khớp với \"" + state.query.trim() + "\". " + PAGE.noResultHint + "";
+    root.appendChild(p);
+  }
+}
+
+function renderGroups(root) {
+  PAGE.groups.forEach((g) => {
+    if (state.film && g.film && g.film !== state.film) return;
+    const kits = CATALOG.filter((k) => (!g.line || k.line === g.line) && (!g.film || k.film === g.film) && (!state.film || k.film === state.film));
+    if (!kits.length) return;
+    const range = g.range ? " · " + code(kits[0]) + (kits.length > 1 ? "–" + code(kits[kits.length - 1]) : "") : "";
+    root.appendChild(section(g.title + range, g.note || null, kits));
+  });
+}
+
+function requireEdit() {
+  if (state.canEdit) return true;
+  if (window.HIBE && window.HIBE.signIn) window.HIBE.signIn();
+  return false;
+}
+
+function toggle(set, sku) {
+  if (!requireEdit()) return;
+  set.has(sku) ? set.delete(sku) : set.add(sku);
+  writeLocal();
+  persist();
+  render();
+}
+
+document.querySelectorAll("[data-filter]").forEach((b) => b.addEventListener("click", () => { state.filter = b.dataset.filter; render(); }));
+document.querySelectorAll("[data-video]").forEach((b) => b.addEventListener("click", () => { state.videoFilter = b.dataset.video; render(); }));
+document.querySelectorAll("[data-sort]").forEach((b) => b.addEventListener("click", () => { state.sort = b.dataset.sort; render(); }));
+document.getElementById("q").addEventListener("input", (e) => { state.query = e.target.value; render(); });
+document.getElementById("search-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const input = document.getElementById("q");
+  state.query = input.value;
+  render();
+  input.blur();
+  const groups = document.getElementById("groups");
+  const offset = document.querySelector(".searchbar").getBoundingClientRect().height + 12;
+  window.scrollTo({ top: Math.max(0, groups.getBoundingClientRect().top + window.scrollY - offset), behavior: "smooth" });
+});
+
+window.addEventListener("hashchange", () => { readHash(); render(); });
+window.addEventListener("popstate", () => { readHash(); render(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.detail != null) closeDetail(); });
+
+const SEED = {"owned": ["71142", "71144", "71145", "71151", "71152", "71155", "71158", "71163", "71164", "71177", "71183", "71184", "71185", "71422", "71423", "71425", "71426", "71161", "71162", "71143", "71157", "71176", "71141"], "video": ["71142", "71143", "71144", "71145", "71151", "71152", "71155", "71158", "71163", "71177", "71426", "71164"], "links": {"71142": ["https://www.tiktok.com/@hibehobby/video/7684305576192544018", "https://www.tiktok.com/@hibehobby/video/7684546464135122184"]}};
+const FIREBASE = {"config": {"apiKey": "AIzaSyAW9Jgasv7GilBY-VRQJJDLMTG0BJQlmwI", "authDomain": "hibe-hobby-collection.firebaseapp.com", "projectId": "hibe-hobby-collection", "storageBucket": "hibe-hobby-collection.firebasestorage.app", "messagingSenderId": "747277038703", "appId": "1:747277038703:web:0a49978e7d3a7ff928c99a"}, "docId": "hibe", "ownerEmail": "bahieu10122002@gmail.com"};
+let hasLocal = false;
+try { hasLocal = localStorage.getItem(KEY) !== null; } catch {}
+if (hasLocal) {
+  state.owned = new Set(readLocal(KEY));
+  state.video = new Set(readLocal(KEY_VIDEO));
+  state.links = readLocalLinks();
+} else {
+  state.owned = new Set(SEED.owned || []);
+  state.video = new Set(SEED.video || []);
+  state.links = SEED.links || {};
+  writeLocal();
+}
+readHash();
+render();
+
+const snapshotState = () => ({ owned: [...state.owned].sort(), video: [...state.video].sort(), links: state.links });
+
+window.HIBE = {
+  firebase: FIREBASE,
+  snapshot: snapshotState,
+  apply(data) {
+    const next = {
+      owned: [...new Set(data.owned || [])].sort(),
+      video: [...new Set(data.video || [])].sort(),
+      links: data.links && typeof data.links === "object" ? data.links : {},
+    };
+    if (JSON.stringify(next) === JSON.stringify(snapshotState())) return;
+    state.owned = new Set(next.owned);
+    state.video = new Set(next.video);
+    state.links = next.links;
+    writeLocal();
+    render();
+  },
+  setPersist(fn) { persist = fn; },
+  setCanEdit(value) {
+    state.canEdit = value;
+    document.body.classList.toggle("readonly", !value);
+    render();
+  },
+  setStatus(text, action) {
+    document.getElementById("sync").textContent = text;
+    const btn = document.getElementById("auth-btn");
+    btn.hidden = !action;
+    if (action) { btn.textContent = action.label; btn.onclick = action.run; }
+  },
+};
+
+if (FIREBASE) {
+  window.HIBE.setCanEdit(false);
+  window.HIBE.setStatus("Đang tải dữ liệu…");
+}
+</script>
+<script type="module">
+const H = window.HIBE;
+const cfg = H.firebase;
+if (cfg) {
+  const base = "https://www.gstatic.com/firebasejs/11.0.2/";
+  try {
+    const [{ initializeApp }, A, F] = await Promise.all([
+      import(base + "firebase-app.js"),
+      import(base + "firebase-auth.js"),
+      import(base + "firebase-firestore.js"),
+    ]);
+    const app = initializeApp(cfg.config);
+    const auth = A.getAuth(app);
+    const db = F.getFirestore(app);
+    const ref = F.doc(db, "collections", cfg.docId);
+    const provider = new A.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
+    let loaded = false;
+    let remoteExists = false;
+    let isOwner = false;
+
+    const signIn = async () => {
+      try {
+        await A.signInWithPopup(auth, provider);
+      } catch (e) {
+        if (e && (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment")) {
+          await A.signInWithRedirect(auth, provider);
+        } else if (!(e && e.code === "auth/popup-closed-by-user" || e && e.code === "auth/cancelled-popup-request")) {
+          H.setStatus("Đăng nhập không thành công: " + (e && e.code ? e.code : "lỗi không rõ"), { label: "Thử lại", run: signIn });
+        }
+      }
+    };
+    H.signIn = signIn;
+
+    let timer = null;
+    const save = () => {
+      clearTimeout(timer);
+      H.setStatus("Đang lưu…", { label: "Đăng xuất", run: () => A.signOut(auth) });
+      timer = setTimeout(async () => {
+        try {
+          await F.setDoc(ref, { ...H.snapshot(), updatedAt: F.serverTimestamp() });
+          remoteExists = true;
+          H.setStatus("Đã đồng bộ · " + auth.currentUser.email, { label: "Đăng xuất", run: () => A.signOut(auth) });
+        } catch (e) {
+          H.setStatus("Chưa lưu được lên mạng, vẫn giữ trên máy này (" + (e && e.code ? e.code : "lỗi") + ")", { label: "Đăng xuất", run: () => A.signOut(auth) });
+        }
+      }, 500);
+    };
+
+    const showViewer = (user) => {
+      if (user) H.setStatus("Tài khoản " + user.email + " chỉ được xem, không được sửa", { label: "Đổi tài khoản", run: async () => { await A.signOut(auth); signIn(); } });
+      else H.setStatus(loaded ? "Chế độ xem · Đăng nhập để chỉnh sửa" : "Đang tải dữ liệu…", { label: "Đăng nhập Google", run: signIn });
+    };
+
+    F.onSnapshot(ref, (snap) => {
+      if (snap.metadata.hasPendingWrites) return;
+      loaded = true;
+      remoteExists = snap.exists();
+      if (remoteExists) H.apply(snap.data());
+      else if (isOwner) save();
+      if (!isOwner) showViewer(auth.currentUser);
+    }, (e) => {
+      H.setStatus("Không tải được dữ liệu online, đang dùng bản trên máy (" + (e && e.code ? e.code : "lỗi") + ")", { label: "Đăng nhập Google", run: signIn });
+    });
+
+    A.getRedirectResult(auth).catch(() => {});
+    A.onAuthStateChanged(auth, (user) => {
+      isOwner = !!(user && user.email && user.email.toLowerCase() === cfg.ownerEmail.toLowerCase());
+      H.setCanEdit(isOwner);
+      if (isOwner) {
+        H.setPersist(save);
+        if (loaded && !remoteExists) save();
+        else H.setStatus("Đã đồng bộ · " + user.email, { label: "Đăng xuất", run: () => A.signOut(auth) });
+      } else {
+        H.setPersist(() => {});
+        showViewer(user);
+      }
+    });
+  } catch (e) {
+    H.setCanEdit(true);
+    H.setStatus("Không kết nối được Firebase, đang lưu trên máy này");
+  }
+}
+</script>
+
+</html>

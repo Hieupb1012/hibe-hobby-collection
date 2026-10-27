@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-title" content="Hibe Hobby">
+<meta name="theme-color" content="#0f1216">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Armor Version · Hibe Hobby</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root {
+  --bg: #eceff2; --surface: #ffffff; --panel: #dfe4ea; --ink: #161a20; --muted: #5d6673; --line: #c9d0d8;
+  --accent: #c8430e; --accent-ink: #ffffff;
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0f1216; --surface: #171b21; --panel: #1f252d; --ink: #e9edf2; --muted: #98a2ae; --line: #2c333d; --accent: #ff7a3d; --accent-ink: #1a0d05; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #0f1216; --surface: #171b21; --panel: #1f252d; --ink: #e9edf2; --muted: #98a2ae; --line: #2c333d; --accent: #ff7a3d; --accent-ink: #1a0d05; color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px;
+}
+.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+header { padding-top: 32px; display: flex; flex-direction: column; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { width: 56px; height: 56px; object-fit: contain; }
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.crumbs a:hover { color: var(--accent); border-color: var(--accent); }
+.crumbs span[aria-current] { color: var(--ink); font-weight: 600; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 7vw, 76px); line-height: .92; margin: 0; letter-spacing: .01em; text-transform: uppercase; text-wrap: balance; }
+.lede { margin: 0; max-width: 62ch; color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card {
+  display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  overflow: hidden; color: var(--ink); text-decoration: none; min-width: 0; transition: border-color .15s, transform .15s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.art {
+  aspect-ratio: 4 / 3; max-width: 100%; background-color: var(--panel);
+  background-image: radial-gradient(var(--line) 1px, transparent 1.2px); background-size: 12px 12px;
+  position: relative; overflow: hidden;
+}
+.art img { position: absolute; inset: 14px; width: calc(100% - 28px); height: calc(100% - 28px); object-fit: contain; }
+.meta { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; }
+.kicker { font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.meta h2 { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: 30px; line-height: 1; text-transform: uppercase; display: flex; justify-content: space-between; gap: 8px; }
+.meta h2 span { color: var(--accent); }
+.meta p { margin: 0; color: var(--muted); font-size: 14px; }
+.count { font-family: var(--f-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <nav class="crumbs" aria-label="Đường dẫn"><a href="../">Hibe Hobby</a><span>›</span><span aria-current="page">Armor Version</span></nav>
+    
+    <div class="eyebrow">Hibe Hobby&#x27;s Collection</div>
+    <h1>Armor Version</h1>
+    <p class="lede">Model kit Herospire của Blokees. Chọn thương hiệu để xem checklist.</p>
+  </header>
+  <main class="cards">
+    <a class="card" href="herospire/">
+      <div class="art"><img alt="" src="../img/p85046.webp" loading="lazy"></div>
+      <div class="meta">
+        <span class="kicker">Armor Version</span>
+        <h2>Herospire<span aria-hidden="true">→</span></h2>
+        <p>AV05–AV28.</p>
+        <span class="count">3 mẫu</span>
+      </div>
+    </a>
+  </main>
+</div>
+<script>
+if (/^#c[ch]\d{2}$/i.test(location.hash) && "") location.replace("" + location.hash);
+</script>
+
+</html>

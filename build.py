@@ -55,7 +55,7 @@ CC_SCOPE = """    <h2>Phạm vi danh sách</h2>
       <li>Bản mẫu chưa sơn và bản trắng từ cuộc thi BFC.</li>
       <li>EX Elite Bumblebee (giới hạn 5.000 hộp, chỉ bán theo sự kiện).</li>
     </ul>
-    <p>Từ số 26, Blokees đổi tên dòng này thành Champion Class nhưng vẫn đánh số tiếp. Các số 28–31 đã được công bố nhưng chưa lên store quốc tế, nên chưa có trong danh sách.</p>
+    <p>Từ số 26, Blokees đổi tên dòng này thành Champion Class nhưng vẫn đánh số tiếp. Các số 30–31 đã được công bố nhưng chưa lên store quốc tế, nên chưa có trong danh sách.</p>
     <p>Ngày ra mắt là tháng kit lên store quốc tế. Ở Trung Quốc, nhiều kit ra sớm hơn vài tháng.</p>"""
 
 
@@ -138,10 +138,93 @@ for series in DEFENDER:
          "noResultHint": "Thử tên nhân vật, ví dụ Optimus hoặc Batman.", "scope": FIGURE_SCOPE},
         [f"fig-{key}"]))
 
+GENERIC_SCOPE = """    <h2>Phạm vi danh sách</h2>
+    <p>Gồm các sản phẩm đang có trên store quốc tế blokees.com/en-us, đối chiếu ngày 27/10/2026. Ảnh, tên và tỉ lệ nhân vật lấy từ trang sản phẩm chính thức.</p>
+    <p>Ngày ra mắt là tháng sản phẩm lên store quốc tế.</p>"""
+
+LINES = json.loads((ROOT / "data" / "lines.json").read_text(encoding="utf-8"))["lines"]
+KNOWN_SKUS = {k["sku"] for name in ["catalog.json", "defender.json"] for k in json.loads((ROOT / "data" / name).read_text(encoding="utf-8"))}
+GENERIC_ITEMS = []
+GENERIC_LINE_LABELS = {}
+hubs = {p["path"]: p for p in PAGES if p["kind"] == "hub"}
+pages_by_path = {p["path"]: p for p in PAGES}
+
+
+def code_range(items):
+    return items[0]["code"] + (f"–{items[-1]['code']}" if len(items) > 1 else "")
+
+
+for line in LINES:
+    lpath = f"{line['slug']}/"
+    frs = [{**f, "items": [i for i in f["items"] if i["sku"] not in KNOWN_SKUS]} for f in line["franchises"]]
+    frs = [f for f in frs if f["items"]]
+    if not frs:
+        continue
+    if lpath in hubs:
+        home_card = next((c for c in hubs[""]["cards"] if c["href"] == lpath), None)
+        if home_card:
+            home_card["lines"] += [f"{line['slug']}-{f['slug']}" for f in frs]
+            if line["slug"] == "champion-class":
+                home_card["desc"] = "Transformers, " + ", ".join(f["label"] for f in frs) + "."
+    if lpath not in hubs:
+        hub = {"kind": "hub", "path": lpath, "crumb": line["label"], "title": f"{line['label']} · Hibe Hobby",
+               "eyebrow": "Hibe Hobby's Collection", "h1": line["label"],
+               "lede": f"{line['kicker']} của Blokees. Chọn thương hiệu để xem checklist.", "cards": []}
+        PAGES.append(hub)
+        hubs[lpath] = hub
+        pages_by_path[lpath] = hub
+        newest = max((i for f in frs for i in f["items"]), key=lambda i: i["date"])
+        hubs[""]["cards"].append({"href": lpath, "kicker": line["kicker"], "title": line["label"],
+                                  "desc": ", ".join(f["label"] for f in frs) + ".",
+                                  "lines": [f"{line['slug']}-{f['slug']}" for f in frs], "img": newest["key"]})
+    for fr in frs:
+        lid = f"{line['slug']}-{fr['slug']}"
+        GENERIC_LINE_LABELS[lid] = line["label"]
+        fpath = f"{lpath}{fr['slug']}/"
+        existing = pages_by_path.get(fpath)
+        if existing:
+            extra = f"{existing['lines'][0]}-extra"
+            GENERIC_LINE_LABELS[extra] = line["label"]
+            existing["lines"].append(extra)
+            existing["page"]["groups"].append({"title": "Phụ kiện và bản đặc biệt", "line": extra})
+            GENERIC_ITEMS.extend({**i, "line": extra, "film": fr["label"]} for i in fr["items"])
+            continue
+        GENERIC_ITEMS.extend({**i, "line": lid, "film": fr["label"]} for i in fr["items"])
+        newest = max(fr["items"], key=lambda i: i["date"])
+        hubs[lpath]["cards"].append({"href": f"{fr['slug']}/", "kicker": line["label"], "title": fr["label"],
+                                     "desc": code_range(fr["items"]) + ".", "lines": [lid], "img": newest["key"]})
+        page = checklist(
+            fpath, fr["label"], f"{line['label']} {fr['label']} · Hibe Hobby", f"{html.escape(line['label'])}<br>{html.escape(fr['label'])}",
+            f"Hibe Hobby's Collection · Blokees {line['label']}",
+            f"Các sản phẩm {fr['label']} thuộc dòng {line['label']} đang bán quốc tế. Bấm vào ảnh hoặc tên để xem chi tiết. Tick ô \"Đã có\" và \"Đã làm video\" để theo dõi bộ sưu tập.",
+            "Tìm tên hoặc mã sản phẩm",
+            {"films": [], "primaryLines": [lid], "unit": "mẫu", "secondary": None,
+             "groups": [{"title": f"{fr['label']} {line['label']}", "line": lid}],
+             "noResultHint": "Thử tên sản phẩm hoặc mã.", "scope": GENERIC_SCOPE},
+            [lid])
+        PAGES.append(page)
+        pages_by_path[fpath] = page
+        for item in fr["items"]:
+            if item["key"] not in figures:
+                continue
+            PAGES.append(checklist(
+                f"{fpath}{item['code'].lower()}/", item["name"],
+                f"{item['code']} {item['name']} · Hibe Hobby", f"{item['code']}<br>{html.escape(item['name'])}",
+                f"Hibe Hobby's Collection · {fr['label']} {line['label']}",
+                f"Từng nhân vật trong {item['name']}. Tick ô \"Đã có\" và \"Đã làm video\" cho từng nhân vật.",
+                "Tìm tên nhân vật",
+                {"films": [], "primaryLines": ["regular"], "unit": "nhân vật thường",
+                 "secondary": {"line": "chase", "label": "bản hiếm"},
+                 "groups": [{"title": "Nhân vật thường", "line": "regular"},
+                            {"title": "Bản hiếm · Chase / Secret", "line": "chase",
+                             "note": "Không tính vào tiến độ nhân vật thường ở trên."}],
+                 "noResultHint": "Thử tên nhân vật.", "scope": FIGURE_SCOPE},
+                [f"fig-{item['key']}"]))
+
 CRUMBS = {p["path"]: p["crumb"] for p in PAGES}
 
 LINE_LABELS = {"classic": "Classic Class", "champion": "Champion Class", "defender-transformers": "Defender Version",
-               "defender-batman": "DC Defender Version", "defender-astral-rally": "Defender Version"}
+               "defender-batman": "DC Defender Version", "defender-astral-rally": "Defender Version", **GENERIC_LINE_LABELS}
 
 
 def crumbs(path):
@@ -167,6 +250,7 @@ if DIST.exists():
     shutil.rmtree(DIST)
 (DIST / "img" / "gallery").mkdir(parents=True)
 (DIST / "img" / "poster").mkdir(parents=True)
+shutil.copy2(ROOT / "icon" / "apple-touch-icon-180.png", DIST / "img" / "brand.png")
 
 POSTERS = ROOT / "img" / "poster"
 for source in sorted(POSTERS.glob("*-source.*")):
@@ -191,46 +275,61 @@ firebase_file = ROOT / "data" / "firebase.json"
 firebase = json.loads(firebase_file.read_text(encoding="utf-8")) if firebase_file.exists() else None
 
 kits = []
+
+
+def add_kit(kit, key, fig_key, href):
+    detail = details.get(key, {})
+    thumb = ROOT / "img" / f"{key}.webp"
+    if thumb.exists():
+        shutil.copy2(thumb, DIST / "img" / f"{key}.webp")
+    extra = []
+    for g in detail.get("gallery", [])[1:]:
+        if (ROOT / "img" / "gallery" / g).exists():
+            shutil.copy2(ROOT / "img" / "gallery" / g, DIST / "img" / "gallery" / g)
+            extra.append(f"img/gallery/{g}")
+    kit["lineLabel"] = LINE_LABELS[kit["line"]]
+    kit["img"] = card_image(key) if (POSTERS / f"{key}.webp").exists() or thumb.exists() else "img/brand.png"
+    kit["poster"] = kit["img"].startswith("img/poster/") or kit["line"].startswith("defender-") or fig_key in figures
+    kit["gallery"] = [kit["img"], *([f"img/{key}.webp"] if kit["img"] != f"img/{key}.webp" and thumb.exists() else []), *extra]
+    kit["desc"] = detail.get("desc", "")
+    kit["url"] = STORE + kit.pop("handle")
+    kits.append(kit)
+    if fig_key not in figures:
+        return
+    kit["href"] = href
+    kit["children"] = []
+    (DIST / "img" / "fig").mkdir(exist_ok=True)
+    for i, fig in enumerate(figures[fig_key], 1):
+        name_img = f"{fig_key}-{i:02d}.webp"
+        has_img = (ROOT / "img" / "fig" / name_img).exists()
+        if has_img:
+            shutil.copy2(ROOT / "img" / "fig" / name_img, DIST / "img" / "fig" / name_img)
+        rare = fig["line"] == "chase"
+        sku = f"{kit['sku']}-{i:02d}"
+        kit["children"].append(sku)
+        img = f"img/fig/{name_img}" if has_img else "img/brand.png"
+        kits.append({
+            "n": i, "code": f"{kit['code']}-{i:02d}", "name": fig["name"], "film": kit["name"],
+            "line": fig["line"], "page": f"fig-{fig_key}", "sku": sku, "skuLabel": kit["sku"],
+            "date": kit["date"], "odds": fig["odds"],
+            "lineLabel": ("Bản hiếm" if rare else "Nhân vật thường") + (" · " + fig["odds"] if fig["odds"] else ""),
+            "img": img, "gallery": [img], "desc": "", "url": kit["url"],
+        })
+
+
 for name in ["catalog.json", "defender.json"]:
     for kit in json.loads((ROOT / "data" / name).read_text(encoding="utf-8")):
         key = kit_code(kit).lower()
-        detail = details.get(key, {})
-        shutil.copy2(ROOT / "img" / f"{key}.webp", DIST / "img" / f"{key}.webp")
-        extra = []
-        for g in detail.get("gallery", [])[1:]:
-            shutil.copy2(ROOT / "img" / "gallery" / g, DIST / "img" / "gallery" / g)
-            extra.append(f"img/gallery/{g}")
         kit["code"] = kit_code(kit)
-        kit["lineLabel"] = LINE_LABELS[kit["line"]]
-        kit["img"] = card_image(key)
-        kit["poster"] = kit["img"].startswith("img/poster/") or kit["line"].startswith("defender-")
-        kit["gallery"] = [kit["img"], *([f"img/{key}.webp"] if kit["img"] != f"img/{key}.webp" else []), *extra]
-        kit["desc"] = detail.get("desc", "")
-        kit["url"] = STORE + kit.pop("handle")
-        kits.append(kit)
-        if kit["code"].lower() in figures:
-            series_key = kit["code"].lower()
-            kit["href"] = f"{series_key}/"
-            kit["children"] = []
-            (DIST / "img" / "fig").mkdir(exist_ok=True)
-            for i, fig in enumerate(figures[series_key], 1):
-                name_img = f"{series_key}-{i:02d}.webp"
-                shutil.copy2(ROOT / "img" / "fig" / name_img, DIST / "img" / "fig" / name_img)
-                rare = fig["line"] == "chase"
-                sku = f"{kit['sku']}-{i:02d}"
-                kit["children"].append(sku)
-                kits.append({
-                    "n": i, "code": f"{kit['code']}-{i:02d}", "name": fig["name"], "film": kit["name"],
-                    "line": fig["line"], "page": f"fig-{series_key}", "sku": sku, "skuLabel": kit["sku"],
-                    "date": kit["date"], "odds": fig["odds"],
-                    "lineLabel": ("Bản hiếm" if rare else "Nhân vật thường") + " · " + fig["odds"],
-                    "img": f"img/fig/{name_img}", "gallery": [f"img/fig/{name_img}"], "desc": "",
-                    "url": kit["url"],
-                })
+        add_kit(kit, key, key, f"{key}/")
+
+for item in GENERIC_ITEMS:
+    kit = {"n": item["n"], "code": item["code"], "name": item["name"], "film": item["film"], "line": item["line"],
+           "sku": item["sku"], "date": item["date"], "handle": item["handle"]}
+    add_kit(kit, item["key"], item["key"], f"{item['code'].lower()}/")
 
 shutil.copy2(ROOT / "icon" / "favicon-64.png", DIST / "favicon.png")
 shutil.copy2(ROOT / "icon" / "apple-touch-icon-180.png", DIST / "apple-touch-icon.png")
-shutil.copy2(ROOT / "icon" / "apple-touch-icon-180.png", DIST / "img" / "brand.png")
 
 checklist_tpl = (ROOT / "template.html").read_text(encoding="utf-8")
 hub_tpl = (ROOT / "hub.html").read_text(encoding="utf-8")
@@ -262,8 +361,9 @@ for page in PAGES:
         for c in page["cards"]:
             n = sum(1 for k in kits if k["line"] in c["lines"])
             unit = "series" if c["lines"][0].startswith("defender") else "mẫu"
+            img_src = card_image(c["img"]) if (POSTERS / f"{c['img']}.webp").exists() or (ROOT / "img" / f"{c['img']}.webp").exists() else "img/brand.png"
             cards.append(f'''    <a class="card" href="{c["href"]}">
-      <div class="art"><img alt="" src="{prefix}{card_image(c["img"])}" loading="lazy"></div>
+      <div class="art"><img alt="" src="{prefix}{img_src}" loading="lazy"></div>
       <div class="meta">
         <span class="kicker">{html.escape(c["kicker"])}</span>
         <h2>{html.escape(c["title"])}<span aria-hidden="true">→</span></h2>

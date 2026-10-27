@@ -12,6 +12,7 @@ SIZE = 480
 
 
 def fetch(url):
+    url = url.replace("https://blokees.com/cdn/shop/files/", "https://cdn.shopify.com/s/files/1/0679/6538/6990/files/")
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     for attempt in range(8):
         try:
@@ -29,7 +30,7 @@ figures = json.loads((ROOT / "data" / "figures.json").read_text(encoding="utf-8"
 
 OUT.mkdir(parents=True, exist_ok=True)
 for key, items in figures.items():
-    gallery = products[series[key]["handle"]]["images"]
+    gallery = products[series[key]["handle"]]["images"] if key in series else []
     for i, fig in enumerate(items, 1):
         target = OUT / f"{key}-{i:02d}.webp"
         if target.exists():

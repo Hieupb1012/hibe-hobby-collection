@@ -1,0 +1,2552 @@
+{
+ "lines": [
+  {
+   "slug": "champion-class",
+   "label": "Champion Class",
+   "kicker": "Model kit lắp ráp",
+   "franchises": [
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p71141",
+       "sku": "71141",
+       "n": 1,
+       "title": "Transformers Classic Class | Optimus Prime 01 | Rise of the Beasts",
+       "name": "Optimus Prime 01 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-optimus-prime",
+       "code": "CC01"
+      },
+      {
+       "key": "p71142",
+       "sku": "71142",
+       "n": 2,
+       "title": "Transformers Classic Class | Bumblebee 02 | Rise of the Beasts",
+       "name": "Bumblebee 02 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-bumblebee",
+       "code": "CC02"
+      },
+      {
+       "key": "p71143",
+       "sku": "71143",
+       "n": 3,
+       "title": "Transformers Classic Class | Scourge 03 | Rise of the Beasts",
+       "name": "Scourge 03 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-scourge",
+       "code": "CC03"
+      },
+      {
+       "key": "p71144",
+       "sku": "71144",
+       "n": 4,
+       "title": "Transformers Classic Class | Optimus Primal Beast 04 | Rise of the Beasts",
+       "name": "Optimus Primal Beast 04 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-optimus-primal-beast",
+       "code": "CC04"
+      },
+      {
+       "key": "p71145",
+       "sku": "71145",
+       "n": 5,
+       "title": "Transformers Classic Class | Optimus Primal Robot 05 | Rise of the Beasts",
+       "name": "Optimus Primal Robot 05 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-optimus-primal-robot",
+       "code": "CC05"
+      },
+      {
+       "key": "p71151",
+       "sku": "71151",
+       "n": 6,
+       "title": "Transformers Classic Class | Mirage 06 | Rise of the Beasts",
+       "name": "Mirage 06 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-mirage",
+       "code": "CC06"
+      },
+      {
+       "key": "p71152",
+       "sku": "71152",
+       "n": 7,
+       "title": "Transformers Classic Class | Arcee 07 | Rise of the Beasts",
+       "name": "Arcee 07 | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-arcee",
+       "code": "CC07"
+      },
+      {
+       "key": "p71155",
+       "sku": "71155",
+       "n": 8,
+       "title": "Transformers Classic Class 08 | Nemesis Prime | Rise of the Beasts",
+       "name": "Nemesis Prime | Rise of the Beasts",
+       "date": "2024-09",
+       "handle": "transformers-classic-class-nemesis-prime",
+       "code": "CC08"
+      },
+      {
+       "key": "p71157",
+       "sku": "71157",
+       "n": 9,
+       "title": "Transformers Classic Class 09 | Optimus Prime | Transformers (2007)",
+       "name": "Optimus Prime | Transformers (2007)",
+       "date": "2024-09",
+       "handle": "transformers-2007-classic-class-optimus-prime",
+       "code": "CC09"
+      },
+      {
+       "key": "p71158",
+       "sku": "71158",
+       "n": 10,
+       "title": "Transformers Classic Class 10 | Megatron | Transformers (2007)",
+       "name": "Megatron | Transformers (2007)",
+       "date": "2024-09",
+       "handle": "transformers-2007-classic-class-megatron",
+       "code": "CC10"
+      },
+      {
+       "key": "p71161",
+       "sku": "71161",
+       "n": 11,
+       "title": "Transformers Classic Class 11 | Transformers One Optimus Prime",
+       "name": "Transformers One Optimus Prime",
+       "date": "2024-10",
+       "handle": "transformers-classic-class-one-optimus-prime",
+       "code": "CC11"
+      },
+      {
+       "key": "p71162",
+       "sku": "71162",
+       "n": 12,
+       "title": "Transformers Classic Class 12 | Transformers One Megatron",
+       "name": "Transformers One Megatron",
+       "date": "2024-10",
+       "handle": "transformers-classic-class-one-megatron",
+       "code": "CC12"
+      },
+      {
+       "key": "p71163",
+       "sku": "71163",
+       "n": 13,
+       "title": "Transformers Classic Class 13 | Transformers One Elita-1",
+       "name": "Transformers One Elita-1",
+       "date": "2024-11",
+       "handle": "transformers-classic-class-one-elita-1",
+       "code": "CC13"
+      },
+      {
+       "key": "p71164",
+       "sku": "71164",
+       "n": 14,
+       "title": "Transformers Classic Class 14 | Transformers One Sentinel Prime",
+       "name": "Transformers One Sentinel Prime",
+       "date": "2024-11",
+       "handle": "transformers-classic-class-one-sentinel-prime",
+       "code": "CC14"
+      },
+      {
+       "key": "p71176",
+       "sku": "71176",
+       "n": 15,
+       "title": "Transformers Classic Class 15 | Transformers One B-127",
+       "name": "Transformers One B-127",
+       "date": "2025-01",
+       "handle": "transformers-classic-class-transformers-one-b-127",
+       "code": "CC15"
+      },
+      {
+       "key": "p71177",
+       "sku": "71177",
+       "n": 16,
+       "title": "Transformers Classic Class 16 | Transformers One Starscream",
+       "name": "Transformers One Starscream",
+       "date": "2025-01",
+       "handle": "transformers-classic-class-transformers-one-starscream",
+       "code": "CC16"
+      },
+      {
+       "key": "p71183",
+       "sku": "71183",
+       "n": 17,
+       "title": "Transformers Classic Class 17 Transformers One Soundwave",
+       "name": "Transformers One Soundwave",
+       "date": "2025-04",
+       "handle": "transformers-classic-class-transformers-one-soundwave",
+       "code": "CC17"
+      },
+      {
+       "key": "p71184",
+       "sku": "71184",
+       "n": 18,
+       "title": "Transformers Classic Class 18 Transformers One Shockwave",
+       "name": "Transformers One Shockwave",
+       "date": "2025-04",
+       "handle": "transformers-classic-class-transformers-one-shockwave",
+       "code": "CC18"
+      },
+      {
+       "key": "p71185",
+       "sku": "71185",
+       "n": 19,
+       "title": "Transformers Classic Class 19 Transformers One Ironhide",
+       "name": "Transformers One Ironhide",
+       "date": "2025-04",
+       "handle": "transformers-classic-class-transformers-one-ironhide",
+       "code": "CC19"
+      },
+      {
+       "key": "p71186",
+       "sku": "71186",
+       "n": 20,
+       "title": "Transformers Classic Class 20 | Transformers One Megatronus",
+       "name": "Transformers One Megatronus",
+       "date": "2025-09",
+       "handle": "transformers-classic-class-transformers-one-megatronus",
+       "code": "CC20"
+      },
+      {
+       "key": "p71187",
+       "sku": "71187",
+       "n": 21,
+       "title": "Transformers DX Classic Class 21 | Jet Wing Optimus Prime",
+       "name": "DX Classic Class 21 | Jet Wing Optimus Prime",
+       "date": "2025-08",
+       "handle": "transformers-dx-classic-class-jet-wing-optimus-prime",
+       "code": "CC21"
+      },
+      {
+       "key": "p71422",
+       "sku": "71422",
+       "n": 22,
+       "title": "Transformers Classic Class 22 | Transformers Dark of the Moon | Megatron",
+       "name": "Transformers Dark of the Moon | Megatron",
+       "date": "2025-12",
+       "handle": "transformers-classic-class-transformers-dark-of-the-moon-megatron",
+       "code": "CC22"
+      },
+      {
+       "key": "p71423",
+       "sku": "71423",
+       "n": 23,
+       "title": "Transformers Classic Class 23 | Transformers Dark of the Moon | Bumblebee",
+       "name": "Transformers Dark of the Moon | Bumblebee",
+       "date": "2025-12",
+       "handle": "transformers-classic-class-transformers-dark-of-the-moon-bumblebee",
+       "code": "CC23"
+      },
+      {
+       "key": "p71424",
+       "sku": "71424",
+       "n": 24,
+       "title": "Transformers Classic Class 24 | Transformers Dark of the Moon | Sentinel Prime",
+       "name": "Transformers Dark of the Moon | Sentinel Prime",
+       "date": "2026-03",
+       "handle": "transformers-dark-of-the-moon-classic-class-sentinel-prime",
+       "code": "CC24"
+      },
+      {
+       "key": "p71425",
+       "sku": "71425",
+       "n": 25,
+       "title": "Transformers Classic Class 25 | Transformers Bumblebee | Blitzwing",
+       "name": "Transformers Bumblebee | Blitzwing",
+       "date": "2026-03",
+       "handle": "transformers-bumblebee-classic-class-blitzwing",
+       "code": "CC25"
+      },
+      {
+       "key": "p71426",
+       "sku": "71426",
+       "n": 26,
+       "title": "Transformers Champion Class 26 | Transformers Bumblebee | Optimus Prime",
+       "name": "Transformers Bumblebee | Optimus Prime",
+       "date": "2026-08",
+       "handle": "transformers-bumblebee-champion-class-optimus-prime",
+       "code": "CC26"
+      },
+      {
+       "key": "p71427",
+       "sku": "71427",
+       "n": 27,
+       "title": "Transformers Champion Class 27 | Transformers Bumblebee | Bumblebee",
+       "name": "Transformers Bumblebee | Bumblebee",
+       "date": "2026-08",
+       "handle": "transformers-bumblebee-champion-class-bumblebee",
+       "code": "CC27"
+      },
+      {
+       "key": "p71428",
+       "sku": "71428",
+       "n": 28,
+       "title": "Transformers Champion Class 28 | Optimus Prime (Energon Universe)",
+       "name": "Optimus Prime (Energon Universe)",
+       "date": "2026-10",
+       "handle": "transformers-champion-class-optimus-prime-energon-universe",
+       "code": "CC28"
+      },
+      {
+       "key": "p71429",
+       "sku": "71429",
+       "n": 29,
+       "title": "Transformers DX Champion Class 29 | Starscream and H.I.S.S Tank (Energon Universe)",
+       "name": "DX Champion Class 29 | Starscream and H.I.S.S Tank (Energon Universe)",
+       "date": "2026-10",
+       "handle": "transformers-dx-champion-class-starscream-and-hiss-tank-energon-universe",
+       "code": "CC29"
+      },
+      {
+       "key": "p71432",
+       "sku": "71432",
+       "n": 32,
+       "title": "Transformers DX Champion Class 32 | Jet Wing Optimus Prime Black Ver.",
+       "name": "DX Champion Class 32 | Jet Wing Optimus Prime Black Ver.",
+       "date": "2026-10",
+       "handle": "transformers-dx-champion-class-jet-wing-optimus-prime-black-ver",
+       "code": "CC32"
+      }
+     ]
+    },
+    {
+     "slug": "marvel",
+     "label": "Marvel",
+     "items": [
+      {
+       "key": "p73920",
+       "sku": "73920",
+       "n": 1,
+       "title": "Marvel Infinity Saga Champion Class 01 Iron Man MK85",
+       "name": "Infinity Saga Champion Class 01 Iron Man MK85",
+       "date": "2026-02",
+       "handle": "marvel-infinity-saga-champion-class-iron-man-mk85",
+       "code": "CC01"
+      },
+      {
+       "key": "p73921",
+       "sku": "73921",
+       "n": 2,
+       "title": "Marvel Infinity Saga Champion Class 02 Thor",
+       "name": "Infinity Saga Champion Class 02 Thor",
+       "date": "2026-02",
+       "handle": "marvel-infinity-saga-champion-class-thor",
+       "code": "CC02"
+      },
+      {
+       "key": "p81115",
+       "sku": "81115",
+       "n": 3,
+       "title": "Marvel Infinity Saga Champion Class 03 Captain America",
+       "name": "Infinity Saga Champion Class 03 Captain America",
+       "date": "2026-02",
+       "handle": "marvel-infinity-saga-champion-class-captain-america",
+       "code": "CC03"
+      },
+      {
+       "key": "p81116",
+       "sku": "81116",
+       "n": 4,
+       "title": "Marvel Deadpool & Wolverine Champion Class 04 Deadpool",
+       "name": "Deadpool & Wolverine Champion Class 04 Deadpool",
+       "date": "2026-02",
+       "handle": "marvel-deadpool-wolverine-champion-class-deadpool",
+       "code": "CC04"
+      },
+      {
+       "key": "p81117",
+       "sku": "81117",
+       "n": 5,
+       "title": "Marvel Deadpool & Wolverine Champion Class 05 Wolverine",
+       "name": "Deadpool & Wolverine Champion Class 05 Wolverine",
+       "date": "2026-02",
+       "handle": "marvel-deadpool-wolverine-champion-class-wolverine",
+       "code": "CC05"
+      },
+      {
+       "key": "p81118",
+       "sku": "81118",
+       "n": 6,
+       "title": "Marvel Rivals Champion Class 06 Spider-Man",
+       "name": "Rivals Champion Class 06 Spider-Man",
+       "date": "2026-03",
+       "handle": "marvel-rivals-champion-class-spider-man",
+       "code": "CC06"
+      },
+      {
+       "key": "p81119",
+       "sku": "81119",
+       "n": 7,
+       "title": "Marvel Rivals Champion Class 07 Venom",
+       "name": "Rivals Champion Class 07 Venom",
+       "date": "2026-03",
+       "handle": "marvel-rivals-champion-class-venom",
+       "code": "CC07"
+      },
+      {
+       "key": "p81120",
+       "sku": "81120",
+       "n": 8,
+       "title": "Marvel Rivals Champion Class 08 Rocket Raccoon",
+       "name": "Rivals Champion Class 08 Rocket Raccoon",
+       "date": "2026-05",
+       "handle": "marvel-rivals-champion-class-rocket-raccoon",
+       "code": "CC08"
+      },
+      {
+       "key": "p73925",
+       "sku": "73925",
+       "n": 9,
+       "title": "Marvel Rivals Champion Class 09 Peni Parker SP//DR Suit",
+       "name": "Rivals Champion Class 09 Peni Parker SP//DR Suit",
+       "date": "2026-03",
+       "handle": "marvel-rivals-champion-class-peni-parker-sp-dr-suit",
+       "code": "CC09"
+      },
+      {
+       "key": "p81121",
+       "sku": "81121",
+       "n": 10,
+       "title": "MARVEL RIVALS CHAMPION CLASS 10 MOON KNIGHT",
+       "name": "RIVALS CHAMPION CLASS 10 MOON KNIGHT",
+       "date": "2026-06",
+       "handle": "marvel-rivals-champion-class-moon-knight",
+       "code": "CC10"
+      },
+      {
+       "key": "p81122",
+       "sku": "81122",
+       "n": 11,
+       "title": "MARVEL RIVALS CHAMPION CLASS 11 INVISIBLE WOMAN",
+       "name": "RIVALS CHAMPION CLASS 11 INVISIBLE WOMAN",
+       "date": "2026-06",
+       "handle": "marvel-rivals-champion-class-invisible-woman",
+       "code": "CC11"
+      },
+      {
+       "key": "p81123",
+       "sku": "81123",
+       "n": 12,
+       "title": "MARVEL RIVALS CHAMPION CLASS 12 JEFF THE LAND SHARK",
+       "name": "RIVALS CHAMPION CLASS 12 JEFF THE LAND SHARK",
+       "date": "2026-06",
+       "handle": "marvel-rivals-champion-class-jeff-the-land-shark",
+       "code": "CC12"
+      },
+      {
+       "key": "p81127",
+       "sku": "81127",
+       "n": 15,
+       "title": "MARVEL RIVALS CHAMPION CLASS 15 ANTI-VENOM",
+       "name": "RIVALS CHAMPION CLASS 15 ANTI-VENOM",
+       "date": "2026-08",
+       "handle": "marvel-rivals-champion-class-anti-venom",
+       "code": "CC15"
+      },
+      {
+       "key": "p81131",
+       "sku": "81131",
+       "n": 25,
+       "title": "MARVEL RIVALS CHAMPION CLASS 25 SPIDER-MAN (CHASM)",
+       "name": "RIVALS CHAMPION CLASS 25 SPIDER-MAN (CHASM)",
+       "date": "2026-09",
+       "handle": "marvel-rivals-champion-class-spider-man-chasm",
+       "code": "CC25"
+      }
+     ]
+    },
+    {
+     "slug": "batman",
+     "label": "Batman",
+     "items": [
+      {
+       "key": "p75671",
+       "sku": "75671",
+       "n": 1,
+       "title": "DC Champion Class 01 Superman 2025",
+       "name": "Superman 2025",
+       "date": "2026-06",
+       "handle": "dc-champion-class-superman-2025",
+       "code": "CC01"
+      },
+      {
+       "key": "p75672",
+       "sku": "75672",
+       "n": 2,
+       "title": "DC Champion Class 02 Batman Beyond",
+       "name": "Batman Beyond",
+       "date": "2026-06",
+       "handle": "dc-champion-class-batman-beyond",
+       "code": "CC02"
+      },
+      {
+       "key": "p75673",
+       "sku": "75673",
+       "n": 3,
+       "title": "DC Champion Class 03 Nightwing",
+       "name": "Nightwing",
+       "date": "2026-06",
+       "handle": "dc-champion-class-nightwing",
+       "code": "CC03"
+      },
+      {
+       "key": "p75674",
+       "sku": "75674",
+       "n": 4,
+       "title": "DC Champion Class 04 Harley Quinn",
+       "name": "Harley Quinn",
+       "date": "2026-06",
+       "handle": "dc-champion-class-harley-quinn",
+       "code": "CC04"
+      },
+      {
+       "key": "p75690",
+       "sku": "75690",
+       "n": 5,
+       "title": "DC Champion Class 05 Batman: Hush - Batman",
+       "name": "Batman: Hush - Batman",
+       "date": "2026-09",
+       "handle": "dc-champion-class-batman-hush-batman",
+       "code": "CC05"
+      },
+      {
+       "key": "p75691",
+       "sku": "75691",
+       "n": 6,
+       "title": "DC Champion Class 06 Batman: Hush - Catwoman",
+       "name": "Batman: Hush - Catwoman",
+       "date": "2026-09",
+       "handle": "dc-champion-class-batman-hush-catwoman",
+       "code": "CC06"
+      }
+     ]
+    },
+    {
+     "slug": "saint-seiya",
+     "label": "Saint Seiya",
+     "items": [
+      {
+       "key": "p75002",
+       "sku": "75002",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Aries Mu",
+       "name": "Aries Mu",
+       "date": "2025-05",
+       "handle": "saint-seiya-champion-class-aries-mu",
+       "code": "CC-01"
+      },
+      {
+       "key": "p75003",
+       "sku": "75003",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Leo Aiolia",
+       "name": "Leo Aiolia",
+       "date": "2025-05",
+       "handle": "saint-seiya-champion-class-leo-aiolia",
+       "code": "CC-02"
+      },
+      {
+       "key": "p75004",
+       "sku": "75004",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Scorpio Miro",
+       "name": "Scorpio Miro",
+       "date": "2025-05",
+       "handle": "saint-seiya-champion-class-scorpio-miro",
+       "code": "CC-03"
+      },
+      {
+       "key": "p75005",
+       "sku": "75005",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Pegasus Seiya",
+       "name": "Pegasus Seiya",
+       "date": "2025-07",
+       "handle": "saint-seiya-champion-class-pegasus-seiya",
+       "code": "CC-04"
+      },
+      {
+       "key": "p75006",
+       "sku": "75006",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Sagittarius Aiolos",
+       "name": "Sagittarius Aiolos",
+       "date": "2025-07",
+       "handle": "saint-seiya-champion-class-sagittarius-aiolos",
+       "code": "CC-05"
+      },
+      {
+       "key": "p75007",
+       "sku": "75007",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Taurus Aldebaran",
+       "name": "Taurus Aldebaran",
+       "date": "2025-09",
+       "handle": "saint-seiya-champion-class-taurus-aldebaran",
+       "code": "CC-06"
+      },
+      {
+       "key": "p75009",
+       "sku": "75009",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Aquarius Camus",
+       "name": "Aquarius Camus",
+       "date": "2025-11",
+       "handle": "saint-seiya-champion-class-aquarius-camus",
+       "code": "CC-07"
+      },
+      {
+       "key": "p75008",
+       "sku": "75008",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Cygnus Hyoga",
+       "name": "Cygnus Hyoga",
+       "date": "2025-11",
+       "handle": "saint-seiya-champion-class-cygnus-hyoga",
+       "code": "CC-08"
+      },
+      {
+       "key": "p75012",
+       "sku": "75012",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Cancer Deathmask",
+       "name": "Cancer Deathmask",
+       "date": "2026-02",
+       "handle": "saint-seiya-champion-class-cancer-deathmask",
+       "code": "CC-09"
+      },
+      {
+       "key": "p75011",
+       "sku": "75011",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Capricorn Shura",
+       "name": "Capricorn Shura",
+       "date": "2026-02",
+       "handle": "saint-seiya-champion-class-capricorn-shura",
+       "code": "CC-10"
+      },
+      {
+       "key": "p75010",
+       "sku": "75010",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Dragon Shiryu",
+       "name": "Dragon Shiryu",
+       "date": "2026-02",
+       "handle": "saint-seiya-champion-class-dragon-shiryu",
+       "code": "CC-11"
+      },
+      {
+       "key": "p75016",
+       "sku": "75016",
+       "n": 0,
+       "title": "Saint Seiya Champion Class EX Pegasus Seiya",
+       "name": "EX Pegasus Seiya",
+       "date": "2026-03",
+       "handle": "saint-seiya-champion-class-ex-pegasus-seiya",
+       "code": "CC-12"
+      },
+      {
+       "key": "p75015",
+       "sku": "75015",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Gemini Saga",
+       "name": "Gemini Saga",
+       "date": "2026-05",
+       "handle": "saint-seiya-champion-class-gemini-saga",
+       "code": "CC-13"
+      },
+      {
+       "key": "p75014",
+       "sku": "75014",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Phoenix Ikki",
+       "name": "Phoenix Ikki",
+       "date": "2026-05",
+       "handle": "saint-seiya-champion-class-phoenix-ikki",
+       "code": "CC-14"
+      },
+      {
+       "key": "p75017",
+       "sku": "75017",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Cygnus Hyoga EX",
+       "name": "Cygnus Hyoga EX",
+       "date": "2026-07",
+       "handle": "saint-seiya-champion-class-cygnus-hyoga-ex",
+       "code": "CC-15"
+      },
+      {
+       "key": "p75013",
+       "sku": "75013",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Andromeda Shun",
+       "name": "Andromeda Shun",
+       "date": "2026-09",
+       "handle": "saint-seiya-champion-class-andromeda-shun",
+       "code": "CC-16"
+      },
+      {
+       "key": "p75018",
+       "sku": "75018",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Pisces Aphrodite",
+       "name": "Pisces Aphrodite",
+       "date": "2026-09",
+       "handle": "saint-seiya-champion-class-pisces-aphrodite",
+       "code": "CC-17"
+      },
+      {
+       "key": "p75019",
+       "sku": "75019",
+       "n": 0,
+       "title": "Saint Seiya Champion Class Virgo Shaka",
+       "name": "Virgo Shaka",
+       "date": "2026-09",
+       "handle": "saint-seiya-champion-class-virgo-shaka",
+       "code": "CC-18"
+      }
+     ]
+    },
+    {
+     "slug": "star-wars",
+     "label": "Star Wars",
+     "items": [
+      {
+       "key": "p75801",
+       "sku": "75801",
+       "n": 1,
+       "title": "STAR WARS: THE EMPIRE STRIKES BACK CHAMPION CLASS 01 DARTH VADER",
+       "name": "STAR WARS: THE EMPIRE STRIKES BACK CHAMPION CLASS 01 DARTH VADER",
+       "date": "2026-06",
+       "handle": "star-wars-champion-class-darth-vader",
+       "code": "CC01"
+      },
+      {
+       "key": "p75802",
+       "sku": "75802",
+       "n": 2,
+       "title": "STAR WARS: THE EMPIRE STRIKES BACK CHAMPION CLASS 02 STORMTROOPER",
+       "name": "STAR WARS: THE EMPIRE STRIKES BACK CHAMPION CLASS 02 STORMTROOPER",
+       "date": "2026-06",
+       "handle": "star-wars-champion-class-stormtrooper",
+       "code": "CC02"
+      },
+      {
+       "key": "p75803",
+       "sku": "75803",
+       "n": 3,
+       "title": "STAR WARS: A NEW HOPE CHAMPION CLASS 03 HAN SOLO STORMTROOPER DISGUISE VERSION",
+       "name": "STAR WARS: A NEW HOPE CHAMPION CLASS 03 HAN SOLO STORMTROOPER DISGUISE VERSION",
+       "date": "2026-06",
+       "handle": "star-wars-champion-class-han-solo-stormtrooper-disguise-version",
+       "code": "CC03"
+      },
+      {
+       "key": "p75804",
+       "sku": "75804",
+       "n": 4,
+       "title": "STAR WARS: A NEW HOPE CHAMPION CLASS 04 LUKE SKYWALKER STORMTROOPER DISGUISE VERSION",
+       "name": "STAR WARS: A NEW HOPE CHAMPION CLASS 04 LUKE SKYWALKER STORMTROOPER DISGUISE VERSION",
+       "date": "2026-06",
+       "handle": "star-wars-champion-class-luke-skywalker-stormtrooper-disguise-version",
+       "code": "CC04"
+      },
+      {
+       "key": "p75805",
+       "sku": "75805",
+       "n": 5,
+       "title": "STAR WARS: THE MANDALORIAN & GROGU CHAMPION CLASS 05 DIN DJARIN & GROGU",
+       "name": "STAR WARS: THE MANDALORIAN & GROGU CHAMPION CLASS 05 DIN DJARIN & GROGU",
+       "date": "2026-06",
+       "handle": "star-wars-champion-class-din-djarin-grogu",
+       "code": "CC05"
+      },
+      {
+       "key": "p75806",
+       "sku": "75806",
+       "n": 6,
+       "title": "STAR WARS: THE MANDALORIAN CHAMPION CLASS 06 BO-KATAN KRYZE",
+       "name": "STAR WARS: THE MANDALORIAN CHAMPION CLASS 06 BO-KATAN KRYZE",
+       "date": "2026-06",
+       "handle": "star-wars-champion-class-bo-katan-kryze",
+       "code": "CC06"
+      },
+      {
+       "key": "p75807",
+       "sku": "75807",
+       "n": 7,
+       "title": "STAR WARS: ATTACK OF THE CLONES CHAMPION CLASS 07 CLONE TROOPER",
+       "name": "STAR WARS: ATTACK OF THE CLONES CHAMPION CLASS 07 CLONE TROOPER",
+       "date": "2026-08",
+       "handle": "star-wars-champion-class-clone-trooper",
+       "code": "CC07"
+      },
+      {
+       "key": "p75808",
+       "sku": "75808",
+       "n": 8,
+       "title": "STAR WARS: REVENGE OF THE SITH CHAMPION CLASS 08 ANAKIN SKYWALKER",
+       "name": "STAR WARS: REVENGE OF THE SITH CHAMPION CLASS 08 ANAKIN SKYWALKER",
+       "date": "2026-08",
+       "handle": "star-wars-champion-class-anakin-skywalker",
+       "code": "CC08"
+      },
+      {
+       "key": "p75809",
+       "sku": "75809",
+       "n": 9,
+       "title": "STAR WARS: REVENGE OF THE SITH CHAMPION CLASS 09 OBI-WAN KENOBI",
+       "name": "STAR WARS: REVENGE OF THE SITH CHAMPION CLASS 09 OBI-WAN KENOBI",
+       "date": "2026-09",
+       "handle": "star-wars-champion-class-obi-wan-kenobi",
+       "code": "CC09"
+      },
+      {
+       "key": "p75810",
+       "sku": "75810",
+       "n": 10,
+       "title": "STAR WARS: ATTACK OF THE CLONES CHAMPION CLASS 10 CLONE COMMANDER CODY",
+       "name": "STAR WARS: ATTACK OF THE CLONES CHAMPION CLASS 10 CLONE COMMANDER CODY",
+       "date": "2026-09",
+       "handle": "star-wars-champion-class-clone-commander-cody",
+       "code": "CC10"
+      }
+     ]
+    },
+    {
+     "slug": "naruto",
+     "label": "Naruto",
+     "items": [
+      {
+       "key": "p75601",
+       "sku": "75601",
+       "n": 1,
+       "title": "NARUTO Champion Class 01 Boruto Uzumaki",
+       "name": "Boruto Uzumaki",
+       "date": "2026-03",
+       "handle": "naruto-champion-class-boruto-uzumaki",
+       "code": "CC01"
+      },
+      {
+       "key": "p75602",
+       "sku": "75602",
+       "n": 2,
+       "title": "NARUTO Champion Class 02 Naruto Uzumaki",
+       "name": "Naruto Uzumaki",
+       "date": "2026-03",
+       "handle": "naruto-champion-class-naruto-uzumaki",
+       "code": "CC02"
+      },
+      {
+       "key": "p75613",
+       "sku": "75613",
+       "n": 3,
+       "title": "NARUTO Champion Class 03 Minato Namikaze (Reanimation)",
+       "name": "Minato Namikaze (Reanimation)",
+       "date": "2026-03",
+       "handle": "naruto-champion-class-minato-namikaze",
+       "code": "CC03"
+      },
+      {
+       "key": "p75614",
+       "sku": "75614",
+       "n": 4,
+       "title": "NARUTO Champion Class 04 Sasuke Uchiha",
+       "name": "Sasuke Uchiha",
+       "date": "2026-03",
+       "handle": "naruto-champion-class-sasuke-uchiha",
+       "code": "CC04"
+      },
+      {
+       "key": "p75615",
+       "sku": "75615",
+       "n": 5,
+       "title": "NARUTO Champion Class 05 Madara Uchiha (Reanimation)",
+       "name": "Madara Uchiha (Reanimation)",
+       "date": "2026-05",
+       "handle": "naruto-champion-class-madara-uchiha",
+       "code": "CC05"
+      },
+      {
+       "key": "p75617",
+       "sku": "75617",
+       "n": 6,
+       "title": "NARUTO Champion Class 06 Kakashi Hatake",
+       "name": "Kakashi Hatake",
+       "date": "2026-09",
+       "handle": "naruto-champion-class-kakashi-hatake",
+       "code": "CC06"
+      },
+      {
+       "key": "p75618",
+       "sku": "75618",
+       "n": 7,
+       "title": "NARUTO Champion Class 07 Sakura Haruno",
+       "name": "Sakura Haruno",
+       "date": "2026-09",
+       "handle": "naruto-champion-class-sakura-haruno",
+       "code": "CC07"
+      }
+     ]
+    },
+    {
+     "slug": "mega-man",
+     "label": "Mega Man",
+     "items": [
+      {
+       "key": "p75710",
+       "sku": "75710",
+       "n": 1,
+       "title": "Mega Man Champion Class 01 Shooting Star Mega Man",
+       "name": "Shooting Star Mega Man",
+       "date": "2026-09",
+       "handle": "mega-man-champion-class-shooting-star-mega-man",
+       "code": "CC01"
+      },
+      {
+       "key": "p75711",
+       "sku": "75711",
+       "n": 2,
+       "title": "Mega Man Champion Class 02 Zero (Mega Man Zero)",
+       "name": "Zero (Mega Man Zero)",
+       "date": "2026-09",
+       "handle": "mega-man-champion-class-zero-mega-man-zero",
+       "code": "CC02"
+      }
+     ]
+    },
+    {
+     "slug": "herospire",
+     "label": "Herospire",
+     "items": [
+      {
+       "key": "p85100",
+       "sku": "85100",
+       "n": 1,
+       "title": "Herospire Champion Class 01 - Mythical Aspect Sun Wukong",
+       "name": "Mythical Aspect Sun Wukong",
+       "date": "2026-07",
+       "handle": "herospire-champion-class-mythical-aspect-sun-wukong",
+       "code": "CC01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "defender",
+   "label": "Defender",
+   "kicker": "Hộp mù theo series",
+   "franchises": [
+    {
+     "slug": "astral-rally",
+     "label": "Astral Rally",
+     "items": [
+      {
+       "key": "p75932",
+       "sku": "75932",
+       "n": 1,
+       "title": "Astral Rally Defender Version 01 The First Light",
+       "name": "The First Light",
+       "date": "2026-08",
+       "handle": "astral-rally-defender-version-the-first-light",
+       "code": "DV01"
+      },
+      {
+       "key": "p75935",
+       "sku": "75935",
+       "n": 2,
+       "title": "Astral Rally Defender Version 02 The Blazing Light",
+       "name": "The Blazing Light",
+       "date": "2026-10",
+       "handle": "astral-rally-defender-version-the-blazing-light",
+       "code": "DV02"
+      }
+     ]
+    },
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p71301",
+       "sku": "71301",
+       "n": 1,
+       "title": "Transformers Defender Version 01 Shattered Alliance",
+       "name": "Shattered Alliance",
+       "date": "2025-01",
+       "handle": "transformers-defender-version-shattered-alliance",
+       "code": "DV01"
+      },
+      {
+       "key": "p71302",
+       "sku": "71302",
+       "n": 2,
+       "title": "Transformers Defender Version 02 The Overthrow",
+       "name": "The Overthrow",
+       "date": "2025-02",
+       "handle": "transformers-defender-version-the-overthrow",
+       "code": "DV02"
+      },
+      {
+       "key": "p71304",
+       "sku": "71304",
+       "n": 3,
+       "title": "Transformers Defender Version 03 Heavy Metal War",
+       "name": "Heavy Metal War",
+       "date": "2025-06",
+       "handle": "transformers-defender-version-heavy-metal-war",
+       "code": "DV03"
+      },
+      {
+       "key": "p71404",
+       "sku": "71404",
+       "n": 4,
+       "title": "Transformers Defender Version 04 Tyrants Fury",
+       "name": "Tyrants Fury",
+       "date": "2025-09",
+       "handle": "transformers-defender-version-tyrants-fury",
+       "code": "DV04"
+      },
+      {
+       "key": "p71405",
+       "sku": "71405",
+       "n": 5,
+       "title": "Transformers Defender Version 05 Traitor to Tyranny",
+       "name": "Traitor to Tyranny",
+       "date": "2025-10",
+       "handle": "transformers-defender-version-traitor-to-tyranny",
+       "code": "DV05"
+      },
+      {
+       "key": "p71406",
+       "sku": "71406",
+       "n": 6,
+       "title": "Transformers Defender Version 06 Brutal Fang",
+       "name": "Brutal Fang",
+       "date": "2026-01",
+       "handle": "transformers-defender-version-brutal-fang",
+       "code": "DV06"
+      },
+      {
+       "key": "p71407",
+       "sku": "71407",
+       "n": 7,
+       "title": "Transformers Defender Version 07 Power of the Beast",
+       "name": "Power of the Beast",
+       "date": "2026-05",
+       "handle": "transformers-defender-version-power-of-the-beast",
+       "code": "DV07"
+      },
+      {
+       "key": "p71408",
+       "sku": "71408",
+       "n": 8,
+       "title": "Transformers Defender Version 08 Battle Stars",
+       "name": "Battle Stars",
+       "date": "2026-08",
+       "handle": "transformers-defender-version-battle-stars",
+       "code": "DV08"
+      },
+      {
+       "key": "p71498",
+       "sku": "71498",
+       "n": 26,
+       "title": "Transformers Defender Version Transformers 2026 Christmas Advent Calendar",
+       "name": "Transformers 2026 Christmas Advent Calendar",
+       "date": "2026-09",
+       "handle": "transformers-defender-version-2026-christmas-advent-calendar",
+       "code": "DV26"
+      },
+      {
+       "key": "p71305",
+       "sku": "71305",
+       "n": 0,
+       "title": "Transformers Defender Version Devastator Kits Combining Accessory",
+       "name": "Devastator Kits Combining Accessory",
+       "date": "2025-08",
+       "handle": "transformers-defender-version-devastator-combining-accessory",
+       "code": "DV-10"
+      },
+      {
+       "key": "p71421",
+       "sku": "71421",
+       "n": 0,
+       "title": "Transformers Defender Version Bruticus Kits Combining Accessory",
+       "name": "Bruticus Kits Combining Accessory",
+       "date": "2026-01",
+       "handle": "transformers-defender-version-bruticus-kits-combining-accessory",
+       "code": "DV-11"
+      }
+     ]
+    },
+    {
+     "slug": "batman",
+     "label": "Batman",
+     "items": [
+      {
+       "key": "p75701",
+       "sku": "75701",
+       "n": 1,
+       "title": "DC Defender Version 01 Legendary Batman Assemble",
+       "name": "Legendary Batman Assemble",
+       "date": "2026-06",
+       "handle": "dc-defender-version-legendary-batman-assemble",
+       "code": "DV01"
+      },
+      {
+       "key": "p75702",
+       "sku": "75702",
+       "n": 2,
+       "title": "DC Defender Version 02 Justice League",
+       "name": "Justice League",
+       "date": "2026-06",
+       "handle": "dc-defender-version-justice-league",
+       "code": "DV02"
+      },
+      {
+       "key": "p75703",
+       "sku": "75703",
+       "n": 3,
+       "title": "DC Defender Version 03 Arkham: Chaos Prologue",
+       "name": "Arkham: Chaos Prologue",
+       "date": "2026-07",
+       "handle": "dc-defender-version-arkham-chaos-prologue",
+       "code": "DV03"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "galaxy-version",
+   "label": "Galaxy Version",
+   "kicker": "Hộp mù mini",
+   "franchises": [
+    {
+     "slug": "saint-seiya",
+     "label": "Saint Seiya",
+     "items": [
+      {
+       "key": "p75001",
+       "sku": "75001",
+       "n": 1,
+       "title": "Saint Seiya Galaxy Version 01 The Legacy of Sagittarius!!",
+       "name": "The Legacy of Sagittarius!!",
+       "date": "2025-05",
+       "handle": "saint-seiya-galaxy-version-the-legacy-of-sagittarius",
+       "code": "GV01"
+      },
+      {
+       "key": "p75032",
+       "sku": "75032",
+       "n": 2,
+       "title": "Saint Seiya Galaxy Version 02 The Legacy of the Gold Saints",
+       "name": "The Legacy of the Gold Saints",
+       "date": "2025-09",
+       "handle": "saint-seiya-galaxy-version-the-legacy-of-the-gold-saints",
+       "code": "GV02"
+      },
+      {
+       "key": "p75033",
+       "sku": "75033",
+       "n": 3,
+       "title": "Saint Seiya Galaxy Version 03 Gold Zodiac ①",
+       "name": "Gold Zodiac ①",
+       "date": "2025-12",
+       "handle": "saint-seiya-galaxy-version-gold-zodiac",
+       "code": "GV03"
+      },
+      {
+       "key": "p75034",
+       "sku": "75034",
+       "n": 4,
+       "title": "Saint Seiya Galaxy Version 04 Gold Zodiac ②",
+       "name": "Gold Zodiac ②",
+       "date": "2026-04",
+       "handle": "saint-seiya-galaxy-version-gold-zodiac-2",
+       "code": "GV04"
+      },
+      {
+       "key": "p75035",
+       "sku": "75035",
+       "n": 5,
+       "title": "Saint Seiya Galaxy Version 05 The Hades Invasion",
+       "name": "The Hades Invasion",
+       "date": "2026-10",
+       "handle": "saint-seiya-galaxy-version-the-hades-invasion",
+       "code": "GV05"
+      }
+     ]
+    },
+    {
+     "slug": "ultraman",
+     "label": "Ultraman",
+     "items": [
+      {
+       "key": "p71204",
+       "sku": "71204",
+       "n": 1,
+       "title": "Ultraman Galaxy Version 01 Giants of Light",
+       "name": "Giants of Light",
+       "date": "2024-12",
+       "handle": "ultraman-galaxy-version-giants-of-light",
+       "code": "GV01"
+      },
+      {
+       "key": "p71206",
+       "sku": "71206",
+       "n": 2,
+       "title": "Ultraman Galaxy Version 02 New Generation Legend",
+       "name": "New Generation Legend",
+       "date": "2024-12",
+       "handle": "ultraman-galaxy-version-new-generation-legend",
+       "code": "GV02"
+      },
+      {
+       "key": "p71207",
+       "sku": "71207",
+       "n": 3,
+       "title": "Ultraman Galaxy Version 03 The Destined Crossroad",
+       "name": "The Destined Crossroad",
+       "date": "2024-12",
+       "handle": "ultraman-galaxy-version-the-destined-crossroad",
+       "code": "GV03"
+      },
+      {
+       "key": "p71216",
+       "sku": "71216",
+       "n": 5,
+       "title": "Ultraman Galaxy Version 05 The Hero Named Z",
+       "name": "The Hero Named Z",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-the-hero-named-z",
+       "code": "GV05"
+      },
+      {
+       "key": "p71217",
+       "sku": "71217",
+       "n": 6,
+       "title": "Ultraman Galaxy Version 06 Unparalleled Miracle",
+       "name": "Unparalleled Miracle",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-unparalleled-miracle",
+       "code": "GV06"
+      },
+      {
+       "key": "p71221",
+       "sku": "71221",
+       "n": 7,
+       "title": "Ultraman Galaxy Version 07: The Overture For Tomorrow",
+       "name": "The Overture For Tomorrow",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-the-overture-for-tomorrow",
+       "code": "GV07"
+      },
+      {
+       "key": "p73108",
+       "sku": "73108",
+       "n": 8,
+       "title": "Ultraman Galaxy Version 08 Ultimate Shining",
+       "name": "Ultimate Shining",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-ultimate-shining",
+       "code": "GV08"
+      },
+      {
+       "key": "p73109",
+       "sku": "73109",
+       "n": 9,
+       "title": "Ultraman Galaxy Version 09 Glitter Ginga",
+       "name": "Glitter Ginga",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-glitter-ginga",
+       "code": "GV09"
+      },
+      {
+       "key": "p73110",
+       "sku": "73110",
+       "n": 10,
+       "title": "Ultraman Galaxy Version 10 A Space Drifter",
+       "name": "A Space Drifter",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-a-space-drifter",
+       "code": "GV10"
+      },
+      {
+       "key": "p73111",
+       "sku": "73111",
+       "n": 11,
+       "title": "Ultraman Galaxy Version 11 The Nexus Of Light",
+       "name": "The Nexus Of Light",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-the-nexus-of-light",
+       "code": "GV11"
+      },
+      {
+       "key": "p73112",
+       "sku": "73112",
+       "n": 12,
+       "title": "Ultraman Galaxy Version 12 Blazar's Starlight",
+       "name": "Blazar's Starlight",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-blazars-starlight",
+       "code": "GV12"
+      },
+      {
+       "key": "p73113",
+       "sku": "73113",
+       "n": 13,
+       "title": "Ultraman Galaxy Version 13 Unleash Your Imagination",
+       "name": "Unleash Your Imagination",
+       "date": "2025-03",
+       "handle": "ultraman-galaxy-version-unleash-your-imagination",
+       "code": "GV13"
+      },
+      {
+       "key": "p73114",
+       "sku": "73114",
+       "n": 14,
+       "title": "Ultraman Galaxy Version 14 - Connect The Wishes",
+       "name": "Connect The Wishes",
+       "date": "2025-07",
+       "handle": "ultraman-galaxy-version-connect-the-wishes",
+       "code": "GV14"
+      },
+      {
+       "key": "p73115",
+       "sku": "73115",
+       "n": 15,
+       "title": "Ultraman Galaxy Version 15 - Hybrid Evolution",
+       "name": "Hybrid Evolution",
+       "date": "2025-09",
+       "handle": "ultraman-galaxy-version-hybrid-evolution",
+       "code": "GV15"
+      },
+      {
+       "key": "p73116",
+       "sku": "73116",
+       "n": 16,
+       "title": "Ultraman Galaxy Version 16 Fusion and Rebirth",
+       "name": "Fusion and Rebirth",
+       "date": "2026-01",
+       "handle": "ultraman-galaxy-version-fusion-and-rebirth",
+       "code": "GV16"
+      },
+      {
+       "key": "p73121",
+       "sku": "73121",
+       "n": 1,
+       "title": "Ultraman Galaxy Version S 01 Return of the Light Force",
+       "name": "Return of the Light Force",
+       "date": "2026-04",
+       "handle": "ultraman-galaxy-version-s-return-of-the-light-force",
+       "code": "GVS01"
+      },
+      {
+       "key": "p73122",
+       "sku": "73122",
+       "n": 2,
+       "title": "Ultraman Galaxy Version S 02 Unleash the Spark of Unity",
+       "name": "Unleash the Spark of Unity",
+       "date": "2026-07",
+       "handle": "ultraman-galaxy-version-s-unleash-the-spark-of-unity",
+       "code": "GVS02"
+      },
+      {
+       "key": "p73123",
+       "sku": "73123",
+       "n": 3,
+       "title": "Ultraman Galaxy Version S 03 Blazing Courage",
+       "name": "Blazing Courage",
+       "date": "2026-08",
+       "handle": "ultraman-galaxy-version-s-blazing-courage",
+       "code": "GVS03"
+      }
+     ]
+    },
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p71100",
+       "sku": "71100",
+       "n": 1,
+       "title": "Transformers Galaxy Version 01 Roll Out",
+       "name": "Roll Out",
+       "date": "2024-03",
+       "handle": "transformers-galaxy-version-roll-out",
+       "code": "GV01"
+      },
+      {
+       "key": "p71102",
+       "sku": "71102",
+       "n": 2,
+       "title": "Transformers Galaxy Version 02 SOS",
+       "name": "SOS",
+       "date": "2024-06",
+       "handle": "transformers-galaxy-version-sos",
+       "code": "GV02"
+      },
+      {
+       "key": "p71103",
+       "sku": "71103",
+       "n": 3,
+       "title": "Transformers Galaxy Version 03 The Autobot Run",
+       "name": "The Autobot Run",
+       "date": "2024-09",
+       "handle": "transformers-galaxy-version-the-autobot-run",
+       "code": "GV03"
+      },
+      {
+       "key": "p71104",
+       "sku": "71104",
+       "n": 4,
+       "title": "Transformers Galaxy Version 04 Fractured Space-Time",
+       "name": "Fractured Space-Time",
+       "date": "2024-09",
+       "handle": "transformers-galaxy-version-fractured-space-time",
+       "code": "GV04"
+      },
+      {
+       "key": "p71105",
+       "sku": "71105",
+       "n": 5,
+       "title": "Transformers Galaxy Version 05 ONE",
+       "name": "ONE",
+       "date": "2024-10",
+       "handle": "transformers-galaxy-version-one",
+       "code": "GV05"
+      },
+      {
+       "key": "p71106",
+       "sku": "71106",
+       "n": 6,
+       "title": "Transformers Galaxy Version 06 Parallel Universe",
+       "name": "Parallel Universe",
+       "date": "2025-01",
+       "handle": "transformers-galaxy-version-parallel-universe",
+       "code": "GV06"
+      },
+      {
+       "key": "p71107",
+       "sku": "71107",
+       "n": 7,
+       "title": "Transformers Galaxy Version 07 One Wave 2",
+       "name": "One Wave 2",
+       "date": "2025-05",
+       "handle": "transformers-galaxy-version-one-wave-2",
+       "code": "GV07"
+      },
+      {
+       "key": "p71108",
+       "sku": "71108",
+       "n": 8,
+       "title": "Transformers Galaxy Version 08 One Shall Fall",
+       "name": "One Shall Fall",
+       "date": "2025-09",
+       "handle": "transformers-galaxy-version-one-shall-fall",
+       "code": "GV08"
+      },
+      {
+       "key": "p71109",
+       "sku": "71109",
+       "n": 9,
+       "title": "Transformers Galaxy Version 09 Darkest Hour",
+       "name": "Darkest Hour",
+       "date": "2026-01",
+       "handle": "transformers-galaxy-version-darkest-hour",
+       "code": "GV09"
+      },
+      {
+       "key": "p71110",
+       "sku": "71110",
+       "n": 10,
+       "title": "Transformers Galaxy Version 10 One Shall Stand",
+       "name": "One Shall Stand",
+       "date": "2026-04",
+       "handle": "transformers-galaxy-version-one-shall-stand",
+       "code": "GV10"
+      },
+      {
+       "key": "p71111",
+       "sku": "71111",
+       "n": 11,
+       "title": "Transformers Galaxy Version 11 The Lost Light",
+       "name": "The Lost Light",
+       "date": "2026-08",
+       "handle": "transformers-galaxy-version-the-lost-light",
+       "code": "GV11"
+      }
+     ]
+    },
+    {
+     "slug": "naruto",
+     "label": "Naruto",
+     "items": [
+      {
+       "key": "p71047",
+       "sku": "71047",
+       "n": 1,
+       "title": "NARUTO SHIPPUDEN GV01 Ultimate Bond",
+       "name": "Ultimate Bond",
+       "date": "2026-03",
+       "handle": "naruto-shippuden-gv-ultimate-bond",
+       "code": "GV01"
+      },
+      {
+       "key": "p71061",
+       "sku": "71061",
+       "n": 2,
+       "title": "NARUTO SHIPPUDEN GV02 The Place The Leaves Dance",
+       "name": "The Place The Leaves Dance",
+       "date": "2026-03",
+       "handle": "naruto-shippuden-gv-the-place-the-leaves-dance",
+       "code": "GV02"
+      },
+      {
+       "key": "p71064",
+       "sku": "71064",
+       "n": 3,
+       "title": "NARUTO SHIPPUDEN GV03 Heart of a Ninja",
+       "name": "Heart of a Ninja",
+       "date": "2026-04",
+       "handle": "naruto-shippuden-gv-heart-of-a-ninja",
+       "code": "GV03"
+      },
+      {
+       "key": "p71065",
+       "sku": "71065",
+       "n": 4,
+       "title": "NARUTO SHIPPUDEN GV04 War Begins",
+       "name": "War Begins",
+       "date": "2026-07",
+       "handle": "naruto-shippuden-gv-war-begins",
+       "code": "GV04"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "shining-version",
+   "label": "Shining Version",
+   "kicker": "Hộp mù mini bản đặc biệt",
+   "franchises": [
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p71121",
+       "sku": "71121",
+       "n": 1,
+       "title": "Transformers Shining Version 01 Shining Roll Out",
+       "name": "Shining Roll Out",
+       "date": "2024-09",
+       "handle": "transformers-shining-version-shining-roll-out",
+       "code": "SV01"
+      },
+      {
+       "key": "p71122",
+       "sku": "71122",
+       "n": 2,
+       "title": "Transformers Shining Version 02 Shining 1985",
+       "name": "Shining 1985",
+       "date": "2024-11",
+       "handle": "transformers-shining-version-shining-1985",
+       "code": "SV02"
+      },
+      {
+       "key": "p71123",
+       "sku": "71123",
+       "n": 3,
+       "title": "Transformers Shining Version 03 Shattered Universe",
+       "name": "Shattered Universe",
+       "date": "2025-04",
+       "handle": "transformers-shining-version-shattered-universe",
+       "code": "SV03"
+      },
+      {
+       "key": "p71124",
+       "sku": "71124",
+       "n": 4,
+       "title": "Transformers Shining Version 04 Spark of Deception",
+       "name": "Spark of Deception",
+       "date": "2025-12",
+       "handle": "transformers-shining-version-spark-of-deception",
+       "code": "SV04"
+      },
+      {
+       "key": "p71125",
+       "sku": "71125",
+       "n": 5,
+       "title": "Transformers Shining Version 05 Eternal Rivalry",
+       "name": "Eternal Rivalry",
+       "date": "2026-06",
+       "handle": "transformers-shining-version-eternal-rivalry",
+       "code": "SV05"
+      },
+      {
+       "key": "p71126",
+       "sku": "71126",
+       "n": 6,
+       "title": "Transformers Shining Version 06 The Shattered Crown",
+       "name": "The Shattered Crown",
+       "date": "2026-10",
+       "handle": "transformers-shining-version-the-shattered-crown",
+       "code": "SV06"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "action-edition",
+   "label": "Action Edition",
+   "kicker": "Model kit cao cấp",
+   "franchises": [
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p71167",
+       "sku": "71167",
+       "n": 2,
+       "title": "Transformers Action Edition 02 - G1 Megatron",
+       "name": "G1 Megatron",
+       "date": "2025-01",
+       "handle": "transformers-action-edition-g1-megatron",
+       "code": "AE02"
+      },
+      {
+       "key": "p71190",
+       "sku": "71190",
+       "n": 2,
+       "title": "Transformers Action Edition 02 - G1 Megatron Energy Explosion Ver",
+       "name": "G1 Megatron Energy Explosion Ver",
+       "date": "2026-01",
+       "handle": "transformers-action-edition-g1-megatron-energy-explosion-ver",
+       "code": "AE02B"
+      },
+      {
+       "key": "p71172",
+       "sku": "71172",
+       "n": 3,
+       "title": "Transformers Action Edition 03 Soundwave",
+       "name": "Soundwave",
+       "date": "2025-06",
+       "handle": "transformers-action-edition-soundwave",
+       "code": "AE03"
+      },
+      {
+       "key": "p71173",
+       "sku": "71173",
+       "n": 4,
+       "title": "Transformers Action Edition 04 Optimus Prime | Orion Pax",
+       "name": "Optimus Prime | Orion Pax",
+       "date": "2025-09",
+       "handle": "transformers-action-edition-optimus-prime-orion-pax",
+       "code": "AE04"
+      },
+      {
+       "key": "p71174",
+       "sku": "71174",
+       "n": 5,
+       "title": "Transformers Action Edition 05 Tarn (Comic Version)",
+       "name": "Tarn (Comic Version)",
+       "date": "2026-01",
+       "handle": "transformers-action-edition-tarn-comic-version",
+       "code": "AE05"
+      },
+      {
+       "key": "p71175",
+       "sku": "71175",
+       "n": 6,
+       "title": "Transformers Action Edition 06 Optimus Prime (Transformers: Prime)",
+       "name": "Optimus Prime (Transformers: Prime)",
+       "date": "2026-05",
+       "handle": "transformers-action-edition-optimus-prime-transformers-prime",
+       "code": "AE06"
+      },
+      {
+       "key": "p71195",
+       "sku": "71195",
+       "n": 7,
+       "title": "Transformers Action Edition 07 Optimus Prime (Ver.EVO)",
+       "name": "Optimus Prime (Ver.EVO)",
+       "date": "2026-09",
+       "handle": "transformers-action-edition-optimus-prime-ver-evo",
+       "code": "AE07"
+      },
+      {
+       "key": "p71156",
+       "sku": "71156",
+       "n": 0,
+       "title": "Transformers Action Edition - G1 Optimus Prime",
+       "name": "G1 Optimus Prime",
+       "date": "2024-09",
+       "handle": "transformers-action-edition-g1-optimus-prime",
+       "code": "AE-08"
+      }
+     ]
+    },
+    {
+     "slug": "evangelion",
+     "label": "Evangelion",
+     "items": [
+      {
+       "key": "p73501",
+       "sku": "73501",
+       "n": 1,
+       "title": "Evangelion Test Type-01 Action Edition",
+       "name": "Test Type-01 Action Edition",
+       "date": "2025-08",
+       "handle": "evangelion-action-edition-test-type-01",
+       "code": "AE01"
+      },
+      {
+       "key": "p73512",
+       "sku": "73512",
+       "n": 2,
+       "title": "Evangelion Production Model-02 Action Edition",
+       "name": "Production Model-02 Action Edition",
+       "date": "2025-08",
+       "handle": "evangelion-action-edition-production-model-02",
+       "code": "AE02"
+      },
+      {
+       "key": "p73513",
+       "sku": "73513",
+       "n": 0,
+       "title": "Action Edition DX Evangelion Proto Type-00'",
+       "name": "DX Evangelion Proto Type-00'",
+       "date": "2025-09",
+       "handle": "action-edition-dx-evangelion-proto-type-00",
+       "code": "AE-03"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "legend-edition",
+   "label": "Legend Edition",
+   "kicker": "Model kit cỡ lớn",
+   "franchises": [
+    {
+     "slug": "evangelion",
+     "label": "Evangelion",
+     "items": [
+      {
+       "key": "p73514",
+       "sku": "73514",
+       "n": 1,
+       "title": "Legend Edition Evangelion Test Type-01 TV ver.",
+       "name": "Evangelion Test Type-01 TV ver.",
+       "date": "2026-05",
+       "handle": "legend-edition-evangelion-test-type-01-tv-version",
+       "code": "LE01"
+      },
+      {
+       "key": "p73621",
+       "sku": "73621",
+       "n": 1,
+       "title": "Legend Edition EX Evangelion Test Type-01 Awakening TV ver.",
+       "name": "EX Evangelion Test Type-01 Awakening TV ver.",
+       "date": "2026-10",
+       "handle": "legend-edition-ex-evangelion-test-type-01-awakening-tv-ver",
+       "code": "LE01B"
+      },
+      {
+       "key": "p73546",
+       "sku": "73546",
+       "n": 2,
+       "title": "Legend Edition Evangelion Production Model-02 TV ver.",
+       "name": "Evangelion Production Model-02 TV ver.",
+       "date": "2026-10",
+       "handle": "legend-edition-evangelion-production-model-02-tv-ver",
+       "code": "LE02"
+      },
+      {
+       "key": "p73545",
+       "sku": "73545",
+       "n": 0,
+       "title": "Legend Edition Evangelion Production Model Custom Type-08α",
+       "name": "Evangelion Production Model Custom Type-08α",
+       "date": "2026-07",
+       "handle": "legend-edition-evangelion-production-model-custom-type-08α",
+       "code": "LE-04"
+      },
+      {
+       "key": "p73547",
+       "sku": "73547",
+       "n": 0,
+       "title": "Legend Edition Evangelion Proto Type-00' TV ver.",
+       "name": "Evangelion Proto Type-00' TV ver.",
+       "date": "2026-10",
+       "handle": "legend-edition-evangelion-proto-type-00-tv-ver",
+       "code": "LE-05"
+      }
+     ]
+    },
+    {
+     "slug": "naruto",
+     "label": "Naruto",
+     "items": [
+      {
+       "key": "p73524",
+       "sku": "73524",
+       "n": 1,
+       "title": "NARUTO SHIPPUDEN Legend Edition 01 Kurama (Nine Tails)",
+       "name": "Kurama (Nine Tails)",
+       "date": "2026-02",
+       "handle": "naruto-shippuden-legend-edition-kurama-nine-tails",
+       "code": "LE01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "special-edition",
+   "label": "Phiên bản đặc biệt",
+   "kicker": "Yearly, Unicron và các bản giới hạn",
+   "franchises": [
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p71191",
+       "sku": "71191",
+       "n": 0,
+       "title": "Transformers X Yearly Version | The Golden Lagoon",
+       "name": "X Yearly Version | The Golden Lagoon",
+       "date": "2024-12",
+       "handle": "transformers-x-yearly-version-the-golden-lagoon",
+       "code": "SP-01"
+      },
+      {
+       "key": "p01157",
+       "sku": "01157",
+       "n": 0,
+       "title": "Transformers Unicron Transparent Version",
+       "name": "Unicron Transparent Version",
+       "date": "2025-12",
+       "handle": "transformers-unicron-transparent-version",
+       "code": "SP-02"
+      },
+      {
+       "key": "p71193",
+       "sku": "71193",
+       "n": 0,
+       "title": "Transformers X Yearly Version | Dinobot Desertion",
+       "name": "X Yearly Version | Dinobot Desertion",
+       "date": "2025-12",
+       "handle": "transformers-x-yearly-version-dinobot-desertion",
+       "code": "SP-03"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "wheels",
+   "label": "Blokees Wheels",
+   "kicker": "Xe lắp ráp",
+   "franchises": [
+    {
+     "slug": "transformers",
+     "label": "Transformers",
+     "items": [
+      {
+       "key": "p75604",
+       "sku": "75604",
+       "n": 1,
+       "title": "Wheels | Transformers C01 Roll Out!",
+       "name": "Roll Out!",
+       "date": "2025-12",
+       "handle": "blokees-wheels-transformers-c01-roll-out",
+       "code": "C01"
+      },
+      {
+       "key": "p75606",
+       "sku": "75606",
+       "n": 1,
+       "title": "Wheels | Transformers CT01 Optimus Prime",
+       "name": "Optimus Prime",
+       "date": "2025-12",
+       "handle": "blokees-wheels-transformers-ct01-optimus-prime",
+       "code": "CT01"
+      },
+      {
+       "key": "p75679",
+       "sku": "75679",
+       "n": 2,
+       "title": "Wheels | Transformers C02 Wreck'N Rule",
+       "name": "Wreck'N Rule",
+       "date": "2026-03",
+       "handle": "blokees-wheels-transformers-c02-wreck-and-rule",
+       "code": "C02"
+      },
+      {
+       "key": "p75611",
+       "sku": "75611",
+       "n": 2,
+       "title": "Wheels | Transformers CT02 SG Optimus Prime",
+       "name": "SG Optimus Prime",
+       "date": "2026-06",
+       "handle": "blokees-wheels-transformers-ct02-sg-optimus-prime",
+       "code": "CT02"
+      },
+      {
+       "key": "p75609",
+       "sku": "75609",
+       "n": 3,
+       "title": "Wheels | Transformers C03 Wreck'N Rule 2",
+       "name": "Wreck'N Rule 2",
+       "date": "2026-05",
+       "handle": "blokees-wheels-transformers-c03-wreck-and-rule",
+       "code": "C03"
+      },
+      {
+       "key": "p75612",
+       "sku": "75612",
+       "n": 3,
+       "title": "Wheels | Transformers CT03 Motormaster",
+       "name": "Motormaster",
+       "date": "2026-08",
+       "handle": "blokees-wheels-transformers-ct03-motormaster",
+       "code": "CT03"
+      },
+      {
+       "key": "p75610",
+       "sku": "75610",
+       "n": 4,
+       "title": "Wheels | Transformers C04 Heart of the Ark",
+       "name": "Heart of the Ark",
+       "date": "2026-08",
+       "handle": "blokees-wheels-transformers-c04-heart-of-the-ark",
+       "code": "C04"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "warrior-version",
+   "label": "Warrior Version",
+   "kicker": "Hộp mù Herospire",
+   "franchises": [
+    {
+     "slug": "herospire",
+     "label": "Herospire",
+     "items": [
+      {
+       "key": "p85015",
+       "sku": "85015",
+       "n": 1,
+       "title": "Herospire Warrior Version 01 Hero‘s Journey",
+       "name": "Hero‘s Journey",
+       "date": "2024-11",
+       "handle": "herospire-warrior-version-hero-s-journey",
+       "code": "WV01"
+      },
+      {
+       "key": "p85023",
+       "sku": "85023",
+       "n": 2,
+       "title": "Herospire Warrior Version 02 Fearless Demon Child",
+       "name": "Fearless Demon Child",
+       "date": "2024-11",
+       "handle": "herospire-warrior-version-fearless-demon-child",
+       "code": "WV02"
+      },
+      {
+       "key": "p85028",
+       "sku": "85028",
+       "n": 3,
+       "title": "Herospire Warrior Version 03 Rise of the Dragon",
+       "name": "Rise of the Dragon",
+       "date": "2024-11",
+       "handle": "herospire-warrior-version-rise-of-the-dragon",
+       "code": "WV03"
+      },
+      {
+       "key": "p85029",
+       "sku": "85029",
+       "n": 4,
+       "title": "Herospire Warrior Version 04 Clash of Gods",
+       "name": "Clash of Gods",
+       "date": "2024-11",
+       "handle": "herospire-warrior-version-clash-of-gods",
+       "code": "WV04"
+      },
+      {
+       "key": "p85036",
+       "sku": "85036",
+       "n": 5,
+       "title": "Herospire Warrior Version 05 - Generals Contest",
+       "name": "Generals Contest",
+       "date": "2025-06",
+       "handle": "herospire-warrior-version-generals-contest",
+       "code": "WV05"
+      },
+      {
+       "key": "p85041",
+       "sku": "85041",
+       "n": 6,
+       "title": "Herospire Warrior Version 06 - The Great Sage's Duel",
+       "name": "The Great Sage's Duel",
+       "date": "2025-06",
+       "handle": "herospire-warrior-version-the-great-sages-duel",
+       "code": "WV06"
+      },
+      {
+       "key": "p85042",
+       "sku": "85042",
+       "n": 7,
+       "title": "Herospire Warrior Version 07 - Wisdom And Brave",
+       "name": "Wisdom And Brave",
+       "date": "2025-07",
+       "handle": "herospire-warrior-version-wisdom-and-brave",
+       "code": "WV07"
+      },
+      {
+       "key": "p85068",
+       "sku": "85068",
+       "n": 8,
+       "title": "Herospire Warrior Version 08 - Rival Ambitions",
+       "name": "Rival Ambitions",
+       "date": "2025-11",
+       "handle": "herospire-warrior-version-rival-ambitions",
+       "code": "WV08"
+      },
+      {
+       "key": "p85069",
+       "sku": "85069",
+       "n": 9,
+       "title": "Herospire Warrior Version 09 - Skyward Dragon",
+       "name": "Skyward Dragon",
+       "date": "2026-04",
+       "handle": "herospire-warrior-version-skyward-dragon",
+       "code": "WV09"
+      },
+      {
+       "key": "p85070",
+       "sku": "85070",
+       "n": 10,
+       "title": "Herospire Warrior Version 10 - Chu & Han Saga",
+       "name": "Chu & Han Saga",
+       "date": "2026-05",
+       "handle": "herospire-warrior-version-chu-han-saga",
+       "code": "WV10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "armor-version",
+   "label": "Armor Version",
+   "kicker": "Model kit Herospire",
+   "franchises": [
+    {
+     "slug": "herospire",
+     "label": "Herospire",
+     "items": [
+      {
+       "key": "p85005",
+       "sku": "85005",
+       "n": 5,
+       "title": "Herospire Armor Version Sun Wukong Mythical Aspect 05",
+       "name": "Sun Wukong Mythical Aspect 05",
+       "date": "2025-04",
+       "handle": "herospire-armor-version-sun-wukong-mythical-aspect",
+       "code": "AV05"
+      },
+      {
+       "key": "p85012",
+       "sku": "85012",
+       "n": 8,
+       "title": "Herospire Armor Version NeZha Mythical Aspect 08",
+       "name": "NeZha Mythical Aspect 08",
+       "date": "2025-04",
+       "handle": "herospire-armor-version-nezha-mythical-aspect",
+       "code": "AV08"
+      },
+      {
+       "key": "p85046",
+       "sku": "85046",
+       "n": 28,
+       "title": "Herospire Armor Version Sun Wukong 2.0 Mythical Aspect 28",
+       "name": "Sun Wukong 2.0 Mythical Aspect 28",
+       "date": "2025-09",
+       "handle": "herospire-armor-version-sun-wukong-2-0-mythical-aspect",
+       "code": "AV28"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "terraventure",
+   "label": "Terraventure",
+   "kicker": "Jurassic World",
+   "franchises": [
+    {
+     "slug": "jurassic-world",
+     "label": "Jurassic World",
+     "items": [
+      {
+       "key": "p75641",
+       "sku": "75641",
+       "n": 1,
+       "title": "Jurassic World Terraventure TS 01 Dinosaur Capture Operation",
+       "name": "Dinosaur Capture Operation",
+       "date": "2025-11",
+       "handle": "jurassic-world-terraventure-ts-dinosaur-capture-operation",
+       "code": "TS01"
+      },
+      {
+       "key": "p75642",
+       "sku": "75642",
+       "n": 2,
+       "title": "Jurassic World Terraventure TS 02 Welcome to Jurassic World",
+       "name": "Welcome to Jurassic World",
+       "date": "2026-08",
+       "handle": "jurassic-world-terraventure-ts-welcome-to-jurassic-world",
+       "code": "TS02"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "daalamode",
+   "label": "DaaLaMode",
+   "kicker": "Búp bê và trang phục",
+   "franchises": [
+    {
+     "slug": "doll-clothes",
+     "label": "Trang phục búp bê",
+     "items": [
+      {
+       "key": "p73680",
+       "sku": "73680",
+       "n": 1,
+       "title": "DaaLaMode 1/12 Doll Clothes 01 Fruity Summer Tale",
+       "name": "DaaLaMode 1/12 Doll Clothes 01 Fruity Summer Tale",
+       "date": "2026-10",
+       "handle": "daalamode-1-12-doll-clothes-fruity-summer-tale",
+       "code": "DL01"
+      }
+     ]
+    },
+    {
+     "slug": "hatsune-miku",
+     "label": "Hatsune Miku",
+     "items": [
+      {
+       "key": "p73538",
+       "sku": "73538",
+       "n": 1,
+       "title": "DaaLaMode Series - Hatsune Miku 01 Sonata Prologue",
+       "name": "DaaLaMode Series - Hatsune Miku 01 Sonata Prologue",
+       "date": "2026-03",
+       "handle": "daalamode-series-hatsune-miku-sonata-prologue",
+       "code": "DL01"
+      },
+      {
+       "key": "p73536",
+       "sku": "73536",
+       "n": 0,
+       "title": "DaaLaMode Series - Hatsune Miku Official Outfit",
+       "name": "DaaLaMode Series - Hatsune Miku Official Outfit",
+       "date": "2026-02",
+       "handle": "daalamode-series-hatsune-miku-official-outfit",
+       "code": "DL-02"
+      },
+      {
+       "key": "p75700",
+       "sku": "75700",
+       "n": 0,
+       "title": "Hatsune Miku DaaLaMode Q Series - MIKU WITH YOU",
+       "name": "Hatsune Miku DaaLaMode Q Series - MIKU WITH YOU",
+       "date": "2026-03",
+       "handle": "hatsune-miku-daalamode-q-series-miku-with-you",
+       "code": "DL-03"
+      },
+      {
+       "key": "p73540",
+       "sku": "73540",
+       "n": 0,
+       "title": "DaaLaMode Series - Sakura Miku",
+       "name": "DaaLaMode Series - Sakura Miku",
+       "date": "2026-05",
+       "handle": "daalamode-series-sakura-miku",
+       "code": "DL-04"
+      },
+      {
+       "key": "p75400",
+       "sku": "75400",
+       "n": 0,
+       "title": "DaaLaMode Series - MOJIPOD Hatsune Miku Diverse Music Festival",
+       "name": "DaaLaMode Series - MOJIPOD Hatsune Miku Diverse Music Festival",
+       "date": "2026-09",
+       "handle": "daalamode-series-mojipod-hatsune-miku-diverse-music-festival",
+       "code": "DL-05"
+      }
+     ]
+    },
+    {
+     "slug": "evangelion",
+     "label": "Evangelion",
+     "items": [
+      {
+       "key": "p75630",
+       "sku": "75630",
+       "n": 0,
+       "title": "Evangelion DaaLaMode Q Series - Miracle Link",
+       "name": "Evangelion DaaLaMode Q Series - Miracle Link",
+       "date": "2026-08",
+       "handle": "evangelion-daalamode-q-series-miracle-link",
+       "code": "DL-01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "fantastics",
+   "label": "Fantastics",
+   "kicker": "Figure nhân vật",
+   "franchises": [
+    {
+     "slug": "evangelion",
+     "label": "Evangelion",
+     "items": [
+      {
+       "key": "p73562",
+       "sku": "73562",
+       "n": 1,
+       "title": "Evangelion Fantastics Series - 01 Rei Ayanami",
+       "name": "Evangelion Fantastics Series - 01 Rei Ayanami",
+       "date": "2026-05",
+       "handle": "evangelion-fantastics-series-rei-ayanami",
+       "code": "FS01"
+      },
+      {
+       "key": "p73563",
+       "sku": "73563",
+       "n": 2,
+       "title": "Evangelion Fantastics Series - 02 Mari Makinami Illustrious",
+       "name": "Evangelion Fantastics Series - 02 Mari Makinami Illustrious",
+       "date": "2026-05",
+       "handle": "evangelion-fantastics-series-mari-makinami-illustrious",
+       "code": "FS02"
+      },
+      {
+       "key": "p73561",
+       "sku": "73561",
+       "n": 3,
+       "title": "Evangelion Fantastics Series - 03 Asuka Shikinami Langley",
+       "name": "Evangelion Fantastics Series - 03 Asuka Shikinami Langley",
+       "date": "2026-05",
+       "handle": "evangelion-fantastics-series-asuka-shikinami-langley",
+       "code": "FS03"
+      }
+     ]
+    },
+    {
+     "slug": "hatsune-miku",
+     "label": "Hatsune Miku",
+     "items": [
+      {
+       "key": "p73533",
+       "sku": "73533",
+       "n": 25,
+       "title": "Fantastics Series - Hatsune Miku · MIKU WITH YOU 2025",
+       "name": "Fantastics Series - Hatsune Miku · MIKU WITH YOU 2025",
+       "date": "2026-03",
+       "handle": "fantastics-series-miku-with-you-2025",
+       "code": "FS25"
+      },
+      {
+       "key": "p73502",
+       "sku": "73502",
+       "n": 0,
+       "title": "Fantastics Series - Hatsune Miku Official Outfit",
+       "name": "Fantastics Series - Hatsune Miku Official Outfit",
+       "date": "2025-08",
+       "handle": "fantastics-series-hatsune-miku-official-outfit",
+       "code": "FS-02"
+      },
+      {
+       "key": "p73507",
+       "sku": "73507",
+       "n": 0,
+       "title": "Fantastics Series - Sakura Miku",
+       "name": "Fantastics Series - Sakura Miku",
+       "date": "2025-08",
+       "handle": "fantastics-series-sakura-miku",
+       "code": "FS-03"
+      },
+      {
+       "key": "p73530",
+       "sku": "73530",
+       "n": 0,
+       "title": "Fantastics Series - Hatsune Miku Vivid Echoes",
+       "name": "Fantastics Series - Hatsune Miku Vivid Echoes",
+       "date": "2025-10",
+       "handle": "fantastics-series-hatsune-miku-vivid-echoes",
+       "code": "FS-04"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "daavibe",
+   "label": "DaaVibe",
+   "kicker": "Figure cảnh sinh hoạt",
+   "franchises": [
+    {
+     "slug": "hatsune-miku",
+     "label": "Hatsune Miku",
+     "items": [
+      {
+       "key": "p73531",
+       "sku": "73531",
+       "n": 1,
+       "title": "Hatsune Miku DaaVibe 01 Terrace Party",
+       "name": "Hatsune Miku DaaVibe 01 Terrace Party",
+       "date": "2026-03",
+       "handle": "hatsune-miku-daavibe-terrace-party",
+       "code": "DB01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "precool",
+   "label": "preCOOL",
+   "kicker": "Hộp mù mini",
+   "franchises": [
+    {
+     "slug": "minions",
+     "label": "Minions",
+     "items": [
+      {
+       "key": "p74839",
+       "sku": "74839",
+       "n": 0,
+       "title": "Minion preCOOL Jelly Factory Series",
+       "name": "Minion preCOOL Jelly Factory Series",
+       "date": "2025-05",
+       "handle": "minion-precool-jelly-factory-series",
+       "code": "PC-01"
+      },
+      {
+       "key": "p74855",
+       "sku": "74855",
+       "n": 0,
+       "title": "Minion preCOOL Minions Celebration Party",
+       "name": "Minion preCOOL Minions Celebration Party",
+       "date": "2025-09",
+       "handle": "minion-precool-minions-celebration-party",
+       "code": "PC-02"
+      }
+     ]
+    },
+    {
+     "slug": "sesame-street",
+     "label": "Sesame Street",
+     "items": [
+      {
+       "key": "p74840",
+       "sku": "74840",
+       "n": 1,
+       "title": "Sesame Street preCOOL Series 01",
+       "name": "Sesame Street preCOOL Series 01",
+       "date": "2025-02",
+       "handle": "sesame-street-precool",
+       "code": "PC01"
+      },
+      {
+       "key": "p74845",
+       "sku": "74845",
+       "n": 2,
+       "title": "Sesame Street preCOOL Series 02",
+       "name": "Sesame Street preCOOL Series 02",
+       "date": "2025-05",
+       "handle": "sesame-street-precool-series-02",
+       "code": "PC02"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "mokoo",
+   "label": "Mokoo",
+   "kicker": "Hộp mù",
+   "franchises": [
+    {
+     "slug": "powerpuff-girls",
+     "label": "The Powerpuff Girls",
+     "items": [
+      {
+       "key": "p75871",
+       "sku": "75871",
+       "n": 1,
+       "title": "The Powerpuff Girls MOKOO Series 01 Cute Beats",
+       "name": "The Powerpuff Girls MOKOO Series 01 Cute Beats",
+       "date": "2026-07",
+       "handle": "blokees-the-powerpuff-girls-mokoo-series-cute-beats",
+       "code": "MK01"
+      }
+     ]
+    },
+    {
+     "slug": "minions",
+     "label": "Minions",
+     "items": [
+      {
+       "key": "p75600",
+       "sku": "75600",
+       "n": 1,
+       "title": "Minions Mokoo Series - 01 N-Disguise",
+       "name": "Minions Mokoo Series - 01 N-Disguise",
+       "date": "2025-07",
+       "handle": "minions-mokoo-series-n-disguise",
+       "code": "MK01"
+      },
+      {
+       "key": "p75662",
+       "sku": "75662",
+       "n": 2,
+       "title": "Minions Mokoo Series - 02 Summer Bello",
+       "name": "Minions Mokoo Series - 02 Summer Bello",
+       "date": "2025-09",
+       "handle": "minions-mokoo-series-summer-bello",
+       "code": "MK02"
+      },
+      {
+       "key": "p75663",
+       "sku": "75663",
+       "n": 3,
+       "title": "Minions Mokoo Series - 03 Belloween",
+       "name": "Minions Mokoo Series - 03 Belloween",
+       "date": "2026-07",
+       "handle": "minions-mokoo-series-belloween",
+       "code": "MK03"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "daadoos",
+   "label": "daadoos",
+   "kicker": "Đồ sưu tầm",
+   "franchises": [
+    {
+     "slug": "zootopia",
+     "label": "Zootopia",
+     "items": [
+      {
+       "key": "p73831",
+       "sku": "73831",
+       "n": 1,
+       "title": "Zootopia daadoos Art Series 01 - Marshmallow Adventures",
+       "name": "Zootopia daadoos Art Series 01 - Marshmallow Adventures",
+       "date": "2026-08",
+       "handle": "zootopia-daadoos-art-series-marshmallow-adventures",
+       "code": "DD01"
+      },
+      {
+       "key": "p73821",
+       "sku": "73821",
+       "n": 1,
+       "title": "Zootopia daadoos Mate Series 01 - Buddy Emblem",
+       "name": "Zootopia daadoos Mate Series 01 - Buddy Emblem",
+       "date": "2026-10",
+       "handle": "zootopia-daadoos-mate-series-buddy-emblem",
+       "code": "DD01B"
+      }
+     ]
+    },
+    {
+     "slug": "powerpuff-girls",
+     "label": "The Powerpuff Girls",
+     "items": [
+      {
+       "key": "p73653",
+       "sku": "73653",
+       "n": 1,
+       "title": "The Powerpuff Girls daadoos Art Series 01 Lens Lumen Tales (Acrylic Card Sleeve)",
+       "name": "The Powerpuff Girls daadoos Art Series 01 Lens Lumen Tales (Acrylic Card Sleeve)",
+       "date": "2026-07",
+       "handle": "the-powerpuff-girls-daadoos-art-series-lens-lumen-tales",
+       "code": "DD01"
+      },
+      {
+       "key": "p73651",
+       "sku": "73651",
+       "n": 1,
+       "title": "The Powerpuff Girls daadoos Mate Series 01 Christmas Eve in Edelweiss",
+       "name": "The Powerpuff Girls daadoos Mate Series 01 Christmas Eve in Edelweiss",
+       "date": "2026-08",
+       "handle": "the-powerpuff-girls-daadoos-mate-series-christmas-eve-in-edelweiss",
+       "code": "DD01B"
+      },
+      {
+       "key": "p73652",
+       "sku": "73652",
+       "n": 1,
+       "title": "The Powerpuff Girls daadoos Nest Series 01 Operation Snow Fluffy",
+       "name": "The Powerpuff Girls daadoos Nest Series 01 Operation Snow Fluffy",
+       "date": "2026-08",
+       "handle": "the-powerpuff-girls-daadoos-nest-series-operation-snow-fluffy",
+       "code": "DD01C"
+      }
+     ]
+    },
+    {
+     "slug": "minions",
+     "label": "Minions",
+     "items": [
+      {
+       "key": "p75911",
+       "sku": "75911",
+       "n": 1,
+       "title": "Minions daadoos Art Series 01 - Fluffy Dreams",
+       "name": "Minions daadoos Art Series 01 - Fluffy Dreams",
+       "date": "2026-05",
+       "handle": "minions-daadoos-art-series-fluffy-dreams",
+       "code": "DD01"
+      },
+      {
+       "key": "p75891",
+       "sku": "75891",
+       "n": 1,
+       "title": "Minions daadoos Nest Series 01 - Super Silly Fun Land Ride",
+       "name": "Minions daadoos Nest Series 01 - Super Silly Fun Land Ride",
+       "date": "2026-05",
+       "handle": "minions-daadoos-nest-series-super-silly-fun-land-ride",
+       "code": "DD01B"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unknown": []
+}

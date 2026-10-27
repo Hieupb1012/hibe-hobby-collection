@@ -26,5 +26,7 @@
  {"n": 25, "name": "Blitzwing", "film": "Bumblebee (2018)", "line": "classic", "sku": "71425", "date": "2026-03", "handle": "transformers-bumblebee-classic-class-blitzwing"},
  {"n": 26, "name": "Optimus Prime", "film": "Bumblebee (2018)", "line": "champion", "sku": "71426", "date": "2026-08", "handle": "transformers-bumblebee-champion-class-optimus-prime"},
  {"n": 27, "name": "Bumblebee", "film": "Bumblebee (2018)", "line": "champion", "sku": "71427", "date": "2026-08", "handle": "transformers-bumblebee-champion-class-bumblebee"},
+ {"n": 28, "name": "Optimus Prime", "film": "Energon Universe", "line": "champion", "sku": "71428", "date": "2026-10", "handle": "transformers-champion-class-optimus-prime-energon-universe"},
+ {"n": 29, "name": "Starscream and H.I.S.S Tank", "film": "Energon Universe", "line": "champion", "dx": true, "sku": "71429", "date": "2026-10", "handle": "transformers-dx-champion-class-starscream-and-hiss-tank-energon-universe"},
  {"n": 32, "name": "Jet Wing Optimus Prime Black Ver.", "film": "Dark of the Moon", "line": "champion", "dx": true, "sku": "71432", "date": "2026-10", "handle": "transformers-dx-champion-class-jet-wing-optimus-prime-black-ver"}
 ]
