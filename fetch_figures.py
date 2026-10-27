@@ -1,5 +1,6 @@
 import io
 import json
+import time
 import urllib.request
 from pathlib import Path
 
@@ -12,7 +13,14 @@ SIZE = 480
 
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    return urllib.request.urlopen(req).read()
+    for attempt in range(8):
+        try:
+            return urllib.request.urlopen(req, timeout=30).read()
+        except urllib.error.HTTPError as e:
+            if e.code != 429:
+                raise
+            time.sleep(15 * (attempt + 1))
+    raise RuntimeError(f"rate limited: {url}")
 
 
 series = {k["code"].lower(): k for k in json.loads((ROOT / "data" / "defender.json").read_text(encoding="utf-8"))}

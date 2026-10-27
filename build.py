@@ -3,6 +3,8 @@ import json
 import shutil
 from pathlib import Path
 
+from PIL import Image
+
 ROOT = Path(__file__).parent
 DIST = ROOT / "docs"
 STORE = "https://blokees.com/en-us/products/"
@@ -21,6 +23,26 @@ img { max-width: 100%; }
 [hidden] { display: none !important; }
 </style>
 """
+
+DEFENDER = json.loads((Path(__file__).parent / "data" / "defender.json").read_text(encoding="utf-8"))
+FRANCHISES = [
+    ("defender-transformers", "transformers", "Transformers", "Defender Version", "Tìm series hoặc mã (vd: Battle Stars, TF08)"),
+    ("defender-batman", "batman", "Batman", "DC Defender Version", "Tìm series hoặc mã (vd: Arkham, DC03)"),
+    ("defender-astral-rally", "astral-rally", "Astral Rally", "Defender Version", "Tìm series hoặc mã (vd: First Light, AR01)"),
+]
+
+
+def series_of(line):
+    return sorted((s for s in DEFENDER if s["line"] == line), key=lambda s: s["code"])
+
+
+def latest_of(line):
+    return max(series_of(line), key=lambda s: s["date"])["code"].lower()
+
+
+def series_codes(line):
+    return ", ".join(s["code"] for s in series_of(line))
+
 
 CC_FILMS = ["Rise of the Beasts", "Transformers (2007)", "Transformers One", "Dark of the Moon", "Bumblebee (2018)"]
 
@@ -54,7 +76,7 @@ PAGES = [
      "lede": "Bộ sưu tập Blokees của Hibe Hobby. Chọn một dòng sản phẩm để xem checklist.",
      "cards": [
          {"href": "champion-class/", "kicker": "Model kit lắp ráp", "title": "Champion Class", "desc": "Gồm Classic Class 01–25 và các số Champion Class nối tiếp.", "lines": ["classic", "champion"], "img": "cc01"},
-         {"href": "defender/", "kicker": "Hộp mù theo series", "title": "Defender", "desc": "Transformers, Batman và Astral Rally.", "lines": ["defender-transformers", "defender-batman", "defender-astral-rally"], "img": "tf08"},
+         {"href": "defender/", "kicker": "Hộp mù theo series", "title": "Defender", "desc": "Transformers, Batman và Astral Rally.", "lines": ["defender-transformers", "defender-batman", "defender-astral-rally"], "img": latest_of("defender-transformers")},
      ]},
     {"kind": "hub", "path": "champion-class/", "crumb": "Champion Class", "title": "Champion Class · Hibe Hobby",
      "eyebrow": "Hibe Hobby's Collection", "h1": "Champion Class",
@@ -77,17 +99,13 @@ PAGES = [
      "eyebrow": "Hibe Hobby's Collection", "h1": "Defender",
      "lede": "Các series hộp mù Defender Version của Blokees, chia theo thương hiệu.",
      "cards": [
-         {"href": "transformers/", "kicker": "Defender Version", "title": "Transformers", "desc": "Vol 02 The Overthrow, Vol 08 Battle Stars.", "lines": ["defender-transformers"], "img": "tf08"},
-         {"href": "batman/", "kicker": "DC Defender Version", "title": "Batman", "desc": "DC03 Arkham: Chaos Prologue.", "lines": ["defender-batman"], "img": "dc03"},
-         {"href": "astral-rally/", "kicker": "Defender Version", "title": "Astral Rally", "desc": "Vol 01 The First Light.", "lines": ["defender-astral-rally"], "img": "ar01"},
+         *({"href": f"{slug}/", "kicker": kicker, "title": label, "desc": f"{series_codes(line)}.", "lines": [line], "img": latest_of(line)}
+           for line, slug, label, kicker, _ in FRANCHISES),
      ]},
 ]
 
-for line, slug, label, series, hint in [
-    ("defender-transformers", "transformers", "Transformers", "Vol 02 và Vol 08", "Tìm series hoặc mã (vd: Battle Stars, TF08)"),
-    ("defender-batman", "batman", "Batman", "DC03", "Tìm series hoặc mã (vd: Arkham, DC03)"),
-    ("defender-astral-rally", "astral-rally", "Astral Rally", "Vol 01", "Tìm series hoặc mã (vd: First Light, AR01)"),
-]:
+for line, slug, label, _, hint in FRANCHISES:
+    series = series_codes(line)
     PAGES.append(checklist(
         f"defender/{slug}/", label, f"Defender {label} · Hibe Hobby", f"Defender<br>{label}",
         "Hibe Hobby's Collection · Blokees Defender Version",
@@ -104,7 +122,7 @@ FIGURE_SCOPE = """    <h2>Phạm vi danh sách</h2>
     <p>Các bản hiếm không có trong bảng nhân vật của store (Special Armor Type, Secret, Star Secret, Chase của Hercules) được lấy từ ảnh sản phẩm và thông tin công bố. Tên các bản này được ghép theo ảnh nên có thể chưa chính xác tuyệt đối.</p>"""
 
 figures = json.loads((ROOT / "data" / "figures.json").read_text(encoding="utf-8"))
-for series in json.loads((ROOT / "data" / "defender.json").read_text(encoding="utf-8")):
+for series in DEFENDER:
     key = series["code"].lower()
     PAGES.append(checklist(
         f"defender/{SERIES_FRANCHISE[series['line']]}/{key}/", series["name"],
@@ -148,6 +166,24 @@ def kit_code(kit):
 if DIST.exists():
     shutil.rmtree(DIST)
 (DIST / "img" / "gallery").mkdir(parents=True)
+(DIST / "img" / "poster").mkdir(parents=True)
+
+POSTERS = ROOT / "img" / "poster"
+for source in sorted(POSTERS.glob("*-source.*")):
+    target = POSTERS / (source.name.split("-source")[0] + ".webp")
+    if not target.exists() or target.stat().st_mtime < source.stat().st_mtime:
+        im = Image.open(source).convert("RGB")
+        im.thumbnail((900, 900))
+        im.save(target, "WEBP", quality=82)
+for poster in POSTERS.glob("*.webp"):
+    if "-source" in poster.name:
+        continue
+    shutil.copy2(poster, DIST / "img" / "poster" / poster.name)
+
+
+def card_image(key):
+    return f"img/poster/{key}.webp" if (POSTERS / f"{key}.webp").exists() else f"img/{key}.webp"
+
 
 details = json.loads((ROOT / "data" / "details.json").read_text(encoding="utf-8"))
 seed = json.loads((ROOT / "data" / "seed.json").read_text(encoding="utf-8"))
@@ -166,8 +202,9 @@ for name in ["catalog.json", "defender.json"]:
             extra.append(f"img/gallery/{g}")
         kit["code"] = kit_code(kit)
         kit["lineLabel"] = LINE_LABELS[kit["line"]]
-        kit["img"] = f"img/{key}.webp"
-        kit["gallery"] = [kit["img"], *extra]
+        kit["img"] = card_image(key)
+        kit["poster"] = kit["img"].startswith("img/poster/") or kit["line"].startswith("defender-")
+        kit["gallery"] = [kit["img"], *([f"img/{key}.webp"] if kit["img"] != f"img/{key}.webp" else []), *extra]
         kit["desc"] = detail.get("desc", "")
         kit["url"] = STORE + kit.pop("handle")
         kits.append(kit)
@@ -226,7 +263,7 @@ for page in PAGES:
             n = sum(1 for k in kits if k["line"] in c["lines"])
             unit = "series" if c["lines"][0].startswith("defender") else "mẫu"
             cards.append(f'''    <a class="card" href="{c["href"]}">
-      <div class="art"><img alt="" src="{prefix}img/{c["img"]}.webp" loading="lazy"></div>
+      <div class="art"><img alt="" src="{prefix}{card_image(c["img"])}" loading="lazy"></div>
       <div class="meta">
         <span class="kicker">{html.escape(c["kicker"])}</span>
         <h2>{html.escape(c["title"])}<span aria-hidden="true">→</span></h2>

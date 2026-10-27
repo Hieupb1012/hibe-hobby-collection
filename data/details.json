@@ -336,5 +336,122 @@
    "ar01-7.webp",
    "ar01-8.webp"
   ]
+ },
+ "tf01": {
+  "desc": "Step into an amazing world of pocket-sized Transformers!",
+  "gallery": [
+   "tf01-1.webp",
+   "tf01-2.webp",
+   "tf01-3.webp",
+   "tf01-4.webp",
+   "tf01-5.webp",
+   "tf01-6.webp",
+   "tf01-7.webp",
+   "tf01-8.webp"
+  ]
+ },
+ "tf03": {
+  "desc": "Ignite the Heavy Metal War with the Blokees Transformers Defender Version 03 Whole Set!",
+  "gallery": [
+   "tf03-1.webp",
+   "tf03-2.webp",
+   "tf03-3.webp",
+   "tf03-4.webp",
+   "tf03-5.webp",
+   "tf03-6.webp",
+   "tf03-7.webp",
+   "tf03-8.webp"
+  ]
+ },
+ "tf04": {
+  "desc": "12 pocket-sized warriors with premium articulation and rare chase variants.",
+  "gallery": [
+   "tf04-1.webp",
+   "tf04-2.webp",
+   "tf04-3.webp",
+   "tf04-4.webp",
+   "tf04-5.webp",
+   "tf04-6.webp",
+   "tf04-7.webp",
+   "tf04-8.webp"
+  ]
+ },
+ "tf05": {
+  "desc": "12 officially licensed 5.5 cm warriors, each full of endless possibilities.",
+  "gallery": [
+   "tf05-1.webp",
+   "tf05-2.webp",
+   "tf05-3.webp",
+   "tf05-4.webp",
+   "tf05-5.webp",
+   "tf05-6.webp",
+   "tf05-7.webp",
+   "tf05-8.webp"
+  ]
+ },
+ "tf06": {
+  "desc": "12 pocket-sized warriors with premium articulation and rare chase variants.",
+  "gallery": [
+   "tf06-1.webp",
+   "tf06-2.webp",
+   "tf06-3.webp",
+   "tf06-4.webp",
+   "tf06-5.webp",
+   "tf06-6.webp",
+   "tf06-7.webp",
+   "tf06-8.webp"
+  ]
+ },
+ "tf07": {
+  "desc": "The primal roar echoes as a new era of Cybertronian warriors descends.",
+  "gallery": [
+   "tf07-1.webp",
+   "tf07-2.webp",
+   "tf07-3.webp",
+   "tf07-4.webp",
+   "tf07-5.webp",
+   "tf07-6.webp",
+   "tf07-7.webp",
+   "tf07-8.webp"
+  ]
+ },
+ "dc01": {
+  "desc": "Gotham’s Dark Knight arrives.",
+  "gallery": [
+   "dc01-1.webp",
+   "dc01-2.webp",
+   "dc01-3.webp",
+   "dc01-4.webp",
+   "dc01-5.webp",
+   "dc01-6.webp",
+   "dc01-7.webp",
+   "dc01-8.webp"
+  ]
+ },
+ "dc02": {
+  "desc": "The Justice League arrives to face the darkness.",
+  "gallery": [
+   "dc02-1.webp",
+   "dc02-2.webp",
+   "dc02-3.webp",
+   "dc02-4.webp",
+   "dc02-5.webp",
+   "dc02-6.webp",
+   "dc02-7.webp",
+   "dc02-8.webp"
+  ]
+ },
+ "ar02": {
+  "desc": "Astral Rally returns with The Blazing Light, bringing new forces into an interstellar conflict shaped by faction rivalry and battle.",
+  "gallery": [
+   "ar02-1.webp",
+   "ar02-2.webp",
+   "ar02-3.webp",
+   "ar02-4.webp",
+   "ar02-5.webp",
+   "ar02-6.webp",
+   "ar02-7.webp",
+   "ar02-8.webp"
+  ]
  }
 }

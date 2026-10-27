@@ -1,6 +1,15 @@
 [
+ {"n": 1, "code": "TF01", "name": "Shattered Alliance", "film": "Transformers", "line": "defender-transformers", "sku": "71301", "date": "2025-01", "handle": "transformers-defender-version-shattered-alliance"},
  {"n": 2, "code": "TF02", "name": "The Overthrow", "film": "Transformers", "line": "defender-transformers", "sku": "71302", "date": "2025-02", "handle": "transformers-defender-version-the-overthrow"},
+ {"n": 3, "code": "TF03", "name": "Heavy Metal War", "film": "Transformers", "line": "defender-transformers", "sku": "71304", "date": "2025-06", "handle": "transformers-defender-version-heavy-metal-war"},
+ {"n": 4, "code": "TF04", "name": "Tyrants Fury", "film": "Transformers", "line": "defender-transformers", "sku": "71404", "date": "2025-09", "handle": "transformers-defender-version-tyrants-fury"},
+ {"n": 5, "code": "TF05", "name": "Traitor to Tyranny", "film": "Transformers", "line": "defender-transformers", "sku": "71405", "date": "2025-10", "handle": "transformers-defender-version-traitor-to-tyranny"},
+ {"n": 6, "code": "TF06", "name": "Brutal Fang", "film": "Transformers", "line": "defender-transformers", "sku": "71406", "date": "2026-01", "handle": "transformers-defender-version-brutal-fang"},
+ {"n": 7, "code": "TF07", "name": "Power of the Beast", "film": "Transformers", "line": "defender-transformers", "sku": "71407", "date": "2026-05", "handle": "transformers-defender-version-power-of-the-beast"},
  {"n": 8, "code": "TF08", "name": "Battle Stars", "film": "Transformers", "line": "defender-transformers", "sku": "71408", "date": "2026-08", "handle": "transformers-defender-version-battle-stars"},
+ {"n": 1, "code": "DC01", "name": "Legendary Batman Assemble", "film": "DC · Batman", "line": "defender-batman", "sku": "75701", "date": "2026-06", "handle": "dc-defender-version-legendary-batman-assemble"},
+ {"n": 2, "code": "DC02", "name": "Justice League", "film": "DC · Justice League", "line": "defender-batman", "sku": "75702", "date": "2026-06", "handle": "dc-defender-version-justice-league"},
  {"n": 3, "code": "DC03", "name": "Arkham: Chaos Prologue", "film": "DC · Batman", "line": "defender-batman", "sku": "75703", "date": "2026-07", "handle": "dc-defender-version-arkham-chaos-prologue"},
- {"n": 1, "code": "AR01", "name": "The First Light", "film": "Astral Rally", "line": "defender-astral-rally", "sku": "75932", "date": "2026-08", "handle": "astral-rally-defender-version-the-first-light"}
+ {"n": 1, "code": "AR01", "name": "The First Light", "film": "Astral Rally", "line": "defender-astral-rally", "sku": "75932", "date": "2026-08", "handle": "astral-rally-defender-version-the-first-light"},
+ {"n": 2, "code": "AR02", "name": "The Blazing Light", "film": "Astral Rally", "line": "defender-astral-rally", "sku": "75935", "date": "2026-10", "handle": "astral-rally-defender-version-the-blazing-light"}
 ]

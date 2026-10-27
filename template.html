@@ -115,6 +115,8 @@ section.group { display: flex; flex-direction: column; gap: 14px; }
 .store { align-self: flex-start; }
 .vbadge { position: absolute; right: 8px; bottom: 8px; font-family: var(--f-mono); font-weight: 700; font-size: 10px; letter-spacing: .06em; background: var(--accent); color: var(--accent-ink); padding: 3px 6px; border-radius: 3px; }
 .art-wrap { position: relative; }
+.kit .art.poster { aspect-ratio: 3 / 4; background: #0b0d11; }
+.kit .art.poster img { inset: 0; width: 100%; height: 100%; filter: none; }
 .progress-line { font-family: var(--f-mono); font-size: 11px; color: var(--own); font-variant-numeric: tabular-nums; }
 .kit .series-cta { font-size: 12px; font-weight: 600; color: var(--accent); }
 .search { display: flex; align-items: center; gap: 10px; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 4px 4px 12px; color: var(--muted); }
@@ -374,7 +376,7 @@ function kitCard(k) {
   el.className = "kit" + (owned ? " owned" : "");
   el.innerHTML = `
     <div class="art-wrap">
-      <button type="button" class="art" aria-label="Xem chi tiết ${code(k)} ${k.name}"><img loading="lazy" alt="Blokees ${code(k)} ${k.name}" src="${k.img}"></button>
+      <button type="button" class="art${k.poster ? " poster" : ""}" aria-label="Xem chi tiết ${code(k)} ${k.name}"><img loading="lazy" alt="Blokees ${code(k)} ${k.name}" src="${k.img}"></button>
       <span class="code">${code(k)}</span>
       ${k.dx ? '<span class="dx">DX</span>' : ""}
       ${filmed ? `<span class="vbadge">VIDEO (${(state.links[k.sku] || []).length})</span>` : ""}

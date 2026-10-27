@@ -2,6 +2,7 @@ import html
 import io
 import json
 import re
+import time
 import urllib.request
 from pathlib import Path
 
@@ -18,7 +19,14 @@ CATALOGS = ["catalog.json", "defender.json"]
 
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    return urllib.request.urlopen(req).read()
+    for attempt in range(8):
+        try:
+            return urllib.request.urlopen(req, timeout=30).read()
+        except urllib.error.HTTPError as e:
+            if e.code != 429:
+                raise
+            time.sleep(15 * (attempt + 1))
+    raise RuntimeError(f"rate limited: {url}")
 
 
 def plain_text(body):
