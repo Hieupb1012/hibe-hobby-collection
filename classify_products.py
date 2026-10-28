@@ -123,11 +123,16 @@ def main():
             "key": f"p{sku}", "sku": sku, "n": n, "title": title, "name": short_name(title, line),
             "date": p["published_at"][:7], "handle": p["handle"],
         })
+    for m in json.loads((ROOT / "data" / "manual.json").read_text(encoding="utf-8")):
+        fr = lines[m["line"]]["franchises"].setdefault(m["franchise"], {"slug": m["franchise"], "label": m["franchise_label"], "items": []})
+        fr["items"].append({k: m[k] for k in ("key", "sku", "n", "title", "name", "date", "url", "code")} | {"manual": True, "handle": None})
     for line in lines.values():
         for fr in line["franchises"].values():
             fr["items"].sort(key=lambda i: (i["n"] == 0, bool(re.search(r"version s\s+\d", i["title"], re.I)), i["n"], i["date"], i["title"]))
             prefix = PREFIX[line["slug"]]
             for i, item in enumerate(fr["items"], 1):
+                if item.get("manual"):
+                    continue
                 wheel = re.search(r"\b(CT|C)(\d{2})\b", item["title"]) if line["slug"] == "wheels" else None
                 if wheel:
                     item["code"] = wheel.group(1) + wheel.group(2)

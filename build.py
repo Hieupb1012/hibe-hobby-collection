@@ -292,7 +292,8 @@ def add_kit(kit, key, fig_key, href):
     kit["poster"] = kit["img"].startswith("img/poster/") or kit["line"].startswith("defender-") or fig_key in figures
     kit["gallery"] = [kit["img"], *([f"img/{key}.webp"] if kit["img"] != f"img/{key}.webp" and thumb.exists() else []), *extra]
     kit["desc"] = detail.get("desc", "")
-    kit["url"] = STORE + kit.pop("handle")
+    handle = kit.pop("handle")
+    kit["url"] = kit.pop("url", None) or STORE + handle
     kits.append(kit)
     if fig_key not in figures:
         return
@@ -325,7 +326,7 @@ for name in ["catalog.json", "defender.json"]:
 
 for item in GENERIC_ITEMS:
     kit = {"n": item["n"], "code": item["code"], "name": item["name"], "film": item["film"], "line": item["line"],
-           "sku": item["sku"], "date": item["date"], "handle": item["handle"]}
+           "sku": item["sku"], "date": item["date"], "handle": item["handle"], "url": item.get("url")}
     add_kit(kit, item["key"], item["key"], f"{item['code'].lower()}/")
 
 shutil.copy2(ROOT / "icon" / "favicon-64.png", DIST / "favicon.png")

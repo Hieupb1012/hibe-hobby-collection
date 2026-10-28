@@ -1935,6 +1935,66 @@
        "code": "C04"
       }
      ]
+    },
+    {
+     "slug": "batman",
+     "label": "Batman",
+     "items": [
+      {
+       "key": "pwhe01",
+       "sku": "75680",
+       "n": 1,
+       "title": "Blokees Wheels Batman E01 Gotham Velocity",
+       "name": "Gotham Velocity",
+       "date": "2026-05",
+       "url": "https://www.bigbadtoystore.com/product/dc-comics-blokees-wheels-batman-e01-gotham-velocity-box-6-random-model-kits-187426",
+       "code": "E01",
+       "manual": true,
+       "handle": null
+      },
+      {
+       "key": "pwhe02",
+       "sku": "wheels-e02",
+       "n": 2,
+       "title": "Blokees Wheels Batman E02 The Dark Knight",
+       "name": "The Dark Knight",
+       "date": "2026-09",
+       "url": "https://www.superherotoystore.com/products/batman-e02-gotham-velocity-wheels-by-blokees",
+       "code": "E02",
+       "manual": true,
+       "handle": null
+      },
+      {
+       "key": "pwhe03",
+       "sku": "wheels-e03",
+       "n": 3,
+       "title": "Blokees Wheels Batman E03 Dawn Breaking",
+       "name": "Dawn Breaking",
+       "date": "2026-10",
+       "url": "https://hobby-genki.com/en/batman/99560-blokees-wheels-batman-e03-164-scale-model-kit-7-pack-box-4570164012042.html",
+       "code": "E03",
+       "manual": true,
+       "handle": null
+      }
+     ]
+    },
+    {
+     "slug": "ultraman",
+     "label": "Ultraman",
+     "items": [
+      {
+       "key": "pwhc01u",
+       "sku": "75605",
+       "n": 1,
+       "title": "Blokees Wheels Ultraman C01 Galaxy Power",
+       "name": "Galaxy Power",
+       "date": "2026-03",
+       "url": "https://ani-mecha.com/products/blokees-wheels-ultraman-c01-galaxy-power",
+       "code": "C01",
+       "manual": true,
+       "handle": null
+      }
+     ]
     }
    ]
   },

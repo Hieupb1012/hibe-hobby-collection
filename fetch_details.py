@@ -88,6 +88,17 @@ for count, (key, handle) in enumerate(entries(), 1):
     details[key] = {"desc": plain_text(product["body_html"]), "gallery": files}
     if count % 10 == 0:
         details_file.write_text(json.dumps(details, ensure_ascii=False, indent=1), encoding="utf-8")
+for m in json.loads((ROOT / "data" / "manual.json").read_text(encoding="utf-8")):
+    key = m["key"]
+    if not (IMG / f"{key}.webp").exists():
+        save_image(m["images"][0], IMG / f"{key}.webp", THUMB_SIZE, 82)
+    files = [f"{key}-1.webp"]
+    for i, url in enumerate(m["images"][1:], 2):
+        name = f"{key}-{i}.webp"
+        if not (GALLERY / name).exists():
+            save_image(url, GALLERY / name, SIZE, 70)
+        files.append(name)
+    details[key] = {"desc": m.get("desc", ""), "gallery": files}
 details_file.write_text(json.dumps(details, ensure_ascii=False, indent=1), encoding="utf-8")
 print(f"details: {len(details)}")
 
